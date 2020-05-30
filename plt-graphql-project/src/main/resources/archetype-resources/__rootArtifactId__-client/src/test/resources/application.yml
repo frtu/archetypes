@@ -1,0 +1,12 @@
+spring:
+  profiles:
+    active: "dev"
+
+---
+
+spring:
+  profiles: dev
+
+graphql-base-url: https://localhost:8080/graphql
+
+

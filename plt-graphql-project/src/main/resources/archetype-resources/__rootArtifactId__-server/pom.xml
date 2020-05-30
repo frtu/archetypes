@@ -1,0 +1,99 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>${groupId}</groupId>
+        <artifactId>${artifactId}-pom</artifactId>
+        <version>${version}</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
+
+    <artifactId>${artifactId}-server</artifactId>
+
+    <properties>
+    </properties>
+
+    <dependencies>
+        <!-- UNCOMMENT for Internal domain dependencies -->
+        <!--<dependency>-->
+        <!--<groupId>${project.groupId}</groupId>-->
+        <!--<artifactId>${artifactId}-datamodel</artifactId>-->
+        <!--<version>${project.version}</version>-->
+        <!--</dependency>-->
+
+        <!-- GraphQL library -->
+        <dependency>
+            <groupId>com.graphql-java</groupId>
+            <artifactId>graphql-java</artifactId>
+        </dependency>
+        <!-- Generates at runtime a GUI to execute GraphQL requests. -->
+        <!-- Very useful for tests, but take care for production ! -->
+        <dependency>
+            <groupId>com.graphql-java-kickstart</groupId>
+            <artifactId>graphiql-spring-boot-starter</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+
+        <!-- Dependencies for the generated code -->
+        <dependency>
+            <groupId>com.graphql-java-generator</groupId>
+            <artifactId>graphql-java-server-dependencies</artifactId>
+            <type>pom</type>
+        </dependency>
+        <dependency>
+            <groupId>com.graphql-java</groupId>
+            <artifactId>graphql-java-spring-boot-starter-webmvc</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.graphql-java</groupId>
+            <artifactId>graphql-java-spring-webmvc</artifactId>
+        </dependency>
+        <dependency>
+            <!-- This dependency should come from graphql-java spring stuff -->
+            <groupId>com.graphql-java</groupId>
+            <artifactId>java-dataloader</artifactId>
+        </dependency>
+
+        <!-- Dependencies that are specific to this project -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+        <dependency>
+            <!-- Needed only for this project as a sample: we store the data in a H2 in-memory database -->
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-slf4j-impl</artifactId>
+        </dependency>
+        <dependency>
+            <!-- Needed only for this project as a sample: we load the data into the database, from csv files -->
+            <groupId>com.opencsv</groupId>
+            <artifactId>opencsv</artifactId>
+        </dependency>
+
+        <!-- Test library -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>com.graphql-java-generator</groupId>
+                <artifactId>graphql-maven-plugin</artifactId>
+                <configuration>
+                    <mode>server</mode>
+                    <generateJPAAnnotation>true</generateJPAAnnotation>
+                    <packageName>${groupId}.${artifactId}</packageName>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
