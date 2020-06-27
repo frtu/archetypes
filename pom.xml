@@ -27,6 +27,7 @@
     <modules>
         <module>base-pom</module>
         <module>base-project</module>
+        <module>spring-boot-project</module>
         <module>plt-graphql-project</module>
     </modules>
 
@@ -62,7 +63,6 @@
             <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
         </repository>
     </distributionManagement>
-
     <build>
         <plugins>
             <!-- RELEASE -->
