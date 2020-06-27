@@ -6,10 +6,13 @@ Feel free to inline some of the dependencies or all dependencies & remove it.
 
 ## Overview
 
-Allow to generate a base project for 
+Allow to generate a project for :
 
-- Base project
-- GraphQL project
+- Base project (Label : **base**)
+- Spring Boot project (Label : **spring-boot**)
+- GraphQL project (Label : **plt-graphql**)
+
+NOTE : when using **mvngen**, just append the project **label**.
 
 ## Catalog
 
