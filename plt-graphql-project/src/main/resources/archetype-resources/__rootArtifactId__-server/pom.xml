@@ -11,6 +11,7 @@
     <artifactId>${artifactId}-server</artifactId>
 
     <properties>
+        <graphql-java-generator.version>1.5.0</graphql-java-generator.version>
     </properties>
 
     <dependencies>
@@ -36,11 +37,6 @@
 
         <!-- Dependencies for the generated code -->
         <dependency>
-            <groupId>com.graphql-java-generator</groupId>
-            <artifactId>graphql-java-server-dependencies</artifactId>
-            <type>pom</type>
-        </dependency>
-        <dependency>
             <groupId>com.graphql-java</groupId>
             <artifactId>graphql-java-spring-boot-starter-webmvc</artifactId>
         </dependency>
@@ -52,6 +48,10 @@
             <!-- This dependency should come from graphql-java spring stuff -->
             <groupId>com.graphql-java</groupId>
             <artifactId>java-dataloader</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>javax.ws.rs</groupId>
+            <artifactId>javax.ws.rs-api</artifactId>
         </dependency>
 
         <!-- Dependencies that are specific to this project -->
@@ -82,12 +82,29 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
-
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.graphql-java-generator</groupId>
+                <artifactId>graphql-java-server-dependencies</artifactId>
+                <version>${graphql-java-generator.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
     <build>
         <plugins>
             <plugin>
                 <groupId>com.graphql-java-generator</groupId>
                 <artifactId>graphql-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>graphql</goal>
+                        </goals>
+                    </execution>
+                </executions>
                 <configuration>
                     <mode>server</mode>
                     <generateJPAAnnotation>true</generateJPAAnnotation>
