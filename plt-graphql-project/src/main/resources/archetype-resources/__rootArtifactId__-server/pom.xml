@@ -66,10 +66,6 @@
             <scope>runtime</scope>
         </dependency>
         <dependency>
-            <groupId>org.apache.logging.log4j</groupId>
-            <artifactId>log4j-slf4j-impl</artifactId>
-        </dependency>
-        <dependency>
             <!-- Needed only for this project as a sample: we load the data into the database, from csv files -->
             <groupId>com.opencsv</groupId>
             <artifactId>opencsv</artifactId>
