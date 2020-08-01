@@ -12,6 +12,9 @@
     <!--<include resource="logback-appender-file.xml"/>-->
     <!--<include resource="logback-appender-file-json-encoder.xml"/>-->
 
+    <!-- IMPORT TO GET SPRING Context init, URLs & JPA -->
+    <!--<include resource="logback-spring-debug.xml"/>-->
+
     <!--Local start up-->
     <springProfile name="default">
         <!--Current application-->
