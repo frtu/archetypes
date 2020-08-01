@@ -15,6 +15,7 @@
         <java.version>1.8</java.version>
         <!--===========================-->
         <javax.ws.rs-api.version>2.1.1</javax.ws.rs-api.version>
+        <!--Check https://search.maven.org/artifact/com.graphql-java/graphql-java-->
         <graphql-java.version>14.0</graphql-java.version>
         <graphql-maven-plugin.version>1.5.0</graphql-maven-plugin.version>
     </properties>
