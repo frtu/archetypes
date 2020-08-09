@@ -11,7 +11,7 @@
     <artifactId>${artifactId}-server</artifactId>
 
     <properties>
-        <graphql-java-generator.version>1.5.0</graphql-java-generator.version>
+        <graphql-java-generator.version>1.8.1</graphql-java-generator.version>
     </properties>
 
     <dependencies>
