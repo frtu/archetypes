@@ -18,7 +18,7 @@ type ${DatamodelClassName} {
     """
     ID from which this data can be uniquely identified
     """
-    id: String!
+    id: ID!
 
     """
     Name of this data
@@ -26,13 +26,27 @@ type ${DatamodelClassName} {
     name: String
 
     """
+    Type of this data
+    """
+    type: ${DatamodelClassName}Type!
+
+    """
     A certain value this data contains
     """
-    value: String
+    value: Float
 
     """
     epoch time when the event occurred.
     See https://databricks.com/blog/2017/05/08/event-time-aggregation-watermarking-apache-sparks-structured-streaming.html
     """
     eventTime: String
+}
+
+enum ${DatamodelClassName}Type {
+    # Single event
+    SINGLE,
+    # Streaming events
+    STREAMING,
+    # Old events kept for backward compatibility and solve compile issue
+    OLD @deprecated(reason: "event not sent anymore"),
 }

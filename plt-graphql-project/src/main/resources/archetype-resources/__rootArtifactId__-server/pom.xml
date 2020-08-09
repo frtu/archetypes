@@ -104,7 +104,7 @@
                 <configuration>
                     <mode>server</mode>
                     <generateJPAAnnotation>true</generateJPAAnnotation>
-                    <packageName>${groupId}.${artifactId}</packageName>
+                    <packageName>${groupId}.${artifactId}.model</packageName>
                 </configuration>
             </plugin>
         </plugins>
