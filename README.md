@@ -2,7 +2,7 @@
 
 Note : The artecfacts below all rely on [base-pom](https://search.maven.org/artifact/com.github.frtu.archetype/base-pom/1.1.0/pom) that helps to normalize all the libraries CVE fixes and version upgrades.
 
-Feel free to inline some of the dependencies or all dependencies & remove it.
+Feel free to inline some of the dependencies or all dependencies & remove dependency to this pom.xml (it's a template).
 
 ## Overview
 
@@ -10,9 +10,10 @@ Allow to generate a project for :
 
 - Base project (Label : **base**)
 - Spring Boot project (Label : **spring-boot**)
-- GraphQL project (Label : **plt-graphql**)
 
 NOTE : when using **mvngen**, just append the project **label**.
+
+Ex : ```mvngenlocal base com.github.frtu.cmd cmd```
 
 ## Catalog
 
@@ -26,6 +27,7 @@ Generate archetypes with the below commands :
 
 ### Going forward
 
-You can now map each line of your data with the include Avro data model and run it on Spark !!
+* Allow async data ingestion with spring-boot and webflux
+* Expand on [data governance](https://github.com/frtu/governance-toolbox) & processing with Avro and Spark
 
 ~ Have fun !
