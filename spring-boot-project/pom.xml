@@ -38,6 +38,10 @@
                                     <token>%PROJECT_VERSION%</token>
                                     <value>${project.version}</value>
                                 </replacement>
+                                <replacement>
+                                    <token>%SPRINGBOOT_VERSION%</token>
+                                    <value>${spring-boot.version}</value>
+                                </replacement>
                             </replacements>
                         </configuration>
                     </execution>
