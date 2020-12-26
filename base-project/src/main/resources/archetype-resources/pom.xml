@@ -1,6 +1,11 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.github.frtu.archetype</groupId>
+        <artifactId>base-pom</artifactId>
+        <version>${base-pom-version}</version>
+    </parent>
 
     <groupId>${groupId}</groupId>
     <artifactId>${artifactId}</artifactId>
@@ -21,7 +26,17 @@
         <!-- JUnit 5 -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-engine</artifactId>
+            <artifactId>junit-jupiter</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-core</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-junit-jupiter</artifactId>
             <scope>test</scope>
         </dependency>
         <!-- JUnit 4 -->
@@ -37,6 +52,7 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
+            <optional>true</optional>
         </dependency>
         <dependency>
             <groupId>com.github.frtu.logs</groupId>
@@ -54,18 +70,114 @@
                     <target>${java.version}</target>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>prepare-agent</goal>
+                        </goals>
+                    </execution>
+                    <!-- attached to Maven test phase -->
+                    <execution>
+                        <id>report</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>report</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>com.github.spotbugs</groupId>
+                <artifactId>spotbugs-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>spotbugs</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>check</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <mainClass>${start-class}</mainClass>
+                            <addClasspath>true</addClasspath>
+                            <classpathPrefix>lib/</classpathPrefix>
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
+            <plugin>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <phase>prepare-package</phase>
+                        <goals>
+                            <goal>copy-dependencies</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${project.build.directory}/lib</outputDirectory>
+                            <overWriteIfNewer>true</overWriteIfNewer>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <!-- Generate source jar -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>jar-no-fork</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <!-- Generate Javadocs -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <configuration>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+                </configuration>
+                <!--===========================-->
+                <!-- UNCOMMMENT TO GENERATE-->
+                <!--===========================-->
+                <!--<executions>-->
+                <!--    <execution>-->
+                <!--        <id>attach-javadocs</id>-->
+                <!--        <goals>-->
+                <!--            <goal>jar</goal>-->
+                <!--        </goals>-->
+                <!--    </execution>-->
+                <!--</executions>-->
+            </plugin>
         </plugins>
     </build>
     <dependencyManagement>
         <dependencies>
             <!-- Internal domain dependencies -->
-            <dependency>
-                <groupId>com.github.frtu.archetype</groupId>
-                <artifactId>base-pom</artifactId>
-                <version>${base-pom-version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
+            <!--===============================================================================-->
+            <!-- UNCOMMMENT TO FREE PARENT - ATTENTION pluginManagement is not managed anymore -->
+            <!--===============================================================================-->
+            <!--<dependency>-->
+            <!--    <groupId>com.github.frtu.archetype</groupId>-->
+            <!--    <artifactId>base-pom</artifactId>-->
+            <!--    <version>${base-pom-version}</version>-->
+            <!--    <type>pom</type>-->
+            <!--    <scope>import</scope>-->
+            <!--</dependency>-->
         </dependencies>
     </dependencyManagement>
 </project>
