@@ -12,6 +12,11 @@
 
     <name>spring-boot webflux project archetype</name>
     <description>spring-boot webflux project archetype</description>
+
+    <properties>
+        <spring-boot.version>2.4.1</spring-boot.version>
+    </properties>
+
     <build>
         <plugins>
             <plugin>
@@ -20,22 +25,52 @@
                 <version>1.5.2</version>
                 <executions>
                     <execution>
+                        <id>replace-archetype-metadata</id>
                         <phase>prepare-package</phase>
                         <goals>
                             <goal>replace</goal>
                         </goals>
+                        <configuration>
+                            <ignoreMissingFile>false</ignoreMissingFile>
+                            <file>${project.build.outputDirectory}/META-INF/maven/archetype-metadata.xml</file>
+                            <replacements>
+                                <replacement>
+                                    <token>%PROJECT_VERSION%</token>
+                                    <value>${project.version}</value>
+                                </replacement>
+                            </replacements>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>replace-pom</id>
+                        <phase>prepare-package</phase>
+                        <goals>
+                            <goal>replace</goal>
+                        </goals>
+                        <configuration>
+                            <ignoreMissingFile>false</ignoreMissingFile>
+                            <file>${project.build.outputDirectory}/archetype-resources/pom.xml</file>
+                            <replacements>
+                                <replacement>
+                                    <token>%SPRINGBOOT_VERSION%</token>
+                                    <value>${spring-boot.version}</value>
+                                </replacement>
+                                <replacement>
+                                    <token>%PROJECT_GROUP_ID%</token>
+                                    <value>${project.groupId}</value>
+                                </replacement>
+                                <replacement>
+                                    <token>%PROJECT_ARTIFACT_ID%</token>
+                                    <value>${project.artifactId}</value>
+                                </replacement>
+                                <replacement>
+                                    <token>%PROJECT_VERSION%</token>
+                                    <value>${project.version}</value>
+                                </replacement>
+                            </replacements>
+                        </configuration>
                     </execution>
                 </executions>
-                <configuration>
-                    <ignoreMissingFile>false</ignoreMissingFile>
-                    <file>${project.build.outputDirectory}/META-INF/maven/archetype-metadata.xml</file>
-                    <replacements>
-                        <replacement>
-                            <token>%PROJECT_VERSION%</token>
-                            <value>${project.version}</value>
-                        </replacement>
-                    </replacements>
-                </configuration>
             </plugin>
         </plugins>
     </build>

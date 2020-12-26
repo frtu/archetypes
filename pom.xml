@@ -20,16 +20,13 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <!--=========================== -->
-        <frtu-governance.version>1.0.5</frtu-governance.version>
     </properties>
 
     <modules>
         <module>base-pom</module>
         <module>base-project</module>
         <module>spring-boot-project</module>
-        <module>plt-graphql-project</module>
-        <module>plt-webflux-project</module>
+        <!-- <module>plt-webflux-project</module>-->
     </modules>
 
     <licenses>
