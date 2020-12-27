@@ -62,6 +62,20 @@
     </distributionManagement>
     <build>
         <plugins>
+            <plugin>
+                <artifactId>maven-jar-plugin</artifactId>
+                <!-- Downgrade waiting for 3.2.1-->
+                <version>2.4</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <configuration>
+                    <!-- Required so that .gitignore gets included in archetypes; see https://issues.apache.org/jira/browse/MRESOURCES-190 -->
+                    <!-- Fixed in 3.2.1 https://issues.apache.org/jira/browse/ARCHETYPE-606-->
+                    <addDefaultExcludes>false</addDefaultExcludes>
+                </configuration>
+            </plugin>
             <!-- RELEASE -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
