@@ -28,6 +28,16 @@ Generate archetypes with the below commands :
 
 - Replace **x.y.z** with the latest version
 
+### Module - Base
+
+Base project are generated for libraries or command line. Just include :
+
+* Loggers using [log-platform](https://github.com/frtu/log-platform)
+* Maven plugin for Code Coverage (jacoco) & code quality (spotbugs)
+
+Build will fail if SpotBugs find issues with FindBugs. See Bugs descriptions at
+[http://findbugs.sourceforge.net/bugDescriptions.html](http://findbugs.sourceforge.net/bugDescriptions.html)
+
 ### Module - Spring Boot
 
 Allow to generate a spring-boot project based on a basic template. 
