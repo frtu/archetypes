@@ -24,8 +24,8 @@
     <modules>
         <module>base-pom</module>
         <module>base-project</module>
-        <module>kotlin-project</module>
         <module>spring-boot-project</module>
+        <module>kotlin-project</module>
         <!-- <module>plt-webflux-project</module>-->
     </modules>
 
