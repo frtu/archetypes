@@ -14,6 +14,7 @@
     <description>kotlin-spring-boot project archetype</description>
 
     <properties>
+        <kotlin.version>1.4.21</kotlin.version>
         <spring-boot.version>2.4.1</spring-boot.version>
     </properties>
 
@@ -35,6 +36,10 @@
                             <file>${project.build.outputDirectory}/META-INF/maven/archetype-metadata.xml</file>
                             <replacements>
                                 <replacement>
+                                    <token>%KOTLIN_VERSION%</token>
+                                    <value>${kotlin.version}</value>
+                                </replacement>
+                                <replacement>
                                     <token>%SPRINGBOOT_VERSION%</token>
                                     <value>${spring-boot.version}</value>
                                 </replacement>
@@ -55,6 +60,10 @@
                             <ignoreMissingFile>false</ignoreMissingFile>
                             <file>${project.build.outputDirectory}/archetype-resources/pom.xml</file>
                             <replacements>
+                                <replacement>
+                                    <token>%KOTLIN_VERSION%</token>
+                                    <value>${kotlin.version}</value>
+                                </replacement>
                                 <replacement>
                                     <token>%SPRINGBOOT_VERSION%</token>
                                     <value>${spring-boot.version}</value>
