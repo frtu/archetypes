@@ -34,6 +34,8 @@
         <!-- <kotlin.mode>all-open|spring</kotlin.mode>-->
         <!-- <kotlin.plugin.dep>kotlin-maven-noarg</kotlin.plugin.dep>-->
         <!-- <kotlin.mode>no-arg|jpa</kotlin.mode>-->
+        <!-- <kotlin.plugin.dep>kotlin-maven-sam-with-receiver</kotlin.plugin.dep>-->
+        <!-- <kotlin.mode>sam-with-receiver</kotlin.mode>-->
     </properties>
 
     <dependencies>
@@ -344,6 +346,7 @@
                             <!--<pluginOptions>-->
                             <!-- Each annotation is placed on its own line -->
                             <!--    <option>all-open:annotation=com.my.Annotation</option>-->
+                            <!--    <option>sam-with-receiver:annotation=com.my.SamWithReceiver</option>-->
                             <!--</pluginOptions>-->
                         </configuration>
                         <dependencies>
