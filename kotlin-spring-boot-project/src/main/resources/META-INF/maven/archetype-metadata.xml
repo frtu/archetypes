@@ -9,6 +9,9 @@
         <requiredProperty key="base-pom-version">
             <defaultValue>%PROJECT_VERSION%</defaultValue>
         </requiredProperty>
+        <requiredProperty key="kotlin-version">
+            <defaultValue>%KOTLIN_VERSION%</defaultValue>
+        </requiredProperty>
         <requiredProperty key="spring-boot-version">
             <defaultValue>%SPRINGBOOT_VERSION%</defaultValue>
         </requiredProperty>
