@@ -361,4 +361,25 @@
             </build>
         </profile>
     </profiles>
+
+    <repositories>
+        <repository>
+            <id>jcenter</id>
+            <url>https://jcenter.bintray.com</url>
+        </repository>
+        <repository>
+            <id>kotlin-ktor</id>
+            <url>https://dl.bintray.com/kotlin/ktor/</url>
+        </repository>
+        <repository>
+            <id>kotlin-eap</id>
+            <url>http://dl.bintray.com/kotlin/kotlin-eap</url>
+        </repository>
+    </repositories>
+    <pluginRepositories>
+        <pluginRepository>
+            <id>kotlin-eap</id>
+            <url>http://dl.bintray.com/kotlin/kotlin-eap</url>
+        </pluginRepository>
+    </pluginRepositories>
 </project>
