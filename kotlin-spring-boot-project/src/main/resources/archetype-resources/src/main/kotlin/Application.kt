@@ -10,9 +10,5 @@ import org.springframework.context.annotation.Import
 class Application
 
 fun main(args: Array<String>) {
-    try {
-        runApplication<Application>(*args)
-    } catch (e: Exception) {
-        e.printStackTrace()
-    }
+    runApplication<Application>(*args)
 }

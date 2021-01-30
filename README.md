@@ -10,6 +10,8 @@ Allow to generate a project for :
 
 - Base project (Label : **base**) : suitable for lib, command line, ...
 - Spring Boot project (Label : **spring-boot**) : suitable for web project (backend or frontend)
+- Kotlin Base project (Label : **kotlin**) : for kotlin project, ...
+- Kotlin Spring Boot project (Label : **kotlin-spring-boot**) : for Kotlin Spring Boot project
 
 NOTE : when using **mvngen**, just append the project **label**.
 
@@ -17,6 +19,12 @@ Ex :
 
 * ```mvngenlocal base com.github.frtu.cmd cmd``` : generate a base project called ```cmd``` 
 * ```mvngenlocal spring-boot com.github.frtu.web web``` : generate a spring-boot artifact for called ```web```
+
+```
+mvn archetype:generate -DarchetypeGroupId=com.github.frtu.archetype \
+-DarchetypeArtifactId=kotlin-spring-boot-project-archetype -DarchetypeVersion=1.1.1 \
+-DgroupId=com.github.frtu -DartifactId=kt-spring-boot -Dversion=0.0.1-SNAPSHOT
+```
 
 ## Catalog
 
@@ -77,6 +85,10 @@ base-pom-version: 1.1.1-SNAPSHOT
 spring-boot-version: 2.4.0
  Y: : Y
 ```
+
+### Module - Kotlin
+
+Base project for Kotlin
 
 ### Going forward
 

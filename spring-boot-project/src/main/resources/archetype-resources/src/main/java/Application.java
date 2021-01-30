@@ -10,11 +10,20 @@ import org.springframework.context.annotation.Import;
 @SpringBootApplication
 @Import({LogConfigAll.class})
 public class Application {
+    private static void runApp(String[] args) {
+        SpringApplication.run(Application.class, args);
+    }
+
     public static void main(String[] args) {
         try {
-            SpringApplication.run(Application.class, args);
+            runApp(args);
         } catch (Exception e) {
-            e.printStackTrace();
+            if(e.getClass().getName().contains("SilentExitException")) {
+                // https://docs.spring.io/spring-boot/docs/current/reference/html/using-spring-boot.html#using-boot-devtools
+                LOGGER.debug("Spring is restarting the main thread - See spring-boot-devtools");
+            } else {
+                LOGGER.error("Application crashed!", e);
+            }
         }
     }
 }
