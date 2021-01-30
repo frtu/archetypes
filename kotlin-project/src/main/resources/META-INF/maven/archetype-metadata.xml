@@ -9,6 +9,9 @@
         <requiredProperty key="base-pom-version">
             <defaultValue>%PROJECT_VERSION%</defaultValue>
         </requiredProperty>
+        <requiredProperty key="kotlin-version">
+            <defaultValue>%KOTLIN_VERSION%</defaultValue>
+        </requiredProperty>
     </requiredProperties>
     <fileSets>
         <fileSet filtered="true" encoding="UTF-8">

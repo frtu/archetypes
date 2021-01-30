@@ -14,7 +14,8 @@
     <description>Kotlin Base project archetype</description>
 
     <properties>
-        <kotlin.version>1.4.21</kotlin.version>
+        <!-- CHECK https://search.maven.org/artifact/org.jetbrains.kotlin/kotlin-stdlib -->
+        <kotlin.version>1.4.21</kotlin.version> <!-- 2020-12-07 -->
     </properties>
     <build>
         <plugins>
