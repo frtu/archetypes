@@ -17,13 +17,14 @@ NOTE : when using **mvngen**, just append the project **label**.
 
 Ex : 
 
-* ```mvngenlocal base com.github.frtu.cmd cmd``` : generate a base project called ```cmd``` 
-* ```mvngenlocal spring-boot com.github.frtu.web web``` : generate a spring-boot artifact for called ```web```
+* ```mvngenlocal base cmd``` : generate a base project called ```cmd``` 
+* ```mvngenlocal spring-boot web``` : generate a spring-boot artifact for called ```web```
+* ```mvngenlocal kotlin kt-base``` : generate a **Kotlin** base project called ```kt-base``` 
 
 ```
 mvn archetype:generate -DarchetypeGroupId=com.github.frtu.archetype \
--DarchetypeArtifactId=kotlin-spring-boot-project-archetype -DarchetypeVersion=1.1.1 \
--DgroupId=com.github.frtu -DartifactId=kt-spring-boot -Dversion=0.0.1-SNAPSHOT
+-DarchetypeArtifactId=kotlin-project-archetype -DarchetypeVersion=1.1.2 \
+-DgroupId=com.github.frtu -DartifactId=kt-base -Dversion=0.0.1-SNAPSHOT
 ```
 
 ## Catalog
@@ -51,7 +52,7 @@ Build will fail if SpotBugs find issues with FindBugs. See Bugs descriptions at
 Allow to generate a spring-boot project based on a basic template. 
 
 
-#### Override version - [version 1.1.1](https://github.com/frtu/archetypes/releases/tag/v1.1.1)
+#### Override version - [version 1.1.2](https://github.com/frtu/archetypes/releases/tag/v1.1.2)
 
 You can override sprint-boot version by 
 
@@ -59,36 +60,46 @@ You can override sprint-boot version by
 * Override maven generator properties by saying ```N```
 * Override property value that you need (else just type ```[Enter]```)
 
+### Module - Kotlin
+
+Base project for Kotlin. You can get started with Kotlin from :
+
+* [kotlinlang.org](https://kotlinlang.org/docs/tutorials/getting-started.html)
+
+#### Override version - [version 1.1.2](https://github.com/frtu/archetypes/releases/tag/v1.1.2)
+
+You can override kotlin version by 
+
+* checking [available version in the repo](https://search.maven.org/artifact/org.jetbrains.kotlin/kotlin-stdlib)
+* Override maven generator properties by saying ```N```
+* Override property value that you need (else just type ```[Enter]```)
+
 Sample stack :
 
 ```
 Confirm properties configuration:
-groupId: com.github.frtu.web
-artifactId: web
+groupId: com.github.frtu
+artifactId: kt-base
 version: 0.0.1-SNAPSHOT
-package: com.github.frtu.web
-base-pom-version: 1.1.1-SNAPSHOT
-spring-boot-version: 2.4.1
+package: com.github.frtu
+base-pom-version: 1.1.2
+kotlin-version: 1.4.21
  Y: : N
-[INFO] Using property: groupId = com.github.frtu.web
-[INFO] Using property: artifactId = web
+[INFO] Using property: groupId = com.github.frtu
+[INFO] Using property: artifactId = kt-base
 [INFO] Using property: version = 0.0.1-SNAPSHOT
-Define value for property 'package' com.github.frtu.web: :
-Define value for property 'base-pom-version' 1.1.1-SNAPSHOT: :
-Define value for property 'spring-boot-version' 2.4.1: : 2.4.0
+Define value for property 'package' com.github.frtu: :
+Define value for property 'base-pom-version' 1.1.2: :
+Define value for property 'kotlin-version' 1.4.21: : 1.4.20
 Confirm properties configuration:
-groupId: com.github.frtu.web
-artifactId: web
+groupId: com.github.frtu
+artifactId: kt-base
 version: 0.0.1-SNAPSHOT
-package: com.github.frtu.web
-base-pom-version: 1.1.1-SNAPSHOT
-spring-boot-version: 2.4.0
+package: com.github.frtu
+base-pom-version: 1.1.2
+kotlin-version: 1.4.20
  Y: : Y
 ```
-
-### Module - Kotlin
-
-Base project for Kotlin
 
 ### Going forward
 
