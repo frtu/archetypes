@@ -7,7 +7,7 @@
     <!--============================================================================================================-->
     <parent>
         <groupId>com.github.frtu.archetype</groupId>
-        <artifactId>base-pom</artifactId>
+        <artifactId>kotlin-base-pom</artifactId>
         <version>${base-pom-version}</version>
     </parent>
 
@@ -18,24 +18,13 @@
     <properties>
         <start-class>${groupId}.MainKt</start-class>
         <!--===========================-->
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <java.version>1.8</java.version>
+        <!--BY DEFAULT : 1.8 uncomment to override-->
+        <!-- <java.version>1.8</java.version>-->
         <!--===========================-->
-        <!-- https://kotlinlang.org/docs/reference/using-maven.html -->
-        <kotlin.version>${kotlin-version}</kotlin.version>
-        <kotlin.test.version>3.4.2</kotlin.test.version>
-        <!-- CHECK FOR COMPILER PROPS : https://kotlinlang.org/docs/reference/using-maven.html#attributes-common-for-jvm-and-js-->
-        <kotlin.code.style>official</kotlin.code.style>
+        <!--https://kotlinlang.org/docs/reference/using-maven.html-->
+        <!-- <kotlin.version>${kotlin-version}</kotlin.version>-->
+        <!--CHECK FOR COMPILER PROPS : https://kotlinlang.org/docs/reference/using-maven.html#attributes-common-for-jvm-and-js-->
         <kotlin.compiler.incremental>true</kotlin.compiler.incremental>
-        <!--KOTLIN MODE : https://kotlinlang.org/docs/reference/compiler-plugins.html-->
-        <!-- * Enable kotlin.mode to allow AOP and avoid compiled class to be final -->
-        <kotlin.plugin.dep>kotlin-maven-allopen</kotlin.plugin.dep>
-        <!-- <kotlin.mode>all-open|spring</kotlin.mode>-->
-        <!-- <kotlin.plugin.dep>kotlin-maven-noarg</kotlin.plugin.dep>-->
-        <!-- <kotlin.mode>no-arg|jpa</kotlin.mode>-->
-        <!-- <kotlin.plugin.dep>kotlin-maven-sam-with-receiver</kotlin.plugin.dep>-->
-        <!-- <kotlin.mode>sam-with-receiver</kotlin.mode>-->
     </properties>
 
     <dependencies>
@@ -51,182 +40,16 @@
             <artifactId>kotlintest-runner-junit5</artifactId>
             <scope>test</scope>
         </dependency>
-
-        <!--===========================-->
-        <!-- Platform - Lombok and Logback -->
-        <!--===========================-->
-        <dependency>
-            <groupId>com.github.frtu.logs</groupId>
-            <artifactId>logger-core</artifactId>
-        </dependency>
     </dependencies>
 
     <build>
         <!-- https://kotlinlang.org/docs/reference/using-maven.html -->
         <sourceDirectory>${project.basedir}/src/main/kotlin</sourceDirectory>
         <testSourceDirectory>${project.basedir}/src/test/kotlin</testSourceDirectory>
-        <plugins>
-            <plugin>
-                <groupId>org.jetbrains.kotlin</groupId>
-                <artifactId>kotlin-maven-plugin</artifactId>
-                <version>${kotlin.version}</version>
-                <!--https://kotlinlang.org/docs/reference/compiler-plugins.html-->
-                <executions>
-                    <execution>
-                        <id>compile</id>
-                        <phase>process-sources</phase>
-                        <goals>
-                            <goal>compile</goal>
-                        </goals>
-                        <configuration>
-                            <sourceDirs>
-                                <sourceDir>${project.basedir}/src/main/kotlin</sourceDir>
-                                <!-- UNCOMMMENT TO MIX WITH JAVA -->
-                                <!--<sourceDir>${project.basedir}/src/main/java</sourceDir>-->
-                            </sourceDirs>
-                        </configuration>
-                    </execution>
-                    <execution>
-                        <id>test-compile</id>
-                        <phase>process-test-sources</phase>
-                        <goals>
-                            <goal>test-compile</goal>
-                        </goals>
-                        <configuration>
-                            <sourceDirs>
-                                <sourceDir>${project.basedir}/src/test/kotlin</sourceDir>
-                                <!-- UNCOMMMENT TO MIX WITH JAVA -->
-                                <!--<sourceDir>${project.basedir}/src/test/java</sourceDir>-->
-                            </sourceDirs>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-            <!-- UNCOMMMENT TO MIX WITH JAVA -->
-            <!--            <plugin>-->
-            <!--                <groupId>org.codehaus.mojo</groupId>-->
-            <!--                <artifactId>build-helper-maven-plugin</artifactId>-->
-            <!--                <version>3.2.0</version>-->
-            <!--                <executions>-->
-            <!--                    <execution>-->
-            <!--                        <phase>generate-sources</phase>-->
-            <!--                        <goals>-->
-            <!--                            <goal>add-source</goal>-->
-            <!--                        </goals>-->
-            <!--                        <configuration>-->
-            <!--                            <sources>-->
-            <!--                                <source>${project.basedir}/src/main/java</source>-->
-            <!--                            </sources>-->
-            <!--                        </configuration>-->
-            <!--                    </execution>-->
-            <!--                </executions>-->
-            <!--            </plugin>-->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
-                    <source>${java.version}</source>
-                    <target>${java.version}</target>
-                </configuration>
-                <executions>
-                    <!-- Replacing default-compile as it is treated specially by maven -->
-                    <execution>
-                        <id>default-compile</id>
-                        <phase>none</phase>
-                    </execution>
-                    <!-- Replacing default-testCompile as it is treated specially by maven -->
-                    <execution>
-                        <id>default-testCompile</id>
-                        <phase>none</phase>
-                    </execution>
-                    <execution>
-                        <id>java-compile</id>
-                        <phase>compile</phase>
-                        <goals>
-                            <goal>compile</goal>
-                        </goals>
-                    </execution>
-                    <execution>
-                        <id>java-test-compile</id>
-                        <phase>test-compile</phase>
-                        <goals>
-                            <goal>testCompile</goal>
-                        </goals>
-                        <configuration>
-                            <skip>${maven.test.skip}</skip>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.jacoco</groupId>
-                <artifactId>jacoco-maven-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>prepare-agent</goal>
-                        </goals>
-                    </execution>
-                    <!-- attached to Maven test phase -->
-                    <execution>
-                        <id>report</id>
-                        <phase>test</phase>
-                        <goals>
-                            <goal>report</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>com.github.spotbugs</groupId>
-                <artifactId>spotbugs-maven-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <id>spotbugs</id>
-                        <phase>verify</phase>
-                        <goals>
-                            <goal>check</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-            <!-- Generate source jar -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-source-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <id>attach-sources</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>jar-no-fork</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-            <!-- Generate Javadocs : https://github.com/Kotlin/dokka -->
-        </plugins>
     </build>
+
     <dependencyManagement>
         <dependencies>
-            <!-- https://kotlinlang.org/docs/reference/using-maven.html -->
-            <dependency>
-                <groupId>org.jetbrains.kotlin</groupId>
-                <artifactId>kotlin-stdlib</artifactId>
-                <version>${kotlin.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.jetbrains.kotlin</groupId>
-                <artifactId>kotlin-stdlib-jdk8</artifactId>
-                <version>${kotlin.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>io.kotlintest</groupId>
-                <artifactId>kotlintest-runner-junit5</artifactId>
-                <version>${kotlin.test.version}</version>
-                <scope>test</scope>
-            </dependency>
             <!-- Internal domain dependencies -->
             <!--===============================================================================-->
             <!-- UNCOMMMENT TO FREE PARENT - ATTENTION pluginManagement is not managed anymore -->
@@ -240,6 +63,7 @@
             <!--</dependency>-->
         </dependencies>
     </dependencyManagement>
+
     <profiles>
         <profile>
             <id>exploded</id>
@@ -361,25 +185,4 @@
             </build>
         </profile>
     </profiles>
-
-    <repositories>
-        <repository>
-            <id>jcenter</id>
-            <url>https://jcenter.bintray.com</url>
-        </repository>
-        <repository>
-            <id>kotlin-ktor</id>
-            <url>https://dl.bintray.com/kotlin/ktor/</url>
-        </repository>
-        <repository>
-            <id>kotlin-eap</id>
-            <url>http://dl.bintray.com/kotlin/kotlin-eap</url>
-        </repository>
-    </repositories>
-    <pluginRepositories>
-        <pluginRepository>
-            <id>kotlin-eap</id>
-            <url>http://dl.bintray.com/kotlin/kotlin-eap</url>
-        </pluginRepository>
-    </pluginRepositories>
 </project>
