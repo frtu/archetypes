@@ -35,14 +35,26 @@
     </properties>
 
     <dependencies>
+        <!--===========================-->
+        <!-- APIs -->
+        <!--===========================-->
+        <!-- SYNCHRONOUS-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
 
+        <!--===========================-->
+        <!-- Utilities -->
+        <!--===========================-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-autoconfigure</artifactId>
         </dependency>
+        <!-- spring-boot configuration-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
         </dependency>
         <!-- Needed to activate @ExecutionSpan annotation-->
         <dependency>
