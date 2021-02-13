@@ -24,20 +24,24 @@
     </properties>
 
     <dependencies>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-autoconfigure</artifactId>
-        </dependency>
+        <!-- SYNCHRONOUS-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <!--===========================-->
+        <!-- Utilities-->
+        <!--===========================-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-autoconfigure</artifactId>
         </dependency>
         <!-- Needed to activate @ExecutionSpan annotation-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-aop</artifactId>
         </dependency>
-
         <!-- DevTools and Monitoring-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -72,9 +76,9 @@
         </dependency>
         <!-- JUnit 4 -->
         <!--<dependency>-->
-            <!--<groupId>junit</groupId>-->
-            <!--<artifactId>junit</artifactId>-->
-            <!--<scope>test</scope>-->
+        <!--<groupId>junit</groupId>-->
+        <!--<artifactId>junit</artifactId>-->
+        <!--<scope>test</scope>-->
         <!--</dependency>-->
 
         <!-- Application tests libs-->
@@ -212,11 +216,11 @@
                 <scope>import</scope>
             </dependency>
             <!--<dependency>-->
-                <!--<groupId>com.github.frtu.logs</groupId>-->
-                <!--<artifactId>tools-bom</artifactId>-->
-                <!--<version>${frtu.tools.version}</version>-->
-                <!--<type>pom</type>-->
-                <!--<scope>import</scope>-->
+            <!--<groupId>com.github.frtu.logs</groupId>-->
+            <!--<artifactId>tools-bom</artifactId>-->
+            <!--<version>${frtu.tools.version}</version>-->
+            <!--<type>pom</type>-->
+            <!--<scope>import</scope>-->
             <!--</dependency>-->
         </dependencies>
     </dependencyManagement>
