@@ -1,4 +1,4 @@
-package ${groupId};
+package ${groupId}
 
 import com.github.frtu.logs.config.LogConfigAll
 import org.springframework.boot.autoconfigure.SpringBootApplication

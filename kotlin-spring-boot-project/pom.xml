@@ -17,7 +17,7 @@
         <!-- CHECK https://search.maven.org/artifact/org.jetbrains.kotlin/kotlin-stdlib -->
         <kotlin.version>1.4.21</kotlin.version> <!-- 2020-12-07 -->
         <!-- CHECK https://search.maven.org/artifact/org.springframework.boot/spring-boot-dependencies -->
-        <spring-boot.version>2.4.2</spring-boot.version> <!-- 2021-01-15 -->
+        <spring-boot.version>2.4.1</spring-boot.version> <!-- 2020-12-11 -->
     </properties>
 
     <build>
