@@ -15,7 +15,7 @@
 
     <properties>
         <!-- CHECK https://search.maven.org/artifact/org.jetbrains.kotlin/kotlin-stdlib -->
-        <kotlin.version>1.4.21</kotlin.version> <!-- 2020-12-07 -->
+        <kotlin.version>1.4.30</kotlin.version> <!-- 2021-02-03 -->
     </properties>
     <build>
         <plugins>
