@@ -72,6 +72,21 @@
         <!--    <groupId>io.r2dbc</groupId>-->
         <!--    <artifactId>r2dbc-h2</artifactId>-->
         <!--</dependency>-->
+        <!--  r2dbc Connection pool -->
+        <!--<dependency>-->
+        <!--    <groupId>io.r2dbc</groupId>-->
+        <!--    <artifactId>r2dbc-pool</artifactId>-->
+        <!--</dependency>-->
+        <!--r2dbc mysql library-->
+        <!--<dependency>-->
+        <!--    <groupId>dev.miku</groupId>-->
+        <!--    <artifactId>r2dbc-mysql</artifactId>-->
+        <!--</dependency>-->
+        <!--Automatic configuration needs to introduce an embedded database type object-->
+        <!--<dependency>-->
+        <!--    <groupId>org.springframework.boot</groupId>-->
+        <!--    <artifactId>spring-boot-starter-data-jdbc</artifactId>-->
+        <!--</dependency>-->
 
         <!--===========================-->
         <!-- Display -->
@@ -196,19 +211,19 @@
                     </compilerPlugins>
                     <jvmTarget>${java.version}</jvmTarget>
                 </configuration>
-                <!-- UNCOMMENT FOR JPA 3/3 -->
-                <!--<dependencies>-->
-                <!--    <dependency>-->
-                <!--        <groupId>org.jetbrains.kotlin</groupId>-->
-                <!--        <artifactId>kotlin-maven-allopen</artifactId>-->
-                <!--        <version>${kotlin.version}</version>-->
-                <!--    </dependency>-->
-                <!--    <dependency>-->
-                <!--        <groupId>org.jetbrains.kotlin</groupId>-->
-                <!--        <artifactId>kotlin-maven-noarg</artifactId>-->
-                <!--        <version>${kotlin.version}</version>-->
-                <!--    </dependency>-->
-                <!--</dependencies>-->
+                <dependencies>
+                    <dependency>
+                        <groupId>org.jetbrains.kotlin</groupId>
+                        <artifactId>kotlin-maven-allopen</artifactId>
+                        <version>${kotlin.version}</version>
+                    </dependency>
+                    <!-- UNCOMMENT FOR JPA 3/3 -->
+                    <!--    <dependency>-->
+                    <!--        <groupId>org.jetbrains.kotlin</groupId>-->
+                    <!--        <artifactId>kotlin-maven-noarg</artifactId>-->
+                    <!--        <version>${kotlin.version}</version>-->
+                    <!--    </dependency>-->
+                </dependencies>
                 <executions>
                     <execution>
                         <id>compile</id>

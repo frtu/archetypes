@@ -9,6 +9,7 @@ import org.springframework.context.annotation.Import
 @Import(LogConfigAll::class)
 @EnableConfigurationProperties(AppProperties::class)
 @SpringBootApplication
+//@EnableR2dbcRepositories
 class Application
 
 fun main(args: Array<String>) {

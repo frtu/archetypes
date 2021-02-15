@@ -9,6 +9,7 @@ import org.springframework.context.annotation.Import;
 @Slf4j
 @SpringBootApplication
 @Import({LogConfigAll.class})
+//@EnableR2dbcRepositories
 public class Application {
     private static void runApp(String[] args) {
         SpringApplication.run(Application.class, args);
