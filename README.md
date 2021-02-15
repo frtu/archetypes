@@ -101,6 +101,23 @@ kotlin-version: 1.4.20
  Y: : Y
 ```
 
+### Module - Kotlin Spring Boot
+
+#### Sync vs Async mode
+
+By default, Kotlin spring-boot comes with Synchronous pattern. If you want to switch to Asynchronous, just uncomment :
+
+* pom.xml : Search for ASYNCHRONOUS and uncomment webflux.
+
+#### Async persistence
+
+If storage needed, use JPA for sync or [r2dbc](https://r2dbc.io/)
+for async.
+
+* pom.xml : there are 3 sections marked with JPA to uncomment
+* application.properties : uncomment the DB URLs
+* Application.kt : uncomment @EnableR2dbcRepositories
+
 ### Going forward
 
 * Allow async data ingestion with spring-boot and webflux
