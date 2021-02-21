@@ -23,7 +23,7 @@ Ex :
 
 ```
 mvn archetype:generate -DarchetypeGroupId=com.github.frtu.archetype \
--DarchetypeArtifactId=kotlin-project-archetype -DarchetypeVersion=1.1.2 \
+-DarchetypeArtifactId=kotlin-project-archetype -DarchetypeVersion=1.1.3 \
 -DgroupId=com.github.frtu -DartifactId=kt-base -Dversion=0.0.1-SNAPSHOT
 ```
 
@@ -52,7 +52,7 @@ Build will fail if SpotBugs find issues with FindBugs. See Bugs descriptions at
 Allow to generate a spring-boot project based on a basic template. 
 
 
-#### Override version - [version 1.1.2](https://github.com/frtu/archetypes/releases/tag/v1.1.2)
+#### Override version - [version 1.1.3](https://github.com/frtu/archetypes/releases/tag/v1.1.3)
 
 You can override sprint-boot version by 
 
@@ -66,7 +66,7 @@ Base project for Kotlin. You can get started with Kotlin from :
 
 * [kotlinlang.org](https://kotlinlang.org/docs/tutorials/getting-started.html)
 
-#### Override version - [version 1.1.2](https://github.com/frtu/archetypes/releases/tag/v1.1.2)
+#### Override version - [version 1.1.3](https://github.com/frtu/archetypes/releases/tag/v1.1.3)
 
 You can override kotlin version by 
 
@@ -103,13 +103,13 @@ kotlin-version: 1.4.20
 
 ### Module - Kotlin Spring Boot
 
-#### Sync vs Async mode
+#### Sync vs Async mode from [version 1.1.3](https://github.com/frtu/archetypes/releases/tag/v1.1.3)
 
 By default, Kotlin spring-boot comes with Synchronous pattern. If you want to switch to Asynchronous, just uncomment :
 
 * pom.xml : Search for ASYNCHRONOUS and uncomment webflux.
 
-#### Async persistence
+#### Async persistence from [version 1.1.3](https://github.com/frtu/archetypes/releases/tag/v1.1.3)
 
 If storage needed, use JPA for sync or [r2dbc](https://r2dbc.io/)
 for async.
