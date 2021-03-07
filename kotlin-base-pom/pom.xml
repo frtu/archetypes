@@ -26,6 +26,7 @@
         <kotlin.version>1.4.30</kotlin.version> <!-- 2021-02-03 -->
         <kotlinx.coroutines.version>1.4.2</kotlinx.coroutines.version>
         <kotlin.test.version>3.4.2</kotlin.test.version>
+        <mockk.version>1.10.6</mockk.version>
         <springmockk.version>1.1.3</springmockk.version>
         <!--=========================== -->
         <!-- CHECK FOR COMPILER PROPS : https://kotlinlang.org/docs/reference/using-maven.html#attributes-common-for-jvm-and-js-->
@@ -85,6 +86,13 @@
                 <groupId>org.junit.jupiter</groupId>
                 <artifactId>junit-jupiter-engine</artifactId>
                 <version>${junit-jupiter.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <!-- https://mockk.io/ -->
+            <dependency>
+                <groupId>io.mockk</groupId>
+                <artifactId>mockk</artifactId>
+                <version>${mockk.version}</version>
                 <scope>test</scope>
             </dependency>
             <dependency>
