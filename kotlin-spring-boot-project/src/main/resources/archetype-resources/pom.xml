@@ -24,7 +24,8 @@
         <!--===========================-->
         <!-- https://kotlinlang.org/docs/reference/using-maven.html -->
         <kotlin.version>${kotlin-version}</kotlin.version>
-        <kotlin.test.version>3.4.2</kotlin.test.version>
+        <kotlinx.coroutines.version>${kotlinx-version}</kotlinx.coroutines.version>
+        <kotlin.test.version>${kotlin-test-version}</kotlin.test.version>
         <!-- CHECK FOR COMPILER PROPS : https://kotlinlang.org/docs/reference/using-maven.html#attributes-common-for-jvm-and-js-->
         <kotlin.code.style>official</kotlin.code.style>
         <kotlin.compiler.incremental>true</kotlin.compiler.incremental>

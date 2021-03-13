@@ -20,13 +20,13 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
         <!-- Use this version as 5.5.1 doesn't allow to find test-->
-        <junit-jupiter.version>5.4.2</junit-jupiter.version>
+        <junit-jupiter.version>5.7.1</junit-jupiter.version> <!-- 2021-02-05 -->
         <frtu.logger-core.version>1.0.2</frtu.logger-core.version>
         <!--=========================== -->
         <!-- https://kotlinlang.org/docs/reference/using-maven.html -->
         <kotlin.version>1.4.31</kotlin.version> <!-- 2021-02-25 -->
-        <kotlinx.coroutines.version>1.4.2</kotlinx.coroutines.version>
-        <kotlin.test.version>3.4.2</kotlin.test.version>
+        <kotlinx.coroutines.version>1.4.3</kotlinx.coroutines.version> <!-- 2021-03-03 -->
+        <kotlin.test.version>3.4.2</kotlin.test.version> <!-- 2019-09-21 -->
         <mockk.version>1.10.6</mockk.version>
         <springmockk.version>1.1.3</springmockk.version>
         <!--=========================== -->
@@ -83,6 +83,7 @@
                 <version>${junit-jupiter.version}</version>
                 <scope>test</scope>
             </dependency>
+            <!-- https://kotest.io/docs/quickstart -->
             <dependency>
                 <groupId>io.kotlintest</groupId>
                 <artifactId>kotlintest-runner-junit5</artifactId>

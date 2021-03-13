@@ -12,6 +12,12 @@
         <requiredProperty key="kotlin-version">
             <defaultValue>%KOTLIN_VERSION%</defaultValue>
         </requiredProperty>
+        <requiredProperty key="kotlinx-version">
+            <defaultValue>%KOTLINX_VERSION%</defaultValue>
+        </requiredProperty>
+        <requiredProperty key="kotlin-test-version">
+            <defaultValue>%KOTLIN_TEST_VERSION%</defaultValue>
+        </requiredProperty>
         <requiredProperty key="spring-boot-version">
             <defaultValue>%SPRINGBOOT_VERSION%</defaultValue>
         </requiredProperty>

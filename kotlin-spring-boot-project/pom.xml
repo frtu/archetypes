@@ -16,8 +16,10 @@
     <properties>
         <!-- CHECK https://search.maven.org/artifact/org.jetbrains.kotlin/kotlin-stdlib -->
         <kotlin.version>1.4.31</kotlin.version> <!-- 2021-02-25 -->
+        <kotlinx.version>1.4.3</kotlinx.version> <!-- 2021-03-03 -->
+        <kotlin.test.version>3.4.2</kotlin.test.version> <!-- 2019-09-21 -->
         <!-- CHECK https://search.maven.org/artifact/org.springframework.boot/spring-boot-dependencies -->
-        <spring-boot.version>2.4.1</spring-boot.version> <!-- 2020-12-11 -->
+        <spring-boot.version>2.4.3</spring-boot.version> <!-- 2021-02-18 -->
     </properties>
 
     <build>
@@ -40,6 +42,14 @@
                                 <replacement>
                                     <token>%KOTLIN_VERSION%</token>
                                     <value>${kotlin.version}</value>
+                                </replacement>
+                                <replacement>
+                                    <token>%KOTLINX_VERSION%</token>
+                                    <value>${kotlinx.version}</value>
+                                </replacement>
+                                <replacement>
+                                    <token>%KOTLIN_TEST_VERSION%</token>
+                                    <value>${kotlin.test.version}</value>
                                 </replacement>
                                 <replacement>
                                     <token>%SPRINGBOOT_VERSION%</token>
@@ -65,6 +75,14 @@
                                 <replacement>
                                     <token>%KOTLIN_VERSION%</token>
                                     <value>${kotlin.version}</value>
+                                </replacement>
+                                <replacement>
+                                    <token>%KOTLINX_VERSION%</token>
+                                    <value>${kotlinx.version}</value>
+                                </replacement>
+                                <replacement>
+                                    <token>%KOTLIN_TEST_VERSION%</token>
+                                    <value>${kotlin.test.version}</value>
                                 </replacement>
                                 <replacement>
                                     <token>%SPRINGBOOT_VERSION%</token>
