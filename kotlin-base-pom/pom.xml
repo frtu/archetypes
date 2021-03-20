@@ -21,14 +21,15 @@
         <java.version>1.8</java.version>
         <!-- Use this version as 5.5.1 doesn't allow to find test-->
         <junit-jupiter.version>5.7.1</junit-jupiter.version> <!-- 2021-02-05 -->
-        <frtu.logger-core.version>1.0.2</frtu.logger-core.version>
+        <frtu.logger.version>1.0.2</frtu.logger.version>
         <!--=========================== -->
         <!-- https://kotlinlang.org/docs/reference/using-maven.html -->
         <kotlin.version>1.4.31</kotlin.version> <!-- 2021-02-25 -->
         <kotlinx.coroutines.version>1.4.3</kotlinx.coroutines.version> <!-- 2021-03-03 -->
         <kotlin.test.version>3.4.2</kotlin.test.version> <!-- 2019-09-21 -->
-        <mockk.version>1.10.6</mockk.version>
-        <springmockk.version>1.1.3</springmockk.version>
+        <jackson-module-kotlin.version>2.12.2</jackson-module-kotlin.version> <!-- 2021-03-04 -->
+        <mockk.version>1.11.0</mockk.version> <!-- 2021-03-17 -->
+        <springmockk.version>3.0.1</springmockk.version> <!-- 2020-12-30 -->
         <!--=========================== -->
         <!-- CHECK FOR COMPILER PROPS : https://kotlinlang.org/docs/reference/using-maven.html#attributes-common-for-jvm-and-js-->
         <kotlin.code.style>official</kotlin.code.style>
@@ -65,7 +66,7 @@
             <dependency>
                 <groupId>com.fasterxml.jackson.module</groupId>
                 <artifactId>jackson-module-kotlin</artifactId>
-                <version>2.9.9</version>
+                <version>${jackson-module-kotlin.version}</version>
             </dependency>
 
             <!--===========================-->
@@ -110,7 +111,12 @@
             <dependency>
                 <groupId>com.github.frtu.logs</groupId>
                 <artifactId>logger-core</artifactId>
-                <version>${frtu.logger-core.version}</version>
+                <version>${frtu.logger.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.frtu.logs</groupId>
+                <artifactId>logger-metrics</artifactId>
+                <version>${frtu.logger.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
