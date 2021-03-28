@@ -1,12 +1,6 @@
 #set( $HASH = '#' )
-${HASH} Project - ${artifactId}
+${HASH} Publisher for Project - ${artifactId}
 
 ${HASH}${HASH} About
 
-Project description
-
-${HASH}${HASH} Release notes
-
-${HASH}${HASH}${HASH} ${version} - Current version
-
-* Feature list
+Publisher jar to create library

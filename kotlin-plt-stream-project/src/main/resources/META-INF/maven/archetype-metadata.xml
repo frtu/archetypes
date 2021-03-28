@@ -21,6 +21,9 @@
         <requiredProperty key="spring-boot-version">
             <defaultValue>%SPRINGBOOT_VERSION%</defaultValue>
         </requiredProperty>
+        <requiredProperty key="spring-cloud-version">
+            <defaultValue>%SPRING_CLOUD_VERSION%</defaultValue>
+        </requiredProperty>
     </requiredProperties>
     <fileSets>
         <fileSet filtered="true" encoding="UTF-8">

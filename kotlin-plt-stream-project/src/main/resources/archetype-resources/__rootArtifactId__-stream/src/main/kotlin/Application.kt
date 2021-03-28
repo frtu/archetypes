@@ -10,6 +10,7 @@ import org.springframework.context.annotation.Import
 @EnableConfigurationProperties(AppProperties::class)
 @SpringBootApplication
 //@EnableR2dbcRepositories
+@EnableBinding(AppProcessor::class)
 class Application
 
 fun main(args: Array<String>) {
