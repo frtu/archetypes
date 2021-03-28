@@ -12,6 +12,7 @@ Allow to generate a project for :
 - Spring Boot project (Label : **spring-boot**) : suitable for web project (backend or frontend)
 - Kotlin Base project (Label : **kotlin**) : for kotlin project, ...
 - Kotlin Spring Boot project (Label : **kotlin-spring-boot**) : for Kotlin Spring Boot project
+- Kotlin Platform Spring Cloud platform project (Label : **kotlin-plt-stream**) : for Kotlin Spring Cloud platform project (platform means multi project with publisher & subscriber)
 
 NOTE : when using **mvngen**, just append the project **label**.
 
@@ -23,7 +24,7 @@ Ex :
 
 ```
 mvn archetype:generate -DarchetypeGroupId=com.github.frtu.archetype \
--DarchetypeArtifactId=kotlin-project-archetype -DarchetypeVersion=1.1.3 \
+-DarchetypeArtifactId=kotlin-project-archetype -DarchetypeVersion=1.1.4 \
 -DgroupId=com.github.frtu -DartifactId=kt-base -Dversion=0.0.1-SNAPSHOT
 ```
 
@@ -52,7 +53,7 @@ Build will fail if SpotBugs find issues with FindBugs. See Bugs descriptions at
 Allow to generate a spring-boot project based on a basic template. 
 
 
-#### Override version - [version 1.1.3](https://github.com/frtu/archetypes/releases/tag/v1.1.3)
+#### Override version - [version 1.1.4](https://github.com/frtu/archetypes/releases/tag/v1.1.4)
 
 You can override sprint-boot version by 
 
@@ -66,7 +67,7 @@ Base project for Kotlin. You can get started with Kotlin from :
 
 * [kotlinlang.org](https://kotlinlang.org/docs/tutorials/getting-started.html)
 
-#### Override version - [version 1.1.3](https://github.com/frtu/archetypes/releases/tag/v1.1.3)
+#### Override version - [version 1.1.4](https://github.com/frtu/archetypes/releases/tag/v1.1.4)
 
 You can override kotlin version by 
 
@@ -103,13 +104,13 @@ kotlin-version: 1.4.20
 
 ### Module - Kotlin Spring Boot
 
-#### Sync vs Async mode from [version 1.1.3](https://github.com/frtu/archetypes/releases/tag/v1.1.3)
+#### Sync vs Async mode from [version 1.1.4](https://github.com/frtu/archetypes/releases/tag/v1.1.4)
 
 By default, Kotlin spring-boot comes with Synchronous pattern. If you want to switch to Asynchronous, just uncomment :
 
 * pom.xml : Search for ASYNCHRONOUS and uncomment webflux.
 
-#### Async persistence from [version 1.1.3](https://github.com/frtu/archetypes/releases/tag/v1.1.3)
+#### Async persistence from [version 1.1.4](https://github.com/frtu/archetypes/releases/tag/v1.1.4)
 
 If storage needed, use JPA for sync or [r2dbc](https://r2dbc.io/)
 for async.
@@ -117,6 +118,14 @@ for async.
 * pom.xml : there are 3 sections marked with JPA to uncomment
 * application.properties : uncomment the DB URLs
 * Application.kt : uncomment @EnableR2dbcRepositories
+
+
+### Module - Kotlin Spring Cloud platform
+
+#### Starting from [version 1.1.4](https://github.com/frtu/archetypes/releases/tag/v1.1.4)
+
+* Allow to generate publisher & subscriber for Kafka binding in Spring Cloud
+
 
 ### Going forward
 
