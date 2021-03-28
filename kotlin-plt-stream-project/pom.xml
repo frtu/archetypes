@@ -21,6 +21,8 @@
         <!-- CHECK https://search.maven.org/artifact/org.springframework.boot/spring-boot-dependencies -->
         <spring-boot.version>2.4.3</spring-boot.version> <!-- 2021-02-18 -->
         <spring-cloud.version>Hoxton.SR10</spring-cloud.version>
+        <!-- CHECK https://search.maven.org/artifact/org.springframework.cloud/spring-cloud-dependencies-->
+        <spring-cloud.version>Hoxton.SR10</spring-cloud.version> <!-- 2021-02-11 -->
     </properties>
 
     <build>
