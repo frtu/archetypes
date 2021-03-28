@@ -200,6 +200,10 @@
                     <groupId>org.mockito</groupId>
                     <artifactId>mockito-core</artifactId>
                 </exclusion>
+                <exclusion>
+                    <artifactId>spring-boot-starter-logging</artifactId>
+                    <groupId>org.springframework.boot</groupId>
+                </exclusion>
             </exclusions>
         </dependency>
         <dependency>
@@ -434,6 +438,22 @@
     </build>
     <dependencyManagement>
         <dependencies>
+            <!-- https://kotlinlang.org/docs/reference/using-maven.html -->
+            <dependency>
+                <groupId>org.jetbrains.kotlin</groupId>
+                <artifactId>kotlin-bom</artifactId>
+                <version>${kotlin.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <!-- https://kotlinlang.org/docs/tutorials/coroutines/async-programming.html -->
+            <dependency>
+                <groupId>org.jetbrains.kotlinx</groupId>
+                <artifactId>kotlinx-coroutines-bom</artifactId>
+                <version>${kotlinx.coroutines.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
             <!-- Internal domain dependencies -->
             <dependency>
                 <groupId>com.github.frtu.archetype</groupId>

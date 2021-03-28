@@ -24,7 +24,7 @@
         <frtu.logger.version>1.0.2</frtu.logger.version>
         <!--=========================== -->
         <!-- https://kotlinlang.org/docs/reference/using-maven.html -->
-        <kotlin.version>1.4.31</kotlin.version> <!-- 2021-02-25 -->
+        <kotlin.version>1.4.32</kotlin.version> <!-- 2021-03-22 -->
         <kotlinx.coroutines.version>1.4.3</kotlinx.coroutines.version> <!-- 2021-03-03 -->
         <kotlin.test.version>3.4.2</kotlin.test.version> <!-- 2019-09-21 -->
         <jackson-module-kotlin.version>2.12.2</jackson-module-kotlin.version> <!-- 2021-03-04 -->

@@ -1,4 +1,5 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.github.frtu.archetype</groupId>
@@ -14,13 +15,12 @@
     <description>kotlin platform stream with spring-cloud project archetype</description>
 
     <properties>
-        <!-- CHECK https://search.maven.org/artifact/org.jetbrains.kotlin/kotlin-stdlib -->
-        <kotlin.version>1.4.31</kotlin.version> <!-- 2021-02-25 -->
+        <!-- CHECK https://search.maven.org/artifact/org.jetbrains.kotlin/kotlin-bom -->
+        <kotlin.version>1.4.32</kotlin.version> <!-- 2021-03-22 -->
         <kotlinx.version>1.4.3</kotlinx.version> <!-- 2021-03-03 -->
         <kotlin.test.version>3.4.2</kotlin.test.version> <!-- 2019-09-21 -->
         <!-- CHECK https://search.maven.org/artifact/org.springframework.boot/spring-boot-dependencies -->
-        <spring-boot.version>2.4.3</spring-boot.version> <!-- 2021-02-18 -->
-        <spring-cloud.version>Hoxton.SR10</spring-cloud.version>
+        <spring-boot.version>2.4.4</spring-boot.version> <!-- 2021-03-18 -->
         <!-- CHECK https://search.maven.org/artifact/org.springframework.cloud/spring-cloud-dependencies-->
         <spring-cloud.version>Hoxton.SR10</spring-cloud.version> <!-- 2021-02-11 -->
     </properties>
