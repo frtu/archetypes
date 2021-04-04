@@ -39,9 +39,7 @@
         <spring.version>5.3.2</spring.version>
         <spring-boot.version>2.4.1</spring-boot.version>
         <!--=========================== -->
-        <jackson-bom.version>2.11.3</jackson-bom.version>
-        <jackson.version>${jackson-bom.version}</jackson.version>
-        <jackson-binding.version>${jackson-bom.version}</jackson-binding.version>
+        <jackson.version>2.12.2</jackson.version> <!-- 2021-03-04 -->
         <avro.version>1.8.2</avro.version>
         <!--https://github.com/ronmamo/reflections : >0.9.12 migrate to jdk8-->
         <reflections.version>0.9.12</reflections.version>
@@ -141,29 +139,9 @@
             <dependency>
                 <groupId>com.fasterxml.jackson</groupId>
                 <artifactId>jackson-bom</artifactId>
-                <version>${jackson-bom.version}</version>
+                <version>${jackson.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
-            </dependency>
-            <dependency>
-                <groupId>com.fasterxml.jackson.core</groupId>
-                <artifactId>jackson-core</artifactId>
-                <version>${jackson.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.fasterxml.jackson.core</groupId>
-                <artifactId>jackson-annotations</artifactId>
-                <version>${jackson.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.fasterxml.jackson.core</groupId>
-                <artifactId>jackson-databind</artifactId>
-                <version>${jackson-binding.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.fasterxml.jackson.dataformat</groupId>
-                <artifactId>jackson-dataformat-avro</artifactId>
-                <version>${jackson-binding.version}</version>
             </dependency>
 
             <!--===========================-->

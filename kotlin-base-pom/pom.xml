@@ -1,4 +1,5 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.github.frtu.archetype</groupId>
@@ -26,7 +27,7 @@
         <kotlin.version>1.4.32</kotlin.version> <!-- 2021-03-22 -->
         <kotlinx.coroutines.version>1.4.3</kotlinx.coroutines.version> <!-- 2021-03-03 -->
         <kotlin.test.version>3.4.2</kotlin.test.version> <!-- 2019-09-21 -->
-        <jackson-module-kotlin.version>2.12.2</jackson-module-kotlin.version> <!-- 2021-03-04 -->
+        <jackson.version>2.12.2</jackson.version> <!-- 2021-03-04 -->
         <mockk.version>1.11.0</mockk.version> <!-- 2021-03-17 -->
         <springmockk.version>3.0.1</springmockk.version> <!-- 2020-12-30 -->
         <!--=========================== -->
@@ -61,11 +62,13 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
-
+            <!--JSON Library - https://search.maven.org/artifact/com.fasterxml.jackson/jackson-bom -->
             <dependency>
-                <groupId>com.fasterxml.jackson.module</groupId>
-                <artifactId>jackson-module-kotlin</artifactId>
-                <version>${jackson-module-kotlin.version}</version>
+                <groupId>com.fasterxml.jackson</groupId>
+                <artifactId>jackson-bom</artifactId>
+                <version>${jackson.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
             </dependency>
 
             <!--===========================-->
