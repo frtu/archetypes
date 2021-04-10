@@ -56,6 +56,11 @@
         </dependency>
 
         <!-- PERSISTANCE -->
+        <!--<dependency>-->
+        <!--    <groupId>org.flywaydb</groupId>-->
+        <!--    <artifactId>flyway-core</artifactId>-->
+        <!--</dependency>-->
+
         <!-- UNCOMMENT FOR JPA 1/3 -->
         <!--<dependency>-->
         <!--    <groupId>org.springframework.boot</groupId>-->
