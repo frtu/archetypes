@@ -22,6 +22,9 @@
         <springdoc.version>1.5.4</springdoc.version>
         <!--<frtu.tools.version>1.0.2</frtu.tools.version>-->
         <!--===========================-->
+        <javax.persistence-api.version>2.2</javax.persistence-api.version>
+        <r2dbc.version>Arabba-SR9</r2dbc.version>
+        <!--===========================-->
         <!-- https://kotlinlang.org/docs/reference/using-maven.html -->
         <kotlin.version>${kotlin-version}</kotlin.version>
         <kotlinx.coroutines.version>${kotlinx-version}</kotlinx.coroutines.version>
@@ -64,6 +67,17 @@
         <!--    <scope>runtime</scope>-->
         <!--</dependency>-->
 
+        <!--Automatic configuration needs to introduce an embedded database type object-->
+        <!--<dependency>-->
+        <!--    <groupId>org.springframework.boot</groupId>-->
+        <!--    <artifactId>spring-boot-starter-data-jdbc</artifactId>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+        <!--    <groupId>javax.persistence</groupId>-->
+        <!--    <artifactId>javax.persistence-api</artifactId>-->
+        <!--    <version>${javax.persistence-api.version}</version>-->
+        <!--</dependency>-->
+
         <!--===========================-->
         <!-- ASYNCHRONOUS-->
         <!--===========================-->
@@ -83,24 +97,18 @@
         <!--    <groupId>org.springframework.boot</groupId>-->
         <!--    <artifactId>spring-boot-starter-data-r2dbc</artifactId>-->
         <!--</dependency>-->
+        <!-- r2dbc libraries for h2, mysql or postgres -->
         <!--<dependency>-->
         <!--    <groupId>io.r2dbc</groupId>-->
         <!--    <artifactId>r2dbc-h2</artifactId>-->
         <!--</dependency>-->
-        <!--  r2dbc Connection pool -->
-        <!--<dependency>-->
-        <!--    <groupId>io.r2dbc</groupId>-->
-        <!--    <artifactId>r2dbc-pool</artifactId>-->
-        <!--</dependency>-->
-        <!--r2dbc mysql library-->
         <!--<dependency>-->
         <!--    <groupId>dev.miku</groupId>-->
         <!--    <artifactId>r2dbc-mysql</artifactId>-->
         <!--</dependency>-->
-        <!--Automatic configuration needs to introduce an embedded database type object-->
         <!--<dependency>-->
-        <!--    <groupId>org.springframework.boot</groupId>-->
-        <!--    <artifactId>spring-boot-starter-data-jdbc</artifactId>-->
+        <!--    <groupId>io.r2dbc</groupId>-->
+        <!--    <artifactId>r2dbc-postgresql</artifactId>-->
         <!--</dependency>-->
 
         <!--===========================-->
@@ -462,6 +470,15 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+            <!--ONLY NEEDED IF YOU WANT TO OVERRIDE SPRING DEPENDENCIES MGMT.-->
+            <!--<dependency>-->
+            <!--    <groupId>io.r2dbc</groupId>-->
+            <!--    <artifactId>r2dbc-bom</artifactId>-->
+            <!--    <version>${r2dbc.version}</version>-->
+            <!--    <type>pom</type>-->
+            <!--    <scope>import</scope>-->
+            <!--</dependency>-->
+
             <!--<dependency>-->
             <!--<groupId>com.github.frtu.logs</groupId>-->
             <!--<artifactId>tools-bom</artifactId>-->
