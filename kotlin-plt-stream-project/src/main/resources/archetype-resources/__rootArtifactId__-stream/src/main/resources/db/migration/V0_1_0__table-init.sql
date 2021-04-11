@@ -1,6 +1,7 @@
-create table if not exists your_table
+CREATE TABLE IF NOT EXISTS your_table
 (
-    id              long            primary key,
-    creation_time   timestamp       not null,
-    update_time     timestamp       not null
+    id              UUID            NOT NULL,
+    creation_time   TIMESTAMP       NOT NULL    DEFAULT now(),
+    update_time     TIMESTAMP       NOT NULL    DEFAULT now(),
+    CONSTRAINT email_pk PRIMARY KEY (id)
 );
