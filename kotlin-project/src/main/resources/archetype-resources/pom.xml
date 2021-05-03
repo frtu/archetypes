@@ -44,6 +44,11 @@
         <!--    <groupId>org.jetbrains.kotlinx</groupId>-->
         <!--    <artifactId>kotlinx-coroutines-core</artifactId>-->
         <!--</dependency>-->
+        <!--<dependency>-->
+        <!--    <groupId>org.jetbrains.kotlinx</groupId>-->
+        <!--    <artifactId>kotlinx-coroutines-reactor</artifactId>-->
+        <!--</dependency>-->
+
         <!--===========================-->
         <!--Test -->
         <!--===========================-->
@@ -150,7 +155,6 @@
         <profile>
             <id>all-in-one</id>
             <activation>
-                <!-- this profile is active by default -->
                 <activeByDefault>false</activeByDefault>
                 <!-- activate if system properties 'env=prod' -->
                 <property>

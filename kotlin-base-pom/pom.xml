@@ -31,6 +31,8 @@
         <mockk.version>1.11.0</mockk.version> <!-- 2021-03-17 -->
         <springmockk.version>3.0.1</springmockk.version> <!-- 2020-12-30 -->
         <!--=========================== -->
+        <r2dbc.version>Arabba-SR9</r2dbc.version> <!-- 2021-02-25 -->
+        <!--=========================== -->
         <!-- CHECK FOR COMPILER PROPS : https://kotlinlang.org/docs/reference/using-maven.html#attributes-common-for-jvm-and-js-->
         <kotlin.code.style>official</kotlin.code.style>
         <!-- <kotlin.compiler.incremental>true</kotlin.compiler.incremental>-->
@@ -67,6 +69,18 @@
                 <groupId>com.fasterxml.jackson</groupId>
                 <artifactId>jackson-bom</artifactId>
                 <version>${jackson.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <!--===========================-->
+            <!-- Persistence -->
+            <!--===========================-->
+            <!--R2DBC Library - https://search.maven.org/artifact/io.r2dbc/r2dbc-bom -->
+            <dependency>
+                <groupId>io.r2dbc</groupId>
+                <artifactId>r2dbc-bom</artifactId>
+                <version>${r2dbc.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
