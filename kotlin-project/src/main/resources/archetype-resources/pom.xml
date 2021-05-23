@@ -58,6 +58,11 @@
             <artifactId>kotlintest-runner-junit5</artifactId>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>org.jetbrains.kotlin</groupId>
+            <artifactId>kotlin-test-junit</artifactId>
+            <scope>test</scope>
+        </dependency>
         <!-- https://mockk.io/ -->
         <dependency>
             <groupId>io.mockk</groupId>
@@ -70,6 +75,7 @@
             <artifactId>assertj-core</artifactId>
             <scope>test</scope>
         </dependency>
+
         <!-- Downgrade to junit 5.4.x version to avoid - No test found -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
@@ -78,7 +84,7 @@
         </dependency>
         <dependency>
             <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-engine</artifactId>
+            <artifactId>junit-jupiter</artifactId>
             <scope>test</scope>
         </dependency>
 
