@@ -6,10 +6,10 @@ import io.mockk.junit5.MockKExtension
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.assertThrows
 import org.junit.jupiter.api.extension.ExtendWith
 import java.util.function.Consumer
 import java.util.function.Supplier
-import kotlin.test.assertFailsWith
 
 @DisplayName("Basic tests")
 @ExtendWith(MockKExtension::class)
@@ -48,7 +48,7 @@ internal class BaseTest {
 
     @Test
     fun `Negative test cases`() {
-        assertFailsWith<IllegalStateException>("Testing negative state") {
+        assertThrows<IllegalStateException>("Testing negative state") {
             throw IllegalStateException()
         }
     }
