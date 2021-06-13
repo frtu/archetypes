@@ -447,6 +447,12 @@
                         </goals>
                     </execution>
                 </executions>
+                <!-- Finding bugs - https://spotbugs.github.io/spotbugs-maven-plugin/spotbugs-mojo.html -->
+                <configuration>
+                    <!-- List of visitors : https://spotbugs-in-kengo-toda.readthedocs.io/en/lqc-list-detectors/detectors.html#standard-detectors-->
+                    <!-- Detailed descriptions : http://findbugs.sourceforge.net/bugDescriptions.html -->
+                    <omitVisitors>FindNullDeref,FindBadCast2</omitVisitors>
+                </configuration>
             </plugin>
             <!-- Generate source jar -->
             <plugin>
