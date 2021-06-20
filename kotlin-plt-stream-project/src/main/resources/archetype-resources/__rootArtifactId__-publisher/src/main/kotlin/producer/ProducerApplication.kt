@@ -17,7 +17,7 @@ import org.springframework.kafka.core.KafkaTemplate
  */
 @SpringBootApplication
 class ProducerApplication {
-    @Value("\${application.topic.${domain}-source}")
+    @Value("\${application.topic.domain-source}")
     lateinit var outputSource: String
 
     @Bean

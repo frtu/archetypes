@@ -15,9 +15,9 @@ import org.springframework.kafka.config.TopicBuilder
 @SpringBootApplication
 class ConsumerApplication {
     companion object {
-        const val inputSource: String = "${domain}-source"
+        const val inputSource: String = "domain-source"
     }
-//    @Value("\${application.topic.${domain}-source}")
+//    @Value("\${application.topic.domain-source}")
 //    lateinit var inputSource: String
 
     @Bean
