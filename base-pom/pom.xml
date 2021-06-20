@@ -42,7 +42,7 @@
         <reflections.version>0.9.12</reflections.version>
         <!--===========================-->
         <frtu.lib.version>1.1.0</frtu.lib.version>
-        <frtu.logger.version>1.1.1</frtu.logger.version>
+        <frtu.logger.version>1.1.2</frtu.logger.version>
         <frtu.simple-scan.version>0.2.0</frtu.simple-scan.version>
     </properties>
 
