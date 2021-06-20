@@ -16,6 +16,8 @@
         <!--BY DEFAULT : 1.8 uncomment to override-->
         <!-- <java.version>1.8</java.version>-->
         <!--===========================-->
+        <spring-kafka.version>2.6.6</spring-kafka.version>
+        <!--===========================-->
         <!--https://kotlinlang.org/docs/reference/using-maven.html-->
         <kotlin.version>${kotlin-version}</kotlin.version>
         <kotlinx.coroutines.version>${kotlinx-version}</kotlinx.coroutines.version>
@@ -25,6 +27,22 @@
     </properties>
 
     <dependencies>
+        <!--===========================-->
+        <!-- Spring-boot platform -->
+        <!--===========================-->
+        <dependency>
+            <groupId>org.springframework.kafka</groupId>
+            <artifactId>spring-kafka</artifactId>
+            <version>${spring-kafka.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-webflux</artifactId>
+        </dependency>
+
+        <!--===========================-->
+        <!-- Kotlin platform -->
+        <!--===========================-->
         <dependency>
             <groupId>org.jetbrains.kotlin</groupId>
             <artifactId>kotlin-stdlib</artifactId>
