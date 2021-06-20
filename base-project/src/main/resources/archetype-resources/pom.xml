@@ -142,21 +142,6 @@
             </plugin>
         </plugins>
     </build>
-    <dependencyManagement>
-        <dependencies>
-            <!-- Internal domain dependencies -->
-            <!--===============================================================================-->
-            <!-- UNCOMMMENT TO FREE PARENT - ATTENTION pluginManagement is not managed anymore -->
-            <!--===============================================================================-->
-            <!--<dependency>-->
-            <!--    <groupId>com.github.frtu.archetype</groupId>-->
-            <!--    <artifactId>base-pom</artifactId>-->
-            <!--    <version>${base-pom-version}</version>-->
-            <!--    <type>pom</type>-->
-            <!--    <scope>import</scope>-->
-            <!--</dependency>-->
-        </dependencies>
-    </dependencyManagement>
     <profiles>
         <profile>
             <id>exploded</id>
@@ -241,4 +226,19 @@
             </build>
         </profile>
     </profiles>
+    <dependencyManagement>
+        <dependencies>
+            <!-- Internal domain dependencies -->
+            <!--===============================================================================-->
+            <!-- UNCOMMMENT TO FREE PARENT - ATTENTION pluginManagement is not managed anymore -->
+            <!--===============================================================================-->
+            <!--<dependency>-->
+            <!--    <groupId>com.github.frtu.archetype</groupId>-->
+            <!--    <artifactId>base-pom</artifactId>-->
+            <!--    <version>${base-pom-version}</version>-->
+            <!--    <type>pom</type>-->
+            <!--    <scope>import</scope>-->
+            <!--</dependency>-->
+        </dependencies>
+    </dependencyManagement>
 </project>

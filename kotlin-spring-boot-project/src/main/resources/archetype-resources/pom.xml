@@ -487,51 +487,6 @@
             </plugins>
         </pluginManagement>
     </build>
-    <dependencyManagement>
-        <dependencies>
-            <!-- https://kotlinlang.org/docs/reference/using-maven.html -->
-            <dependency>
-                <groupId>org.jetbrains.kotlin</groupId>
-                <artifactId>kotlin-bom</artifactId>
-                <version>${kotlin.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-            <!-- https://kotlinlang.org/docs/tutorials/coroutines/async-programming.html -->
-            <dependency>
-                <groupId>org.jetbrains.kotlinx</groupId>
-                <artifactId>kotlinx-coroutines-bom</artifactId>
-                <version>${kotlinx.coroutines.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-            <!-- Internal domain dependencies -->
-            <dependency>
-                <groupId>com.github.frtu.archetype</groupId>
-                <artifactId>kotlin-base-pom</artifactId>
-                <version>${base-pom-version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-            <!--ONLY NEEDED IF YOU WANT TO OVERRIDE SPRING DEPENDENCIES MGMT.-->
-            <!--<dependency>-->
-            <!--    <groupId>io.r2dbc</groupId>-->
-            <!--    <artifactId>r2dbc-bom</artifactId>-->
-            <!--    <version>${r2dbc.version}</version>-->
-            <!--    <type>pom</type>-->
-            <!--    <scope>import</scope>-->
-            <!--</dependency>-->
-
-            <!--<dependency>-->
-            <!--<groupId>com.github.frtu.logs</groupId>-->
-            <!--<artifactId>tools-bom</artifactId>-->
-            <!--<version>${frtu.tools.version}</version>-->
-            <!--<type>pom</type>-->
-            <!--<scope>import</scope>-->
-            <!--</dependency>-->
-        </dependencies>
-    </dependencyManagement>
-
     <profiles>
         <!--KOTLIN MODE : https://kotlinlang.org/docs/reference/compiler-plugins.html-->
         <profile>
@@ -598,4 +553,49 @@
             </build>
         </profile>
     </profiles>
+
+    <dependencyManagement>
+        <dependencies>
+            <!-- https://kotlinlang.org/docs/reference/using-maven.html -->
+            <dependency>
+                <groupId>org.jetbrains.kotlin</groupId>
+                <artifactId>kotlin-bom</artifactId>
+                <version>${kotlin.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <!-- https://kotlinlang.org/docs/tutorials/coroutines/async-programming.html -->
+            <dependency>
+                <groupId>org.jetbrains.kotlinx</groupId>
+                <artifactId>kotlinx-coroutines-bom</artifactId>
+                <version>${kotlinx.coroutines.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <!-- Internal domain dependencies -->
+            <dependency>
+                <groupId>com.github.frtu.archetype</groupId>
+                <artifactId>kotlin-base-pom</artifactId>
+                <version>${base-pom-version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <!--ONLY NEEDED IF YOU WANT TO OVERRIDE SPRING DEPENDENCIES MGMT.-->
+            <!--<dependency>-->
+            <!--    <groupId>io.r2dbc</groupId>-->
+            <!--    <artifactId>r2dbc-bom</artifactId>-->
+            <!--    <version>${r2dbc.version}</version>-->
+            <!--    <type>pom</type>-->
+            <!--    <scope>import</scope>-->
+            <!--</dependency>-->
+
+            <!--<dependency>-->
+            <!--<groupId>com.github.frtu.logs</groupId>-->
+            <!--<artifactId>tools-bom</artifactId>-->
+            <!--<version>${frtu.tools.version}</version>-->
+            <!--<type>pom</type>-->
+            <!--<scope>import</scope>-->
+            <!--</dependency>-->
+        </dependencies>
+    </dependencyManagement>
 </project>
