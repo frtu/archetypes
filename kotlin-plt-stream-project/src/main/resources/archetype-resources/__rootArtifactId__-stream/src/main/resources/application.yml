@@ -1,0 +1,67 @@
+# ======================================
+# TOPOLOGY and EXTERNAL DEPENDENCIES
+# ======================================
+application:
+  name: ${artifactId}-stream
+  topic:
+    # Where ${domain} request is consumed : ATTENTION please put between double quote to avoid ASCII check error
+    ${domain}-source: "domain-source"
+    # Where ${domain} result is published
+    ${domain}-result: "domain-result"
+
+# ======================================
+# Spring Boot
+# ======================================
+spring:
+  application:
+    name: ${application.name}
+
+  cloud:
+    stream:
+      default-binder: kafka
+      bindings:
+        input:
+          destination: ${application.topic.domain-source}
+          group: ${domain}_events
+        # ${domain} source topic
+        ${domain}-source:
+          destination: ${application.topic.domain-source}
+          group: ${domain}_events
+        # ${domain} result topic
+        ${domain}-result:
+          destination: ${application.topic.domain-result}
+          group: ${domain}_events
+      kafka:
+        binder:
+          auto-create-topics: true
+
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+
+#  rabbitmq:
+#    host: localhost
+#    port: 5672
+#    username: admin
+#    password: admin
+
+# ======================================
+# Management
+# ======================================
+server:
+  port: 8080
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+          - info
+info:
+  app:
+    name: ${application.name}
