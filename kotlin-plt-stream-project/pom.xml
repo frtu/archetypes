@@ -20,6 +20,7 @@
         <kotlin.test.version>3.4.2</kotlin.test.version> <!-- 2019-09-21 -->
         <!-- CHECK https://search.maven.org/artifact/org.springframework.boot/spring-boot-dependencies -->
         <spring-boot.version>2.4.4</spring-boot.version> <!-- 2021-03-18 -->
+        <spring.version>5.3.5</spring.version> <!-- Associated to spring-boot -->
         <!-- CHECK https://search.maven.org/artifact/org.springframework.cloud/spring-cloud-dependencies-->
         <spring-cloud.version>Hoxton.SR10</spring-cloud.version> <!-- 2021-02-11 -->
     </properties>
@@ -52,6 +53,10 @@
                                 <replacement>
                                     <token>%KOTLIN_TEST_VERSION%</token>
                                     <value>${kotlin.test.version}</value>
+                                </replacement>
+                                <replacement>
+                                    <token>%SPRING_VERSION%</token>
+                                    <value>${spring.version}</value>
                                 </replacement>
                                 <replacement>
                                     <token>%SPRINGBOOT_VERSION%</token>
@@ -89,6 +94,10 @@
                                 <replacement>
                                     <token>%KOTLIN_TEST_VERSION%</token>
                                     <value>${kotlin.test.version}</value>
+                                </replacement>
+                                <replacement>
+                                    <token>%SPRING_VERSION%</token>
+                                    <value>${spring.version}</value>
                                 </replacement>
                                 <replacement>
                                     <token>%SPRINGBOOT_VERSION%</token>
