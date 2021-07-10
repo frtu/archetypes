@@ -14,23 +14,15 @@ import org.springframework.kafka.config.TopicBuilder
  */
 @SpringBootApplication
 class ConsumerApplication {
-    companion object {
-        const val inputSource: String = "domain-source"
-    }
 //    @Value("\${application.topic.domain-source}")
 //    lateinit var inputSource: String
 
     @Bean
     fun topic(): NewTopic {
-        return TopicBuilder.name(inputSource)
+        return TopicBuilder.name(ConsumerSource.inputSource)
             .partitions(10)
             .replicas(1)
             .build()
-    }
-
-    @KafkaListener(id = "consumer-1", topics = [inputSource])
-    fun listen(input: String?) {
-        println(input)
     }
 }
 

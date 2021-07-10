@@ -1,6 +1,7 @@
 package ${groupId}.producer
 
 import org.apache.kafka.clients.admin.NewTopic
+import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.boot.ApplicationArguments
 import org.springframework.boot.ApplicationRunner
@@ -17,22 +18,20 @@ import org.springframework.kafka.core.KafkaTemplate
  */
 @SpringBootApplication
 class ProducerApplication {
-    @Value("\${application.topic.domain-source}")
-    lateinit var outputSource: String
+    @Autowired
+    lateinit var producerSource: ProducerSource
 
     @Bean
-    fun topicEmailSource(): NewTopic? {
-        return TopicBuilder.name(outputSource)
+    fun topicSource(): NewTopic? {
+        return TopicBuilder.name(producerSource.outputSource)
             .partitions(10)
             .replicas(1)
             .build()
     }
 
     @Bean
-    fun runner(kafkaTemplate: KafkaTemplate<String?, String?>): ApplicationRunner? {
-        return ApplicationRunner { args: ApplicationArguments? ->
-            kafkaTemplate.send(outputSource, "${domain}-message")
-        }
+    fun runner(): ApplicationRunner? = ApplicationRunner { args: ApplicationArguments? ->
+        producerSource.send("${domain}-message")
     }
 }
 
