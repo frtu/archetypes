@@ -30,6 +30,7 @@
         <!--===========================-->
         <javax.persistence-api.version>2.2</javax.persistence-api.version>
         <r2dbc.version>Arabba-SR9</r2dbc.version>
+        <testcontainers.version>1.15.3</testcontainers.version> <!-- 2021-04-15 -->
         <!--===========================-->
         <!-- https://kotlinlang.org/docs/reference/using-maven.html -->
         <kotlin.version>${kotlin-version}</kotlin.version>
@@ -278,6 +279,25 @@
             <artifactId>reactor-test</artifactId>
             <scope>test</scope>
         </dependency>
+
+        <!--===========================-->
+        <!-- testcontainers - Virtualization -->
+        <!--===========================-->
+        <!--<dependency>-->
+        <!--    <groupId>org.testcontainers</groupId>-->
+        <!--    <artifactId>junit-jupiter</artifactId>-->
+        <!--    <scope>test</scope>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+        <!--    <groupId>org.testcontainers</groupId>-->
+        <!--    <artifactId>testcontainers</artifactId>-->
+        <!--    <scope>test</scope>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+        <!--    <groupId>org.testcontainers</groupId>-->
+        <!--    <artifactId>kafka</artifactId>-->
+        <!--    <scope>test</scope>-->
+        <!--</dependency>-->
 
         <!--===========================-->
         <!-- Platform - Lombok and Logback -->
@@ -640,6 +660,14 @@
             <!--<type>pom</type>-->
             <!--<scope>import</scope>-->
             <!--</dependency>-->
+
+            <dependency>
+                <groupId>org.testcontainers</groupId>
+                <artifactId>testcontainers-bom</artifactId>
+                <version>${testcontainers.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 </project>

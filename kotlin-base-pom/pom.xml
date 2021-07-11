@@ -1,4 +1,5 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.github.frtu.archetype</groupId>
@@ -18,19 +19,21 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
-        <!-- Use this version as 5.5.1 doesn't allow to find test-->
-        <junit-jupiter.version>5.7.1</junit-jupiter.version> <!-- 2021-02-05 -->
         <frtu.logger.version>1.1.2</frtu.logger.version>
+        <!--=========================== -->
+        <junit-jupiter.version>5.7.1</junit-jupiter.version> <!-- 2021-02-05 -->
+        <!-- https://search.maven.org/artifact/org.assertj/assertj-core -->
+        <assertj.version>3.19.0</assertj.version> <!-- 2021-01-24 -->
+        <mockk.version>1.11.0</mockk.version> <!-- 2021-03-17 -->
+        <springmockk.version>3.0.1</springmockk.version> <!-- 2020-12-30 -->
+        <awaitility.version>4.0.3</awaitility.version>
+        <testcontainers.version>1.15.3</testcontainers.version> <!-- 2021-04-15 -->
         <!--=========================== -->
         <!-- https://kotlinlang.org/docs/reference/using-maven.html -->
         <kotlin.version>1.4.32</kotlin.version> <!-- 2021-03-22 -->
         <kotlinx.coroutines.version>1.4.3</kotlinx.coroutines.version> <!-- 2021-03-03 -->
         <kotlin.test.version>3.4.2</kotlin.test.version> <!-- 2019-09-21 -->
         <jackson.version>2.12.2</jackson.version> <!-- 2021-03-04 -->
-        <mockk.version>1.11.0</mockk.version> <!-- 2021-03-17 -->
-        <springmockk.version>3.0.1</springmockk.version> <!-- 2020-12-30 -->
-        <!-- https://search.maven.org/artifact/org.assertj/assertj-core -->
-        <assertj.version>3.19.0</assertj.version> <!-- 2021-01-24 -->
         <!--=========================== -->
         <r2dbc.version>Arabba-SR9</r2dbc.version> <!-- 2021-02-25 -->
         <!--=========================== -->
@@ -123,6 +126,21 @@
                 <artifactId>assertj-core</artifactId>
                 <version>${assertj.version}</version>
                 <scope>test</scope>
+            </dependency>
+            <!-- https://github.com/awaitility/awaitility/wiki/Usage -->
+            <dependency>
+                <groupId>org.awaitility</groupId>
+                <artifactId>awaitility</artifactId>
+                <version>${awaitility.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <!-- https://www.testcontainers.org/ -->
+            <dependency>
+                <groupId>org.testcontainers</groupId>
+                <artifactId>testcontainers-bom</artifactId>
+                <version>${testcontainers.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
             </dependency>
 
             <!--===========================-->
