@@ -53,6 +53,8 @@
 
     <!--Use this version when Spring doesn't start because of Bean inits -->
     <springProfile name="debug">
+        <!--DevToolsPropertyDefaultsPostProcessor-->
+        <logger name="logging.level.web" level="DEBUG" additivity="true"/>
         <!--Scanned properties-->
         <logger name="org.springframework.boot.context.config" level="DEBUG" additivity="true"/>
         <!--Scanned annotations-->
