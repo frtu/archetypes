@@ -20,7 +20,7 @@ class IntegrationTests(@Autowired val restTemplate: TestRestTemplate) {
     @Test
     fun `Assert url and status code`() {
         println(">> Assert url and status code")
-        val entity = restTemplate.getForEntity<String>("/")
+        val entity = restTemplate.getForEntity<String>("/v1/resources/1234")
         assertThat(entity.statusCode).isEqualTo(HttpStatus.OK)
     }
 
