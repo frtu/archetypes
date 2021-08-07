@@ -423,7 +423,7 @@
                 <configuration>
                     <!-- List of visitors : https://spotbugs-in-kengo-toda.readthedocs.io/en/lqc-list-detectors/detectors.html#standard-detectors-->
                     <!-- Detailed descriptions : http://findbugs.sourceforge.net/bugDescriptions.html -->
-                    <omitVisitors>FindNullDeref,FindBadCast2</omitVisitors>
+                    <omitVisitors>FindNullDeref,FindBadCast2,CheckRelaxingNullnessAnnotation,InconsistentAnnotations,NoteUnconditionalParamDerefs,OptionalReturnNull,SynchronizeAndNullCheckField,BooleanReturnNull</omitVisitors>
                 </configuration>
             </plugin>
             <!-- Generate source jar -->
