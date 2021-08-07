@@ -18,6 +18,8 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
+        <!--===========================-->
+        <spring-boot.version>${spring-boot-version}</spring-boot.version>
         <!-- https://search.maven.org/artifact/org.springdoc/springdoc-openapi-ui/1.5.4/jar -->
         <springdoc.version>1.5.4</springdoc.version>
         <!--<frtu.tools.version>1.0.2</frtu.tools.version>-->
@@ -589,6 +591,14 @@
 
     <dependencyManagement>
         <dependencies>
+            <!-- Spring Boot and Platform -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring-boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
             <!-- https://kotlinlang.org/docs/reference/using-maven.html -->
             <dependency>
                 <groupId>org.jetbrains.kotlin</groupId>
