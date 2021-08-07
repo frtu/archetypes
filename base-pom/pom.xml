@@ -39,61 +39,10 @@
         <avro.version>1.8.2</avro.version>
         <!--https://github.com/ronmamo/reflections : >0.9.12 migrate to jdk8-->
         <reflections.version>0.9.12</reflections.version>
-        <!--===========================-->
-        <frtu.lib.version>1.1.0</frtu.lib.version>
-        <frtu.logger.version>1.1.2</frtu.logger.version>
-        <frtu.simple-scan.version>0.2.0</frtu.simple-scan.version>
     </properties>
-
 
     <dependencyManagement>
         <dependencies>
-            <!-- frtu-libraries -->
-            <dependency>
-                <groupId>com.github.frtu.libs</groupId>
-                <artifactId>lib-mail</artifactId>
-                <version>${frtu.lib.version}</version>
-            </dependency>
-
-            <!-- governance-libraries -->
-            <dependency>
-                <groupId>com.github.frtu.governance</groupId>
-                <artifactId>library-dot</artifactId>
-                <version>${frtu.lib.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.github.frtu.governance</groupId>
-                <artifactId>library-spring-reflection</artifactId>
-                <version>${frtu.lib.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.github.frtu.governance</groupId>
-                <artifactId>library-generators</artifactId>
-                <version>${frtu.lib.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.github.frtu.governance</groupId>
-                <artifactId>library-utils</artifactId>
-                <version>${frtu.lib.version}</version>
-            </dependency>
-            <!-- Directory scanner -->
-            <dependency>
-                <groupId>com.github.frtu.simple</groupId>
-                <artifactId>simple-scan</artifactId>
-                <version>${frtu.simple-scan.version}</version>
-            </dependency>
-            
-            <!--===========================-->
-            <!-- Platform - Log -->
-            <!--===========================-->
-            <dependency>
-                <groupId>com.github.frtu.logs</groupId>
-                <artifactId>logger-bom</artifactId>
-                <version>${frtu.logger.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-
             <!-- Common libs -->
             <dependency>
                 <groupId>org.projectlombok</groupId>
@@ -230,25 +179,6 @@
                 <version>${easymock.version}</version>
                 <scope>test</scope>
             </dependency>
-
-            <!--===========================-->
-            <!-- Spring -> BETTER IMPORTED BY EACH CHILD PROJECT -->
-            <!--===========================-->
-            <!--<dependency>-->
-            <!--    <groupId>org.springframework</groupId>-->
-            <!--    <artifactId>spring-framework-bom</artifactId>-->
-            <!--    <version>${spring.version}</version>-->
-            <!--    <type>pom</type>-->
-            <!--    <scope>import</scope>-->
-            <!--</dependency>-->
-            <!--&lt;!&ndash; Spring Boot and Platform &ndash;&gt;-->
-            <!--<dependency>-->
-            <!--    <groupId>org.springframework.boot</groupId>-->
-            <!--    <artifactId>spring-boot-dependencies</artifactId>-->
-            <!--    <version>${spring-boot.version}</version>-->
-            <!--    <type>pom</type>-->
-            <!--    <scope>import</scope>-->
-            <!--</dependency>-->
         </dependencies>
     </dependencyManagement>
 

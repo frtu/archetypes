@@ -1,0 +1,69 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.github.frtu.archetype</groupId>
+        <artifactId>base-pom</artifactId>
+        <version>1.2.1-SNAPSHOT</version>
+        <relativePath>../base-pom/pom.xml</relativePath>
+    </parent>
+
+    <artifactId>base-extended-pom</artifactId>
+    <packaging>pom</packaging>
+
+    <name>Parent pom for base JARs and all libraries</name>
+    <description>A parent pom for all the base JARs and all libraries</description>
+
+    <properties>
+        <frtu.lib.version>1.1.2</frtu.lib.version>
+        <frtu.logger.version>1.1.2</frtu.logger.version>
+        <frtu.simple-scan.version>0.2.0</frtu.simple-scan.version>
+    </properties>
+
+
+    <dependencyManagement>
+        <dependencies>
+            <!-- frtu-libraries -->
+            <dependency>
+                <groupId>com.github.frtu.libs</groupId>
+                <artifactId>lib-java-bom</artifactId>
+                <version>${frtu.lib.version}</version>
+            </dependency>
+            <!-- Directory scanner -->
+            <dependency>
+                <groupId>com.github.frtu.simple</groupId>
+                <artifactId>simple-scan</artifactId>
+                <version>${frtu.simple-scan.version}</version>
+            </dependency>
+
+            <!--===========================-->
+            <!-- Platform - Log -->
+            <!--===========================-->
+            <dependency>
+                <groupId>com.github.frtu.logs</groupId>
+                <artifactId>logger-bom</artifactId>
+                <version>${frtu.logger.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <!--===========================-->
+            <!-- Spring -> BETTER IMPORTED BY EACH CHILD PROJECT -->
+            <!--===========================-->
+            <!--<dependency>-->
+            <!--    <groupId>org.springframework</groupId>-->
+            <!--    <artifactId>spring-framework-bom</artifactId>-->
+            <!--    <version>${spring.version}</version>-->
+            <!--    <type>pom</type>-->
+            <!--    <scope>import</scope>-->
+            <!--</dependency>-->
+            <!--&lt;!&ndash; Spring Boot and Platform &ndash;&gt;-->
+            <!--<dependency>-->
+            <!--    <groupId>org.springframework.boot</groupId>-->
+            <!--    <artifactId>spring-boot-dependencies</artifactId>-->
+            <!--    <version>${spring-boot.version}</version>-->
+            <!--    <type>pom</type>-->
+            <!--    <scope>import</scope>-->
+            <!--</dependency>-->
+        </dependencies>
+    </dependencyManagement>
+</project>

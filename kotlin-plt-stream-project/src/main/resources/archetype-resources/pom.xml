@@ -7,7 +7,7 @@
     <!--============================================================================================================-->
     <parent>
         <groupId>com.github.frtu.archetype</groupId>
-        <artifactId>kotlin-base-pom</artifactId>
+        <artifactId>kotlin-extended-pom</artifactId>
         <version>${base-pom-version}</version>
     </parent>
 
@@ -24,7 +24,7 @@
             <!--===============================================================================-->
             <!--<dependency>-->
             <!--    <groupId>com.github.frtu.archetype</groupId>-->
-            <!--    <artifactId>kotlin-base-pom</artifactId>-->
+            <!--    <artifactId>kotlin-extended-pom</artifactId>-->
             <!--    <version>${base-pom-version}</version>-->
             <!--    <type>pom</type>-->
             <!--    <scope>import</scope>-->

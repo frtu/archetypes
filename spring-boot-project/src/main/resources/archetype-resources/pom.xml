@@ -303,7 +303,7 @@
             <!-- Internal domain dependencies -->
             <dependency>
                 <groupId>com.github.frtu.archetype</groupId>
-                <artifactId>base-pom</artifactId>
+                <artifactId>base-extended-pom</artifactId>
                 <version>${base-pom-version}</version>
                 <type>pom</type>
                 <scope>import</scope>

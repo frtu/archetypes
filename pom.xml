@@ -23,9 +23,11 @@
 
     <modules>
         <module>base-pom</module>
+        <module>base-extended-pom</module>
         <module>base-project</module>
         <module>spring-boot-project</module>
         <module>kotlin-base-pom</module>
+        <module>kotlin-extended-pom</module>
         <module>kotlin-project</module>
         <module>kotlin-spring-boot-project</module>
         <module>kotlin-plt-stream-project</module>

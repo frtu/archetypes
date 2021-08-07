@@ -1,0 +1,43 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.github.frtu.archetype</groupId>
+        <artifactId>kotlin-base-pom</artifactId>
+        <version>1.2.1-SNAPSHOT</version>
+        <relativePath>../kotlin-base-pom/pom.xml</relativePath>
+    </parent>
+
+    <artifactId>kotlin-extended-pom</artifactId>
+    <packaging>pom</packaging>
+
+    <name>Parent pom for base JARs using Kotlin and all libraries</name>
+    <description>A parent pom for all the base JARs using Kotlin and all libraries</description>
+
+    <properties>
+        <frtu.lib.version>1.1.2</frtu.lib.version>
+        <frtu.logger.version>1.1.2</frtu.logger.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <!-- frtu-libraries -->
+            <dependency>
+                <groupId>com.github.frtu.libs</groupId>
+                <artifactId>lib-kotlin-bom</artifactId>
+                <version>${frtu.lib.version}</version>
+            </dependency>
+
+            <!--===========================-->
+            <!-- Platform - Log -->
+            <!--===========================-->
+            <dependency>
+                <groupId>com.github.frtu.logs</groupId>
+                <artifactId>logger-bom</artifactId>
+                <version>${frtu.logger.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+</project>
