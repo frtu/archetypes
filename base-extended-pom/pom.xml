@@ -28,6 +28,8 @@
                 <groupId>com.github.frtu.libs</groupId>
                 <artifactId>lib-java-bom</artifactId>
                 <version>${frtu.lib.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
             </dependency>
             <!-- Directory scanner -->
             <dependency>

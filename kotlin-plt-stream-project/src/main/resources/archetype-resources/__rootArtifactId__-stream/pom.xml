@@ -305,6 +305,11 @@
             <groupId>com.github.frtu.logs</groupId>
             <artifactId>logger-core</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.github.frtu.libs</groupId>
+            <artifactId>lib-utils</artifactId>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
     <build>
@@ -494,12 +499,12 @@
                 </executions>
             </plugin>
             <!-- Generate Javadocs : https://github.com/Kotlin/dokka -->
-            <!-- Info -->
-            <plugin>
-                <groupId>pl.project13.maven</groupId>
-                <artifactId>git-commit-id-plugin</artifactId>
-                <version>2.2.1</version>
-            </plugin>
+            <!-- UNCOMMENT IF THE PROJECT IS HAS A GIT FOLDER -->
+            <!--<plugin>-->
+            <!--    <groupId>pl.project13.maven</groupId>-->
+            <!--    <artifactId>git-commit-id-plugin</artifactId>-->
+            <!--    <version>2.2.1</version>-->
+            <!--</plugin>-->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-resources-plugin</artifactId>

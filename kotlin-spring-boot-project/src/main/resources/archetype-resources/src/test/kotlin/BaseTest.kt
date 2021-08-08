@@ -1,5 +1,6 @@
 package ${groupId}
 
+import com.github.frtu.kotlin.utils.BeanHelper
 import io.mockk.every
 import io.mockk.impl.annotations.MockK
 import io.mockk.junit5.MockKExtension
@@ -30,7 +31,7 @@ internal class BaseTest {
         //--------------------------------------
         // 1. Init
         //--------------------------------------
-        var captured:String? = null
+        var captured: String? = null
         val consumer: Consumer<String> = Consumer { str ->
             captured = str
         }
@@ -51,5 +52,17 @@ internal class BaseTest {
         assertThrows<IllegalStateException>("Testing negative state") {
             throw IllegalStateException()
         }
+    }
+
+    @Test
+    fun `Reading data`() {
+        //--------------------------------------
+        // 1. Init
+        //--------------------------------------
+        val text = BeanHelper().readFromFile("classpath:data/sample.txt")
+        //--------------------------------------
+        // 3. Validate
+        //--------------------------------------
+        assertThat(text).isEqualTo("text")
     }
 }
