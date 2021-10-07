@@ -9,6 +9,9 @@ application:
     # Where ${domain} result is published
     ${domain}-result: "domain-result"
 
+prefix:
+  key1: value1
+
 # ======================================
 # Spring Boot
 # ======================================
