@@ -91,6 +91,10 @@
             <artifactId>logger-core</artifactId>
         </dependency>
         <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+        </dependency>
+        <dependency>
             <groupId>com.github.frtu.libs</groupId>
             <artifactId>lib-utils</artifactId>
             <scope>test</scope>
