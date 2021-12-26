@@ -15,8 +15,8 @@
 
     <properties>
         <!-- CHECK https://search.maven.org/artifact/org.jetbrains.kotlin/kotlin-bom -->
-        <kotlin.version>1.4.32</kotlin.version> <!-- 2021-03-22 -->
-        <kotlinx.version>1.4.3</kotlinx.version> <!-- 2021-03-03 -->
+        <kotlin.version>1.6.10</kotlin.version> <!-- 2021-12-14 -->
+        <kotlinx.version>1.6.0</kotlinx.version> <!-- 2021-12-22 -->
         <kotlin.test.version>3.4.2</kotlin.test.version> <!-- 2019-09-21 -->
     </properties>
     <build>
