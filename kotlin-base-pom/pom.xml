@@ -63,7 +63,7 @@
             <dependency>
                 <groupId>org.jetbrains.kotlinx</groupId>
                 <artifactId>kotlinx-coroutines-bom</artifactId>
-                <version>${kotlinx.coroutines.version}</version>
+                <version>${kotlinx.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
