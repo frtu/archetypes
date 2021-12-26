@@ -18,8 +18,8 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
         <!--===========================-->
-        <base-pom.version>1.2.0-SNAPSHOT</base-pom.version>
-        <frtu.logger.version>1.1.2</frtu.logger.version>
+        <base-pom.version>1.2.2</base-pom.version>
+        <frtu.logger.version>1.1.4</frtu.logger.version>
         <!--===========================-->
         <spring-boot.version>${spring-boot-version}</spring-boot.version>
         <spring-cloud.version>${spring-cloud-version}</spring-cloud.version>
@@ -33,7 +33,7 @@
         <!--===========================-->
         <!-- https://kotlinlang.org/docs/reference/using-maven.html -->
         <kotlin.version>${kotlin-version}</kotlin.version>
-        <kotlinx.coroutines.version>${kotlinx-version}</kotlinx.coroutines.version>
+        <kotlinx.version>${kotlinx-version}</kotlinx.version>
         <kotlin.test.version>${kotlin-test-version}</kotlin.test.version>
         <!-- CHECK FOR COMPILER PROPS : https://kotlinlang.org/docs/reference/using-maven.html#attributes-common-for-jvm-and-js-->
         <kotlin.code.style>official</kotlin.code.style>
@@ -630,7 +630,7 @@
             <dependency>
                 <groupId>org.jetbrains.kotlinx</groupId>
                 <artifactId>kotlinx-coroutines-bom</artifactId>
-                <version>${kotlinx.coroutines.version}</version>
+                <version>${kotlinx.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
