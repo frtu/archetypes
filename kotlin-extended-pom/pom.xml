@@ -14,16 +14,24 @@
     <description>A parent pom for all the base JARs using Kotlin and all libraries</description>
 
     <properties>
-        <frtu.lib.version>1.1.4</frtu.lib.version>
+        <frtu.lib.version>1.1.5</frtu.lib.version>
         <frtu.logger.version>1.1.4</frtu.logger.version>
     </properties>
 
     <dependencyManagement>
         <dependencies>
-            <!-- frtu-libraries -->
+            <!-- frtu-libraries dedicated to Kotlin -->
             <dependency>
                 <groupId>com.github.frtu.libs</groupId>
                 <artifactId>lib-kotlin-bom</artifactId>
+                <version>${frtu.lib.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <!-- frtu-libraries for Java -->
+            <dependency>
+                <groupId>com.github.frtu.libs</groupId>
+                <artifactId>lib-java-bom</artifactId>
                 <version>${frtu.lib.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
