@@ -14,7 +14,7 @@
     <description>A parent pom for all the base JARs using Kotlin and all libraries</description>
 
     <properties>
-        <frtu.lib.version>1.1.5</frtu.lib.version>
+        <frtu.libs.version>1.1.5</frtu.libs.version>
         <frtu.logger.version>1.1.4</frtu.logger.version>
     </properties>
 
@@ -24,7 +24,7 @@
             <dependency>
                 <groupId>com.github.frtu.libs</groupId>
                 <artifactId>lib-kotlin-bom</artifactId>
-                <version>${frtu.lib.version}</version>
+                <version>${frtu.libs.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -32,7 +32,7 @@
             <dependency>
                 <groupId>com.github.frtu.libs</groupId>
                 <artifactId>lib-java-bom</artifactId>
-                <version>${frtu.lib.version}</version>
+                <version>${frtu.libs.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
