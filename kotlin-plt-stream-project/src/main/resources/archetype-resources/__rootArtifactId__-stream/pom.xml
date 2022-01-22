@@ -44,6 +44,10 @@
         <kotlin.plugin.dep>kotlin-maven-noarg</kotlin.plugin.dep>
         <!-- <kotlin.plugin.dep>kotlin-maven-sam-with-receiver</kotlin.plugin.dep>-->
         <!-- <kotlin.mode>sam-with-receiver</kotlin.mode>-->
+        <!--===========================-->
+        <!-- https://github.com/eclipse/jkube/tree/master/quickstarts/maven/docker-file-simple -->
+        <jkube.version>1.5.1</jkube.version>
+        <jkube.enricher.jkube-service.type>NodePort</jkube.enricher.jkube-service.type>
     </properties>
 
     <dependencies>
@@ -517,6 +521,26 @@
                     <useDefaultDelimiters>false</useDefaultDelimiters>
                 </configuration>
             </plugin>
+            <!-- https://github.com/eclipse/jkube/tree/master/quickstarts/maven/docker-file-simple -->
+            <plugin>
+                <groupId>org.eclipse.jkube</groupId>
+                <artifactId>kubernetes-maven-plugin</artifactId>
+                <version>${jkube.version}</version>
+                <executions>
+                    <execution>
+                        <id>default</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>build</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <buildArgs>
+                        <JAR_FILE>${project.build.finalName}.jar</JAR_FILE>
+                    </buildArgs>
+                </configuration>
+            </plugin>
         </plugins>
         <pluginManagement>
             <plugins>
@@ -594,6 +618,47 @@
                                 <version>${kotlin.version}</version>
                             </dependency>
                         </dependencies>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <!-- https://github.com/eclipse/jkube/blob/master/quickstarts/maven/docker-file-provided/pom.xml#L101-L125 -->
+        <profile>
+            <id>registry-k8s</id>
+            <properties>
+                <docker.image.prefix>myregistry-127-0-0-1.nip.io:5000</docker.image.prefix>
+            </properties>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.eclipse.jkube</groupId>
+                        <artifactId>kubernetes-maven-plugin</artifactId>
+                        <version>${jkube.version}</version>
+                        <executions>
+                            <execution>
+                                <id>default</id>
+                                <phase>verify</phase>
+                                <goals>
+                                    <goal>resource</goal>
+                                    <goal>build</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                        <configuration>
+                            <images>
+                                <image>
+                                    <name>${docker.image.prefix}/${project.artifactId}:${project.version}</name>
+                                    <build>
+                                        <!-- https://www.eclipse.org/jkube/docs/kubernetes-maven-plugin#external-dockerfile -->
+                                        <dockerFile>${project.basedir}/Dockerfile</dockerFile>
+                                        <filter>@</filter>
+                                    </build>
+                                </image>
+                            </images>
+                            <buildArgs>
+                                <JAR_FILE>${project.build.finalName}.jar</JAR_FILE>
+                            </buildArgs>
+                        </configuration>
                     </plugin>
                 </plugins>
             </build>

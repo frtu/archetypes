@@ -24,6 +24,10 @@
         <!-- <springfox.version>3.0.0</springfox.version> -->
 
         <!--<frtu.tools.version>1.0.2</frtu.tools.version>-->
+        <!--===========================-->
+        <!-- https://github.com/eclipse/jkube/tree/master/quickstarts/maven/docker-file-simple -->
+        <jkube.version>1.5.1</jkube.version>
+        <jkube.enricher.jkube-service.type>NodePort</jkube.enricher.jkube-service.type>
     </properties>
 
     <dependencies>
@@ -283,10 +287,11 @@
                     </excludes>
                 </configuration>
             </plugin>
+            <!-- https://github.com/eclipse/jkube/tree/master/quickstarts/maven/docker-file-simple -->
             <plugin>
-                <groupId>com.spotify</groupId>
-                <artifactId>docker-maven-plugin</artifactId>
-                <version>1.2.2</version>
+                <groupId>org.eclipse.jkube</groupId>
+                <artifactId>kubernetes-maven-plugin</artifactId>
+                <version>${jkube.version}</version>
                 <executions>
                     <execution>
                         <id>default</id>
@@ -297,19 +302,6 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <imageName>${project.artifactId}</imageName>
-                    <dockerDirectory>src/main/docker</dockerDirectory>
-                    <imageTags>
-                        <imageTag>${project.version}</imageTag>
-                        <imageTag>latest</imageTag>
-                    </imageTags>
-                    <resources>
-                        <resource>
-                            <targetPath>/</targetPath>
-                            <directory>${project.build.directory}</directory>
-                            <include>${project.build.finalName}.jar</include>
-                        </resource>
-                    </resources>
                     <buildArgs>
                         <JAR_FILE>${project.build.finalName}.jar</JAR_FILE>
                     </buildArgs>
@@ -350,4 +342,47 @@
             <!--</dependency>-->
         </dependencies>
     </dependencyManagement>
+    <profiles>
+        <!-- https://github.com/eclipse/jkube/blob/master/quickstarts/maven/docker-file-provided/pom.xml#L101-L125 -->
+        <profile>
+            <id>registry-k8s</id>
+            <properties>
+                <docker.image.prefix>myregistry-127-0-0-1.nip.io:5000</docker.image.prefix>
+            </properties>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.eclipse.jkube</groupId>
+                        <artifactId>kubernetes-maven-plugin</artifactId>
+                        <version>${jkube.version}</version>
+                        <executions>
+                            <execution>
+                                <id>default</id>
+                                <phase>verify</phase>
+                                <goals>
+                                    <goal>resource</goal>
+                                    <goal>build</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                        <configuration>
+                            <images>
+                                <image>
+                                    <name>${docker.image.prefix}/${project.artifactId}:${project.version}</name>
+                                    <build>
+                                        <!-- https://www.eclipse.org/jkube/docs/kubernetes-maven-plugin#external-dockerfile -->
+                                        <dockerFile>${project.basedir}/Dockerfile</dockerFile>
+                                        <filter>@</filter>
+                                    </build>
+                                </image>
+                            </images>
+                            <buildArgs>
+                                <JAR_FILE>${project.build.finalName}.jar</JAR_FILE>
+                            </buildArgs>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 </project>
