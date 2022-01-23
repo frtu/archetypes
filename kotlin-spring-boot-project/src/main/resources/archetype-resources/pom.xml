@@ -587,6 +587,10 @@
         <!-- https://github.com/eclipse/jkube/blob/master/quickstarts/maven/docker-file-provided/pom.xml#L101-L125 -->
         <profile>
             <id>registry-k8s</id>
+            <activation>
+                <!-- if this profile is active by default -->
+                <activeByDefault>false</activeByDefault>
+            </activation>
             <properties>
                 <docker.registry>myregistry-127-0-0-1.nip.io:5000</docker.registry>
             </properties>
@@ -611,7 +615,7 @@
                                 <image>
                                     <!-- https://www.eclipse.org/jkube/docs/kubernetes-maven-plugin#registry -->
                                     <registry>${docker.registry}</registry>
-                                    <name>${docker.registry}/${project.artifactId}:${project.version}</name>
+                                    <name>${project.artifactId}:${project.version}</name>
                                     <build>
                                         <!-- https://www.eclipse.org/jkube/docs/kubernetes-maven-plugin#external-dockerfile -->
                                         <dockerFile>${project.basedir}/Dockerfile</dockerFile>
