@@ -30,6 +30,7 @@
         <module>kotlin-extended-pom</module>
         <module>kotlin-project</module>
         <module>kotlin-spring-boot-project</module>
+        <module>kotlin-spring-boot-1x-project</module>
         <module>kotlin-plt-stream-project</module>
 
         <!-- <module>plt-webflux-project</module>-->
