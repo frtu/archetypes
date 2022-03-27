@@ -48,6 +48,8 @@
         <!-- https://github.com/eclipse/jkube/tree/master/quickstarts/maven/docker-file-simple -->
         <jkube.version>1.5.1</jkube.version>
         <jkube.enricher.jkube-service.type>NodePort</jkube.enricher.jkube-service.type>
+        <!--===========================-->
+        <!-- <activiti.version>5.23.0</activiti.version>-->
     </properties>
 
     <dependencies>
@@ -107,6 +109,30 @@
         <!--    <groupId>org.springframework.boot</groupId>-->
         <!--    <artifactId>spring-boot-starter-thymeleaf</artifactId>-->
         <!--</dependency>-->
+
+        <!--===========================-->
+        <!-- Workflow -->
+        <!--===========================-->
+        <!-- <dependency> -->
+        <!--   <groupId>org.activiti</groupId> -->
+        <!--   <artifactId>activiti-spring-boot-starter-basic</artifactId> -->
+        <!--     <version>${activiti.version}</version> -->
+        <!-- </dependency> -->
+        <!-- <dependency> -->
+        <!--   <groupId>org.activiti</groupId> -->
+        <!--   <artifactId>activiti-spring-boot-starter-rest-api</artifactId> -->
+        <!--     <version>${activiti.version}</version> -->
+        <!-- </dependency> -->
+        <!-- <dependency> -->
+        <!--     <groupId>org.activiti</groupId> -->
+        <!--     <artifactId>activiti-spring-boot-starter-actuator</artifactId> -->
+        <!--     <version>${activiti.version}</version> -->
+        <!-- </dependency> -->
+        <!-- <dependency> -->
+        <!--     <groupId>org.activiti</groupId> -->
+        <!--     <artifactId>activiti-spring-boot-starter-jpa</artifactId> -->
+        <!--     <version>${activiti.version}</version> -->
+        <!-- </dependency> -->
 
         <!--===========================-->
         <!-- Utilities -->
