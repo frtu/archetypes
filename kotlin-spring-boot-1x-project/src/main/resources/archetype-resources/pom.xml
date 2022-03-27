@@ -22,10 +22,12 @@
         <spring-boot.version>${spring-boot-version}</spring-boot.version>
         <!-- https://search.maven.org/artifact/org.springdoc/springdoc-openapi-ui/1.5.4/jar -->
         <springdoc.version>1.5.4</springdoc.version>
-        <!--<frtu.tools.version>1.0.2</frtu.tools.version>-->
+        <!--===========================-->
+        <frtu.base-pom.version>${base-pom-version}</frtu.base-pom.version>
+        <frtu.libs.version>1.1.5</frtu.libs.version>
+        <frtu.logger.version>1.1.4</frtu.logger.version>
         <!--===========================-->
         <javax.persistence-api.version>2.2</javax.persistence-api.version>
-        <r2dbc.version>Arabba-SR9</r2dbc.version>
         <!--===========================-->
         <!-- https://kotlinlang.org/docs/reference/using-maven.html -->
         <kotlin.version>${kotlin-version}</kotlin.version>
@@ -54,13 +56,13 @@
         <!--===========================-->
         <!-- SYNCHRONOUS-->
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
+           <groupId>org.springframework.boot</groupId>
+           <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.springdoc</groupId>
-            <artifactId>springdoc-openapi-ui</artifactId>
-            <version>${springdoc.version}</version>
+           <groupId>org.springdoc</groupId>
+           <artifactId>springdoc-openapi-ui</artifactId>
+           <version>${springdoc.version}</version>
         </dependency>
 
         <!-- JPA 1/3 -->
@@ -547,13 +549,13 @@
             <dependency>
                 <groupId>com.github.frtu.logs</groupId>
                 <artifactId>logger-core</artifactId>
-                <version>1.1.4</version>
+                <version>${frtu.logger.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.github.frtu.libs</groupId>
                 <artifactId>lib-utils</artifactId>
                 <scope>test</scope>
-                <version>1.1.5</version>
+                <version>${frtu.libs.version}</version>
             </dependency>
             <dependency>
                 <groupId>io.mockk</groupId>
