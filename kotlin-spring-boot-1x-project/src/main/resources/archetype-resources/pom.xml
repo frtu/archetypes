@@ -58,24 +58,24 @@
         <!--===========================-->
         <!-- SYNCHRONOUS-->
         <dependency>
-           <groupId>org.springframework.boot</groupId>
-           <artifactId>spring-boot-starter-web</artifactId>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
         <dependency>
-           <groupId>org.springdoc</groupId>
-           <artifactId>springdoc-openapi-ui</artifactId>
-           <version>${springdoc.version}</version>
+            <groupId>org.springdoc</groupId>
+            <artifactId>springdoc-openapi-ui</artifactId>
+            <version>${springdoc.version}</version>
         </dependency>
 
         <!-- JPA 1/3 -->
         <dependency>
-           <groupId>org.springframework.boot</groupId>
-           <artifactId>spring-boot-starter-data-jpa</artifactId>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
         </dependency>
         <dependency>
-           <groupId>com.h2database</groupId>
-           <artifactId>h2</artifactId>
-           <scope>runtime</scope>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <scope>runtime</scope>
         </dependency>
 
         <!-- PERSISTANCE -->
@@ -113,26 +113,26 @@
         <!--===========================-->
         <!-- Workflow -->
         <!--===========================-->
-        <!-- <dependency> -->
-        <!--   <groupId>org.activiti</groupId> -->
-        <!--   <artifactId>activiti-spring-boot-starter-basic</artifactId> -->
-        <!--     <version>${activiti.version}</version> -->
-        <!-- </dependency> -->
-        <!-- <dependency> -->
-        <!--   <groupId>org.activiti</groupId> -->
-        <!--   <artifactId>activiti-spring-boot-starter-rest-api</artifactId> -->
-        <!--     <version>${activiti.version}</version> -->
-        <!-- </dependency> -->
-        <!-- <dependency> -->
-        <!--     <groupId>org.activiti</groupId> -->
-        <!--     <artifactId>activiti-spring-boot-starter-actuator</artifactId> -->
-        <!--     <version>${activiti.version}</version> -->
-        <!-- </dependency> -->
-        <!-- <dependency> -->
-        <!--     <groupId>org.activiti</groupId> -->
-        <!--     <artifactId>activiti-spring-boot-starter-jpa</artifactId> -->
-        <!--     <version>${activiti.version}</version> -->
-        <!-- </dependency> -->
+        <!--<dependency>-->
+        <!--    <groupId>org.activiti</groupId>-->
+        <!--    <artifactId>activiti-spring-boot-starter-basic</artifactId>-->
+        <!--    <version>${activiti.version}</version>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+        <!--    <groupId>org.activiti</groupId>-->
+        <!--    <artifactId>activiti-spring-boot-starter-rest-api</artifactId>-->
+        <!--    <version>${activiti.version}</version>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+        <!--    <groupId>org.activiti</groupId>-->
+        <!--    <artifactId>activiti-spring-boot-starter-actuator</artifactId>-->
+        <!--    <version>${activiti.version}</version>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+        <!--    <groupId>org.activiti</groupId>-->
+        <!--    <artifactId>activiti-spring-boot-starter-jpa</artifactId>-->
+        <!--    <version>${activiti.version}</version>-->
+        <!--</dependency>-->
 
         <!--===========================-->
         <!-- Utilities -->
@@ -298,9 +298,9 @@
                         <version>${kotlin.version}</version>
                     </dependency>
                     <dependency>
-                      <groupId>org.jetbrains.kotlin</groupId>
-                      <artifactId>kotlin-maven-noarg</artifactId>
-                      <version>${kotlin.version}</version>
+                        <groupId>org.jetbrains.kotlin</groupId>
+                        <artifactId>kotlin-maven-noarg</artifactId>
+                        <version>${kotlin.version}</version>
                     </dependency>
                 </dependencies>
                 <executions>

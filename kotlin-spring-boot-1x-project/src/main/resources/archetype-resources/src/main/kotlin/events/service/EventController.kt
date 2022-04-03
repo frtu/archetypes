@@ -18,11 +18,11 @@ class EventController(val repository: EventRepository) {
         repository.findById(id)
 
     @PutMapping("/{id}")
-    fun updateCustomer(@PathVariable id: Long, @RequestBody event: Event) {
+    fun updateEvent(@PathVariable id: Long, @RequestBody event: Event) {
         assert(event.id == id)
         repository.save(event)
     }
 
     @DeleteMapping("/{id}")
-    fun removeCustomer(@PathVariable id: Long) = repository.deleteById(id)
+    fun removeEvent(@PathVariable id: Long) = repository.deleteById(id)
 }
