@@ -12,6 +12,9 @@
         <requiredProperty key="base-pom-version">
             <defaultValue>%PROJECT_VERSION%</defaultValue>
         </requiredProperty>
+        <requiredProperty key="java-version">
+            <defaultValue>%JAVA_VERSION%</defaultValue>
+        </requiredProperty>
         <requiredProperty key="kotlin-version">
             <defaultValue>%KOTLIN_VERSION%</defaultValue>
         </requiredProperty>

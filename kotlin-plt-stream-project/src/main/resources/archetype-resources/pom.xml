@@ -16,6 +16,10 @@
     <version>${version}</version>
     <packaging>pom</packaging>
 
+    <properties>
+        <java.version>${java-version}</java.version>
+    </properties>
+
     <dependencyManagement>
         <dependencies>
             <!-- Internal domain dependencies -->
