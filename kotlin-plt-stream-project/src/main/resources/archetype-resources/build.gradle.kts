@@ -4,19 +4,25 @@ plugins {
     kotlin("jvm")
     jacoco
     application
+    kotlin("plugin.spring") version "${kotlin-version}"
+    kotlin("plugin.jpa") version "${kotlin-version}"
+    id("org.springframework.boot") version "${spring-boot-version}"
 }
+apply(plugin = "io.spring.dependency-management")
 
 group = "${groupId}"
 
-tasks.withType<KotlinCompile>().configureEach {
-    kotlinOptions{
-        jvmTarget = "${java-version}"
-        freeCompilerArgs = listOf("-Xjsr305=strict")
+allprojects {
+    tasks.withType<KotlinCompile>().configureEach {
+        kotlinOptions{
+            jvmTarget = "${java-version}"
+            freeCompilerArgs = listOf("-Xjsr305=strict")
+        }
     }
-}
-repositories {
-    mavenLocal()
-    mavenCentral()
+    repositories {
+        mavenLocal()
+        mavenCentral()
+    }
 }
 
 dependencies {
@@ -39,9 +45,4 @@ dependencies {
     implementation(platform("com.github.frtu.logs:logger-bom:1.1.4"))
     implementation(platform("org.jetbrains.kotlin:kotlin-bom"))
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
-}
-
-application {
-    // Define the main class for the application.
-    mainClass.set("${groupId}.MainKt")
 }
