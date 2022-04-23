@@ -24,6 +24,7 @@ dependencies {
     implementation("com.github.frtu.logs:logger-core")
     implementation("ch.qos.logback:logback-classic")
     testImplementation("com.github.frtu.libs:lib-utils")
+    testImplementation("org.springframework:spring-core:5.3.5")
 
     // Test
     testImplementation("io.mockk:mockk")
@@ -35,7 +36,6 @@ dependencies {
     // Platform - BOMs
     implementation(platform("com.github.frtu.archetype:kotlin-base-pom:${base-pom-version}"))
     implementation(platform("com.github.frtu.libs:lib-kotlin-bom:1.1.5"))
-    implementation(platform("com.github.frtu.libs:lib-java-bom:1.1.5"))
     implementation(platform("com.github.frtu.logs:logger-bom:1.1.4"))
     implementation(platform("org.jetbrains.kotlin:kotlin-bom"))
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
