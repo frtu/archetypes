@@ -29,10 +29,10 @@
         <testcontainers.version>1.15.3</testcontainers.version> <!-- 2021-04-15 -->
         <!--=========================== -->
         <!-- https://kotlinlang.org/docs/reference/using-maven.html -->
-        <kotlin.version>1.4.32</kotlin.version>
-        <kotlinx.version>1.4.3</kotlinx.version>
+        <kotlin.version>1.5.32</kotlin.version> <!-- 2021-11-29 -->
+        <kotlinx.version>1.5.2</kotlinx.version> <!-- 2021-09-01 -->
         <kotlin.test.version>3.4.2</kotlin.test.version> <!-- 2019-09-21 -->
-        <jackson.version>2.12.2</jackson.version> <!-- 2021-03-04 -->
+        <jackson.version>2.13.2.1</jackson.version> <!-- 2022-03-30 -->
         <!--=========================== -->
         <r2dbc.version>Arabba-SR9</r2dbc.version> <!-- 2021-02-25 -->
         <!--=========================== -->

@@ -35,7 +35,7 @@
         <!-- https://nvd.nist.gov/vuln/detail/CVE-2019-12402 -->
         <commons-compress.version>1.21</commons-compress.version>
         <!--=========================== -->
-        <jackson.version>2.12.2</jackson.version> <!-- 2021-03-04 -->
+        <jackson.version>2.13.2.1</jackson.version> <!-- 2022-03-30 -->
         <avro.version>1.8.2</avro.version>
         <!--https://github.com/ronmamo/reflections : >0.9.12 migrate to jdk8-->
         <reflections.version>0.9.12</reflections.version>
