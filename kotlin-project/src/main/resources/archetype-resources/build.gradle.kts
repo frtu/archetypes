@@ -1,44 +1,82 @@
+import org.gradle.api.tasks.diagnostics.internal.dependencies.AsciiDependencyReportRenderer
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
     kotlin("jvm")
+    java
     jacoco
+    pmd
+    `java-library`
+    `maven-publish`
     application
+    id("com.github.sherter.google-java-format") version Versions.google_format
 }
 
 group = "${groupId}"
 
-tasks.withType<KotlinCompile>().configureEach {
-    kotlinOptions{
-        jvmTarget = "${java-version}"
-        freeCompilerArgs = listOf("-Xjsr305=strict")
+allprojects {
+    apply(plugin="project-report")
+
+    task("allDependencies", DependencyReportTask::class) {
+        evaluationDependsOnChildren()
+        this.setRenderer(AsciiDependencyReportRenderer())
     }
-}
-repositories {
-    mavenLocal()
-    mavenCentral()
+    tasks.withType<KotlinCompile>().all {
+        sourceCompatibility = Versions.java
+        targetCompatibility = Versions.java
+        kotlinOptions {
+            jvmTarget = Versions.java
+            languageVersion = Versions.language
+            freeCompilerArgs = listOf("-Xjsr305=strict")
+        }
+    }
+
+    java {
+        withSourcesJar()
+    }
+    jacoco {
+        toolVersion = Versions.jacoco
+    }
+    tasks {
+        test {
+            useJUnitPlatform()
+        }
+        jacocoTestCoverageVerification {
+            violationRules {
+                // Configure the ratio based on your standard
+                rule { limit { minimum = BigDecimal.valueOf(0.0) } }
+            }
+        }
+        check {
+            dependsOn(jacocoTestCoverageVerification)
+        }
+    }
+
+    repositories {
+        mavenLocal()
+        mavenCentral()
+    }
 }
 
 dependencies {
     // Platform - Log
-    implementation("com.github.frtu.logs:logger-core")
-    implementation("ch.qos.logback:logback-classic")
-    testImplementation("com.github.frtu.libs:lib-utils")
-    testImplementation("org.springframework:spring-core:5.3.5")
+    implementation(Libs.logger_core)
+    implementation(Libs.log_impl)
+    testImplementation(Libs.lib_utils)
+    testImplementation(Libs.spring_core)
 
     // Test
-    testImplementation("io.mockk:mockk")
-    testImplementation("org.assertj:assertj-core")
-    testImplementation("org.junit.jupiter:junit-jupiter")
-    testImplementation("org.jetbrains.kotlin:kotlin-test")
-    testImplementation("org.jetbrains.kotlin:kotlin-test-junit")
+    testImplementation(Libs.junit)
+    testImplementation(Libs.mock)
+    testImplementation(Libs.assertions)
+    testImplementation(kotlin("test"))
 
     // Platform - BOMs
-    implementation(platform("com.github.frtu.archetype:kotlin-base-pom:${base-pom-version}"))
-    implementation(platform("com.github.frtu.libs:lib-kotlin-bom:1.1.5"))
-    implementation(platform("com.github.frtu.logs:logger-bom:1.1.4"))
-    implementation(platform("org.jetbrains.kotlin:kotlin-bom"))
-    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
+    implementation(platform(Libs.bom_kotlin_base))
+    implementation(platform(Libs.bom_kotlin_libs))
+    implementation(platform(Libs.bom_logger))
+    implementation(platform(kotlin("bom")))
+    implementation(kotlin("stdlib-jdk8"))
 }
 
 application {
