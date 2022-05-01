@@ -6,7 +6,7 @@ object Versions {
     const val kotlin = "${kotlin-version}"
     const val kotlinx = "${kotlinx-version}"
 
-    const val commons_configuration = "1.10"
+    const val jackson = "2.13.2.1" // 2022-03-30
     const val frtu_base = "${base-pom-version}"
     const val frtu_libs = "1.1.5"
     const val frtu_logs = "1.1.4"
@@ -17,7 +17,9 @@ object Versions {
 
 object Libs {
     //---------- Commons -----------
-    const val commons_configuration = "commons-configuration:commons-configuration:${Versions.commons_configuration}"
+    const val jackson_databind = "com.fasterxml.jackson.core:jackson-databind"
+    const val jackson_module_kotlin = "com.fasterxml.jackson.module:jackson-module-kotlin"
+    const val jackson_yaml = "com.fasterxml.jackson.dataformat:jackson-dataformat-yaml"
     const val lib_utils = "com.github.frtu.libs:lib-utils"
     const val spring_core = "org.springframework:spring-core"
 
@@ -27,6 +29,7 @@ object Libs {
     const val logger_core = "com.github.frtu.logs:logger-core"
 
     //---------- LIBS BOM -----------
+    const val bom_jackson = "com.fasterxml.jackson:jackson-bom:${Versions.jackson}"
     const val bom_kotlin_base = "com.github.frtu.archetype:kotlin-base-pom:${Versions.frtu_base}"
     const val bom_kotlin_libs = "com.github.frtu.libs:lib-kotlin-bom:${Versions.frtu_libs}"
     const val bom_logger = "com.github.frtu.logs:logger-bom:${Versions.frtu_logs}"
