@@ -8,7 +8,7 @@ plugins {
     pmd
     `java-library`
     `maven-publish`
-    id("com.github.sherter.google-java-format") version Versions.google_format
+    id("com.github.sherter.google-java-format") version Versions.plugin_google_format
 
     kotlin("plugin.spring") version "${kotlin-version}"
     kotlin("plugin.jpa") version "${kotlin-version}"
@@ -19,7 +19,10 @@ apply(plugin = "io.spring.dependency-management")
 group = "${groupId}"
 
 allprojects {
-    apply(plugin="project-report")
+    apply(plugin = "java")
+    apply(plugin = "jacoco")
+    apply(plugin = "com.github.sherter.google-java-format")
+    apply(plugin = "project-report")
 
     task("allDependencies", DependencyReportTask::class) {
         evaluationDependsOnChildren()
@@ -34,12 +37,14 @@ allprojects {
             freeCompilerArgs = listOf("-Xjsr305=strict")
         }
     }
-
     java {
+        sourceCompatibility = JavaVersion.toVersion(Versions.java)
+        targetCompatibility = JavaVersion.toVersion(Versions.java)
         withSourcesJar()
     }
+
     jacoco {
-        toolVersion = Versions.jacoco
+        toolVersion = Versions.plugin_jacoco
     }
     tasks {
         test {
@@ -62,23 +67,25 @@ allprojects {
     }
 }
 
-dependencies {
-    // Platform - Log
-    implementation(Libs.logger_core)
-    implementation(Libs.log_impl)
-    testImplementation(Libs.lib_utils)
-    testImplementation(Libs.spring_core)
+subprojects {
+    dependencies {
+        // Platform - Log
+        implementation(Libs.logger_core)
+        implementation(Libs.log_impl)
+        testImplementation(Libs.lib_utils)
+        testImplementation(Libs.spring_core)
 
-    // Test
-    testImplementation(Libs.junit)
-    testImplementation(Libs.mock)
-    testImplementation(Libs.assertions)
-    testImplementation(kotlin("test"))
+        // Test
+        testImplementation(Libs.junit)
+        testImplementation(Libs.mock)
+        testImplementation(Libs.assertions)
+        testImplementation(kotlin("test"))
 
-    // Platform - BOMs
-    implementation(platform(Libs.bom_kotlin_base))
-    implementation(platform(Libs.bom_kotlin_libs))
-    implementation(platform(Libs.bom_logger))
-    implementation(platform(kotlin("bom")))
-    implementation(kotlin("stdlib-jdk8"))
+        // Platform - BOMs
+        implementation(platform(Libs.bom_kotlin_base))
+        implementation(platform(Libs.bom_kotlin_libs))
+        implementation(platform(Libs.bom_logger))
+        implementation(platform(kotlin("bom")))
+        implementation(kotlin("stdlib-jdk8"))
+    }
 }

@@ -9,13 +9,16 @@ plugins {
     `java-library`
     `maven-publish`
     application
-    id("com.github.sherter.google-java-format") version Versions.google_format
+    id("com.github.sherter.google-java-format") version Versions.plugin_google_format
 }
 
 group = "${groupId}"
 
 allprojects {
-    apply(plugin="project-report")
+    apply(plugin = "java")
+    apply(plugin = "jacoco")
+    apply(plugin = "com.github.sherter.google-java-format")
+    apply(plugin = "project-report")
 
     task("allDependencies", DependencyReportTask::class) {
         evaluationDependsOnChildren()
@@ -30,12 +33,14 @@ allprojects {
             freeCompilerArgs = listOf("-Xjsr305=strict")
         }
     }
-
     java {
+        sourceCompatibility = JavaVersion.toVersion(Versions.java)
+        targetCompatibility = JavaVersion.toVersion(Versions.java)
         withSourcesJar()
     }
+
     jacoco {
-        toolVersion = Versions.jacoco
+        toolVersion = Versions.plugin_jacoco
     }
     tasks {
         test {

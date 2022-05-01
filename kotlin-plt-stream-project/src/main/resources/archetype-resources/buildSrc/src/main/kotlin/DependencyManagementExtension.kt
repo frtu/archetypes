@@ -6,17 +6,17 @@ object Versions {
     const val kotlin = "${kotlin-version}"
     const val kotlinx = "${kotlinx-version}"
 
-    const val jacoco = "0.8.8"
-    const val google_format = "0.8"
     const val commons_configuration = "1.10"
-
     const val frtu_base = "${base-pom-version}"
     const val frtu_libs = "1.1.5"
     const val frtu_logs = "1.1.4"
+
+    const val plugin_jacoco = "0.8.8" // 2022-04-05
+    const val plugin_google_format = "0.9" // 2020-06-09
 }
 
 object Libs {
-    // Commons
+    //---------- Commons -----------
     const val commons_configuration = "commons-configuration:commons-configuration:${Versions.commons_configuration}"
     const val lib_utils = "com.github.frtu.libs:lib-utils"
     const val spring_core = "org.springframework:spring-core"
