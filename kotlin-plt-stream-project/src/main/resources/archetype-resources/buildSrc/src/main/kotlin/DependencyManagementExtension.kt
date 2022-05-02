@@ -7,6 +7,9 @@ object Versions {
     const val kotlinx = "${kotlinx-version}"
 
     const val jackson = "2.13.2.1" // 2022-03-30
+    const val spring_boot = "${spring-boot-version}"
+    const val spring_cloud = "${spring-cloud-version}"
+    const val springdoc = "1.5.4"
     const val frtu_base = "${base-pom-version}"
     const val frtu_libs = "1.1.5"
     const val frtu_logs = "1.1.4"
@@ -22,6 +25,11 @@ object Libs {
     const val jackson_yaml = "com.fasterxml.jackson.dataformat:jackson-dataformat-yaml"
     const val lib_utils = "com.github.frtu.libs:lib-utils"
     const val spring_core = "org.springframework:spring-core"
+
+    //---------- Commons -----------
+    const val coroutines_core = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.kotlinx}"
+    const val coroutines_reactive = "org.jetbrains.kotlinx:kotlinx-coroutines-reactive:${Versions.kotlinx}"
+    const val coroutines_reactor = "org.jetbrains.kotlinx:kotlinx-coroutines-reactor:${Versions.kotlinx}"
 
     //---------- LOGS -----------
     // Implementation for slf4j

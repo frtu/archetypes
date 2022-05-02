@@ -1,5 +1,7 @@
 import org.gradle.api.tasks.diagnostics.internal.dependencies.AsciiDependencyReportRenderer
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+import io.spring.gradle.dependencymanagement.dsl.DependencyManagementExtension
+import org.springframework.boot.gradle.plugin.SpringBootPlugin
 
 plugins {
     kotlin("jvm")
@@ -10,11 +12,9 @@ plugins {
     `maven-publish`
     id("com.github.sherter.google-java-format") version Versions.plugin_google_format
 
-    kotlin("plugin.spring") version "${kotlin-version}"
-    kotlin("plugin.jpa") version "${kotlin-version}"
-    id("org.springframework.boot") version "${spring-boot-version}"
+    kotlin("plugin.spring") version "${kotlin-version}" apply false
+    id("org.springframework.boot") version "${spring-boot-version}" apply false
 }
-apply(plugin = "io.spring.dependency-management")
 
 group = "${groupId}"
 
@@ -23,14 +23,13 @@ allprojects {
     apply(plugin = "jacoco")
     apply(plugin = "com.github.sherter.google-java-format")
     apply(plugin = "project-report")
+    apply(plugin = "io.spring.dependency-management")
 
     task("allDependencies", DependencyReportTask::class) {
         evaluationDependsOnChildren()
         this.setRenderer(AsciiDependencyReportRenderer())
     }
-    tasks.withType<KotlinCompile>().all {
-        sourceCompatibility = Versions.java
-        targetCompatibility = Versions.java
+    tasks.withType<KotlinCompile>().configureEach {
         kotlinOptions {
             jvmTarget = Versions.java
             languageVersion = Versions.language
@@ -92,5 +91,12 @@ subprojects {
         implementation(platform(Libs.bom_logger))
         implementation(platform(kotlin("bom")))
         implementation(kotlin("stdlib-jdk8"))
+        implementation(kotlin("reflect"))
+    }
+
+    the<DependencyManagementExtension>().apply {
+        imports {
+            mavenBom(org.springframework.boot.gradle.plugin.SpringBootPlugin.BOM_COORDINATES)
+        }
     }
 }

@@ -13,7 +13,7 @@
     <properties>
         <start-class>${groupId}.produer.ProducerApplicationKt</start-class>
         <!--===========================-->
-        <spring-kafka.version>2.6.6</spring-kafka.version>
+        <spring-kafka.version>${spring-boot-version}</spring-kafka.version>
         <!--===========================-->
         <!--https://kotlinlang.org/docs/reference/using-maven.html-->
         <kotlin.version>${kotlin-version}</kotlin.version>
