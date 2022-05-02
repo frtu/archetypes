@@ -87,6 +87,7 @@ dependencies {
     implementation(platform(Libs.bom_logger))
     implementation(platform(kotlin("bom")))
     implementation(kotlin("stdlib-jdk8"))
+    implementation(kotlin("reflect"))
 }
 
 application {

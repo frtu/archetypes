@@ -25,6 +25,9 @@
                 <include>lombok.config</include>
                 <include>**/*.bash</include>
                 <include>Dockerfile</include>
+                <include>**/*.kts</include>
+                <include>buildSrc/**/*.kt</include>
+                <include>gradle.properties</include>
             </includes>
         </fileSet>
         <fileSet filtered="true" packaged="true" encoding="UTF-8">
