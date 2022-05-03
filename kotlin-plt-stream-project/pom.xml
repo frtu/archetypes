@@ -22,7 +22,7 @@
         <!-- CHECK https://search.maven.org/artifact/org.springframework.boot/spring-boot-dependencies -->
         <spring-boot.version>2.6.6</spring-boot.version> <!-- 2022-03-31 -->
         <!-- CHECK https://search.maven.org/artifact/org.springframework.cloud/spring-cloud-dependencies-->
-        <spring-cloud.version>2021.0.1</spring-cloud.version> <!-- 2022-02-22 -->
+        <spring-cloud.version>2021.0.2</spring-cloud.version> <!-- 2022-04-28 -->
     </properties>
 
     <build>
