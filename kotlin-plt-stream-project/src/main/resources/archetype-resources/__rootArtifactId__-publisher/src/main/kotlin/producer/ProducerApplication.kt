@@ -18,24 +18,13 @@ import org.springframework.kafka.core.KafkaTemplate
  */
 @SpringBootApplication
 class ProducerApplication {
-    @Autowired
-    lateinit var producerSource: ProducerSource
-
     @Bean
-    fun topicSource(): NewTopic? {
-        return TopicBuilder.name(producerSource.outputSource)
-            .partitions(10)
-            .replicas(1)
-            .build()
-    }
-
-    @Bean
-    fun runner(): ApplicationRunner? = ApplicationRunner { args: ApplicationArguments? ->
-        producerSource.send("${domain}-message")
+    fun runner(producerSink: ProducerSink): ApplicationRunner = ApplicationRunner { args: ApplicationArguments? ->
+        producerSink.send("${domain}-message")
     }
 }
 
 fun main(args: Array<String>) {
-    System.getProperties().put("server.port", 8083);
+    System.getProperties()["server.port"] = 8083
     runApplication<ProducerApplication>(*args)
 }

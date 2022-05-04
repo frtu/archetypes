@@ -1,7 +1,7 @@
 package ${groupId}
 
 import ${groupId}.consumer.ConsumerSource
-import ${groupId}.producer.ProducerSource
+import ${groupId}.producer.ProducerSink
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
@@ -28,7 +28,7 @@ class EmbeddedKafkaIntegrationTest {
     lateinit var consumer: ConsumerSource
 
     @Autowired
-    lateinit var producer: ProducerSource
+    lateinit var producer: ProducerSink
 
 //    @Test
 //    @Throws(Exception::class)

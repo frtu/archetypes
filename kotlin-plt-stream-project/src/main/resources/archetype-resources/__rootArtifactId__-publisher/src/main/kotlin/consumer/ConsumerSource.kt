@@ -17,7 +17,7 @@ class ConsumerSource {
     var payload: String? = null
 
     @KafkaListener(id = "consumer-1", topics = [inputSource])
-    fun listen(consumerRecord: ConsumerRecord<Any, Any>) {
+    fun listen(consumerRecord: ConsumerRecord<String, String>) {
         listen(consumerRecord.toString())
     }
 
