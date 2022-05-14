@@ -5,6 +5,7 @@ plugins {
     kotlin("jvm")
     id("com.google.protobuf") version Versions.plugin_protobuf
 }
+apply(plugin = "idea")
 
 group = "${groupId}"
 
@@ -44,6 +45,12 @@ dependencies {
     implementation(platform(kotlin("bom")))
     implementation(kotlin("stdlib-jdk8"))
     implementation(kotlin("reflect"))
+
+    if (JavaVersion.current().isJava9Compatible) {
+        // Workaround for @javax.annotation.Generated
+        // see: https://github.com/grpc/grpc-java/issues/3633
+        implementation("javax.annotation:javax.annotation-api:1.3.2")
+    }
 }
 
 sourceSets {
@@ -60,7 +67,7 @@ protobuf {
         id("grpc") { artifact = "io.grpc:protoc-gen-grpc-java:${Versions.grpc}" }
         id("grpckt") { artifact = "io.grpc:protoc-gen-grpc-kotlin:${Versions.plugin_grpc_kotlin}" }
     }
-    // generatedFilesBaseDir = "$projectDir/src/main/kotlin/com.kotlingrpc.demoGrpc/generated"
+    // generatedFilesBaseDir = "$projectDir/generated"
     generateProtoTasks {
         all().forEach {
             it.plugins {

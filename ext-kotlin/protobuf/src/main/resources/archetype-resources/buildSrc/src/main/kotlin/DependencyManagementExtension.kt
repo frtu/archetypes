@@ -14,7 +14,7 @@ object Versions {
 
     const val plugin_jacoco = "0.8.8" // 2022-04-05
     const val plugin_google_format = "0.9" // 2020-06-09
-    const val plugin_protobuf = "0.8.13"
+    const val plugin_protobuf = "0.8.18"
     const val plugin_grpc_kotlin = "0.1.5"
 
     const val protobuf = "3.20.1" // 2022-04-22
