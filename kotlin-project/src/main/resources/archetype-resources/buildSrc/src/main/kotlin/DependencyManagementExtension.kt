@@ -24,6 +24,11 @@ object Libs {
     const val lib_utils = "com.github.frtu.libs:lib-utils"
     const val spring_core = "org.springframework:spring-core:${Versions.springframework}"
 
+    //---------- COROUTINE -----------
+    const val coroutines_core = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.kotlinx}"
+    const val coroutines_reactive = "org.jetbrains.kotlinx:kotlinx-coroutines-reactive:${Versions.kotlinx}"
+    const val coroutines_reactor = "org.jetbrains.kotlinx:kotlinx-coroutines-reactor:${Versions.kotlinx}"
+
     //---------- LOGS -----------
     // Implementation for slf4j
     const val log_impl = "ch.qos.logback:logback-classic"
