@@ -1,69 +1,22 @@
-import org.gradle.api.tasks.diagnostics.internal.dependencies.AsciiDependencyReportRenderer
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+import com.google.protobuf.gradle.*
 
 plugins {
-    kotlin("jvm")
-    java
-    jacoco
-    pmd
     `java-library`
-    `maven-publish`
-    application
-    id("com.github.sherter.google-java-format") version Versions.plugin_google_format
+    kotlin("jvm")
+    id("com.google.protobuf") version Versions.plugin_protobuf
 }
 
 group = "${groupId}"
 
-allprojects {
-    apply(plugin = "java")
-    apply(plugin = "jacoco")
-    apply(plugin = "com.github.sherter.google-java-format")
-    apply(plugin = "project-report")
-
-    task("allDependencies", DependencyReportTask::class) {
-        evaluationDependsOnChildren()
-        this.setRenderer(AsciiDependencyReportRenderer())
-    }
-    tasks.withType<KotlinCompile>().all {
-        sourceCompatibility = Versions.java
-        targetCompatibility = Versions.java
-        kotlinOptions {
-            jvmTarget = Versions.java
-            languageVersion = Versions.language
-            freeCompilerArgs = listOf("-Xjsr305=strict")
-        }
-    }
-    java {
-        sourceCompatibility = JavaVersion.toVersion(Versions.java)
-        targetCompatibility = JavaVersion.toVersion(Versions.java)
-        withSourcesJar()
-    }
-
-    jacoco {
-        toolVersion = Versions.plugin_jacoco
-    }
-    tasks {
-        test {
-            useJUnitPlatform()
-        }
-        jacocoTestCoverageVerification {
-            violationRules {
-                // Configure the ratio based on your standard
-                rule { limit { minimum = BigDecimal.valueOf(0.0) } }
-            }
-        }
-        check {
-            dependsOn(jacocoTestCoverageVerification)
-        }
-    }
-
-    repositories {
-        mavenLocal()
-        mavenCentral()
-    }
-}
-
 dependencies {
+    implementation("com.google.protobuf:protobuf-java:${Versions.protobuf}")
+    implementation("com.google.protobuf:protobuf-java-util:${Versions.protobuf}")
+    implementation("com.google.protobuf:protobuf-kotlin:${Versions.protobuf}")
+    implementation("io.grpc:grpc-protobuf:${Versions.grpc}")
+    implementation("io.grpc:grpc-kotlin-stub:${Versions.grpc_kotlin}")
+    implementation("io.grpc:grpc-stub:${Versions.grpc}")
+    implementation("io.grpc:grpc-netty:${Versions.grpc}")
+
     // Serialization
     implementation(Libs.jackson_databind)
     implementation(Libs.jackson_module_kotlin)
@@ -93,7 +46,35 @@ dependencies {
     implementation(kotlin("reflect"))
 }
 
-application {
-    // Define the main class for the application.
-    mainClass.set("${groupId}.MainKt")
+sourceSets {
+    create("proto") {
+        proto {
+            srcDir("src/main/proto")
+        }
+    }
+}
+
+protobuf {
+    protoc { artifact = "com.google.protobuf:protoc:${Versions.protobuf}" }
+    plugins {
+        id("grpc") { artifact = "io.grpc:protoc-gen-grpc-java:${Versions.grpc}" }
+        id("grpckt") { artifact = "io.grpc:protoc-gen-grpc-kotlin:${Versions.plugin_grpc_kotlin}" }
+    }
+    // generatedFilesBaseDir = "$projectDir/src/main/kotlin/com.kotlingrpc.demoGrpc/generated"
+    generateProtoTasks {
+        all().forEach {
+            it.plugins {
+                id("grpc")
+                id("grpckt")
+            }
+            it.builtins {
+                id("kotlin")
+            }
+        }
+    }
+}
+
+repositories {
+    mavenLocal()
+    mavenCentral()
 }

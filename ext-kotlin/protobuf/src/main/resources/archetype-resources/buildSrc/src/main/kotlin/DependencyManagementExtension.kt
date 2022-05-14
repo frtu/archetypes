@@ -14,6 +14,12 @@ object Versions {
 
     const val plugin_jacoco = "0.8.8" // 2022-04-05
     const val plugin_google_format = "0.9" // 2020-06-09
+    const val plugin_protobuf = "0.8.13"
+    const val plugin_grpc_kotlin = "0.1.5"
+
+    const val protobuf = "3.20.1" // 2022-04-22
+    const val grpc = "1.46.0" // 2022-04-26
+    const val grpc_kotlin = "1.2.1" // 2022-01-20
 }
 
 object Libs {

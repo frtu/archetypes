@@ -21,6 +21,7 @@
         <requiredProperty key="kotlin-test-version">
             <defaultValue>%KOTLIN_TEST_VERSION%</defaultValue>
         </requiredProperty>
+        <requiredProperty key="DatamodelClassName"/>
     </requiredProperties>
     <fileSets>
         <fileSet filtered="true" encoding="UTF-8">
@@ -49,6 +50,12 @@
                 <include>**/*.properties</include>
             </includes>
         </fileSet>
+        <fileSet filtered="true" encoding="UTF-8">
+            <directory>src/main/proto</directory>
+            <includes>
+                <include>**/*.proto</include>
+            </includes>
+        </fileSet>
         <fileSet filtered="true" packaged="true" encoding="UTF-8">
             <directory>src/test/kotlin</directory>
             <includes>
@@ -62,6 +69,12 @@
                 <include>**/*.json</include>
                 <include>**/*.xml</include>
                 <include>**/*.properties</include>
+            </includes>
+        </fileSet>
+        <fileSet filtered="true" encoding="UTF-8">
+            <directory>src/test/proto</directory>
+            <includes>
+                <include>**/*.proto</include>
             </includes>
         </fileSet>
         <!--<fileSet filtered="true" encoding="UTF-8">-->
