@@ -1,0 +1,109 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.github.frtu.archetype</groupId>
+        <artifactId>ext-kotlin</artifactId>
+        <version>1.2.4-SNAPSHOT</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
+
+    <artifactId>kt-protobuf-project-archetype</artifactId>
+    <packaging>jar</packaging>
+
+    <name>Kotlin Protobuf project archetype</name>
+    <description>Kotlin Protobuf project archetype</description>
+
+    <properties>
+        <java.version>11</java.version>
+        <!-- CHECK https://search.maven.org/artifact/org.jetbrains.kotlin/kotlin-bom -->
+        <kotlin.version>1.5.32</kotlin.version> <!-- 2021-11-29 -->
+        <kotlinx.version>1.5.2</kotlinx.version> <!-- 2021-09-01 -->
+        <kotlin.test.version>3.4.2</kotlin.test.version> <!-- 2019-09-21 -->
+    </properties>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>com.google.code.maven-replacer-plugin</groupId>
+                <artifactId>replacer</artifactId>
+                <version>1.5.2</version>
+                <executions>
+                    <execution>
+                        <id>replace-archetype-metadata</id>
+                        <phase>prepare-package</phase>
+                        <goals>
+                            <goal>replace</goal>
+                        </goals>
+                        <configuration>
+                            <ignoreMissingFile>false</ignoreMissingFile>
+                            <file>${project.build.outputDirectory}/META-INF/maven/archetype-metadata.xml</file>
+                            <replacements>
+                                <replacement>
+                                    <token>%JAVA_VERSION%</token>
+                                    <value>${java.version}</value>
+                                </replacement>
+                                <replacement>
+                                    <token>%PROJECT_VERSION%</token>
+                                    <value>${project.version}</value>
+                                </replacement>
+                                <replacement>
+                                    <token>%KOTLIN_VERSION%</token>
+                                    <value>${kotlin.version}</value>
+                                </replacement>
+                                <replacement>
+                                    <token>%KOTLINX_VERSION%</token>
+                                    <value>${kotlinx.version}</value>
+                                </replacement>
+                                <replacement>
+                                    <token>%KOTLIN_TEST_VERSION%</token>
+                                    <value>${kotlin.test.version}</value>
+                                </replacement>
+                            </replacements>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>replace-pom</id>
+                        <phase>prepare-package</phase>
+                        <goals>
+                            <goal>replace</goal>
+                        </goals>
+                        <configuration>
+                            <ignoreMissingFile>false</ignoreMissingFile>
+                            <file>${project.build.outputDirectory}/archetype-resources/pom.xml</file>
+                            <replacements>
+                                <replacement>
+                                    <token>%JAVA_VERSION%</token>
+                                    <value>${java.version}</value>
+                                </replacement>
+                                <replacement>
+                                    <token>%KOTLIN_VERSION%</token>
+                                    <value>${kotlin.version}</value>
+                                </replacement>
+                                <replacement>
+                                    <token>%KOTLINX_VERSION%</token>
+                                    <value>${kotlinx.version}</value>
+                                </replacement>
+                                <replacement>
+                                    <token>%KOTLIN_TEST_VERSION%</token>
+                                    <value>${kotlin.test.version}</value>
+                                </replacement>
+                                <replacement>
+                                    <token>%PROJECT_GROUP_ID%</token>
+                                    <value>${project.groupId}</value>
+                                </replacement>
+                                <replacement>
+                                    <token>%PROJECT_ARTIFACT_ID%</token>
+                                    <value>${project.artifactId}</value>
+                                </replacement>
+                                <replacement>
+                                    <token>%PROJECT_VERSION%</token>
+                                    <value>${project.version}</value>
+                                </replacement>
+                            </replacements>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>
