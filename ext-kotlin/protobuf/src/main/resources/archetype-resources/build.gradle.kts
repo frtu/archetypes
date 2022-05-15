@@ -1,3 +1,4 @@
+// https://github.com/grpc/grpc-kotlin/blob/master/compiler/README.md
 import com.google.protobuf.gradle.*
 
 plugins {

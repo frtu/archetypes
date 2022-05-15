@@ -17,9 +17,9 @@ object Versions {
     const val plugin_protobuf = "0.8.18"
     const val plugin_grpc_kotlin = "0.1.5"
 
-    const val protobuf = "3.20.1" // 2022-04-22
-    const val grpc = "1.46.0" // 2022-04-26
-    const val grpc_kotlin = "1.2.1" // 2022-01-20
+    const val protobuf = "3.18.1" // 2021-10-06
+    const val grpc = "1.39.0" // 2021-06-30
+    const val grpc_kotlin = "1.2.0" // 2021-10-15
 }
 
 object Libs {
