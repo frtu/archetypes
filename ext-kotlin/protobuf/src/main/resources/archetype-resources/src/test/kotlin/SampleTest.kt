@@ -8,7 +8,7 @@ class SampleTest {
     @Test
     @Throws(InvalidProtocolBufferException::class)
     fun printJSON() {
-        val sample:${DatamodelClassName} = ${DatamodelClassName}.newBuilder()
+        val sample: ${DatamodelClassName} = ${DatamodelClassName}.newBuilder()
             .setId(1234)
             .setName("fred")
             .build()

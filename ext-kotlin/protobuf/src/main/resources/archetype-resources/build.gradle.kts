@@ -5,7 +5,9 @@ plugins {
     `java-library`
     kotlin("jvm")
     id("com.google.protobuf") version Versions.plugin_protobuf
+//    id("org.jlleitschuh.gradle.ktlint") version "10.2.0"
 }
+//apply(plugin = "org.jlleitschuh.gradle.ktlint")
 apply(plugin = "idea")
 
 group = "${groupId}"

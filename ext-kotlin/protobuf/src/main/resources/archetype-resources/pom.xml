@@ -146,19 +146,17 @@
                 <version>0.6.1</version>
                 <executions>
                     <execution>
+                        <id>generate-add-proto</id>
+                        <phase>generate-proto</phase>
                         <goals>
                             <goal>compile</goal>
                             <goal>test-compile</goal>
                             <goal>compile-custom</goal>
                         </goals>
                         <configuration>
-                            <protocArtifact>
-                                com.google.protobuf:protoc:${protobuf.version}:exe:${os.detected.classifier}
-                            </protocArtifact>
+                            <protocArtifact>com.google.protobuf:protoc:${protobuf.version}:exe:${os.detected.classifier}</protocArtifact>
                             <pluginId>grpc-java</pluginId>
-                            <pluginArtifact>
-                                io.grpc:protoc-gen-grpc-java:${java.grpc.version}:exe:${os.detected.classifier}
-                            </pluginArtifact>
+                            <pluginArtifact>io.grpc:protoc-gen-grpc-java:${java.grpc.version}:exe:${os.detected.classifier}</pluginArtifact>
                             <protocPlugins>
                                 <protocPlugin>
                                     <id>grpc-kotlin</id>
