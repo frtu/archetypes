@@ -14,7 +14,7 @@
     <description>A parent pom for all the base JARs using Kotlin and all libraries</description>
 
     <properties>
-        <frtu.libs.version>1.1.5</frtu.libs.version>
+        <frtu.libs.version>1.2.0</frtu.libs.version>
         <frtu.logger.version>1.1.4</frtu.logger.version>
     </properties>
 

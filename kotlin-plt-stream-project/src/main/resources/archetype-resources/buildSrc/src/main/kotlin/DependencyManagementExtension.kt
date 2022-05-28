@@ -11,7 +11,7 @@ object Versions {
     const val spring_cloud = "${spring-cloud-version}"
     const val springdoc = "1.5.4"
     const val frtu_base = "${base-pom-version}"
-    const val frtu_libs = "1.1.5"
+    const val frtu_libs = "1.2.0"
     const val frtu_logs = "1.1.4"
 
     const val plugin_jacoco = "0.8.8" // 2022-04-05

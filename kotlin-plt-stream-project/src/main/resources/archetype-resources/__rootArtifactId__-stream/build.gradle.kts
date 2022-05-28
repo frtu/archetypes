@@ -16,20 +16,27 @@ apply(plugin = "org.jetbrains.kotlin.plugin.spring")
 apply(plugin = "io.spring.dependency-management")
 
 dependencies {
+    // Spring Cloud
     implementation("org.springframework.cloud:spring-cloud-stream")
     implementation("org.springframework.cloud:spring-cloud-stream-binder-kafka")
 //    implementation("org.springframework.cloud:spring-cloud-stream-binder-rabbit")
 
+    // Spring Boot
 //    implementation("org.springframework.boot:spring-boot-starter-web")
 //    implementation("org.springdoc:springdoc-openapi-ui:${Versions.springdoc}")
 
+    // Spring Reactive
     implementation("org.springframework.boot:spring-boot-starter-webflux")
     implementation("org.springdoc:springdoc-openapi-webflux-ui:${Versions.springdoc}")
 
 //    implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+//    implementation("io.r2dbc:r2dbc-h2")
 //    runtimeOnly("com.h2database:h2")
+//    implementation("io.r2dbc:r2dbc-postgresql")
 //    runtimeOnly("org.postgresql:postgresql")
-//    implementation("org.flywaydb:flyway-core")
+
+//    runtimeOnly("org.springframework.boot:spring-boot-starter-jdbc")
+//    runtimeOnly("org.flywaydb:flyway-core")
 
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
     implementation("org.springframework.boot:spring-boot-autoconfigure")

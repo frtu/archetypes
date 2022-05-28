@@ -25,7 +25,7 @@
         <springdoc.version>1.5.4</springdoc.version>
         <!--===========================-->
         <frtu.base-pom.version>${base-pom-version}</frtu.base-pom.version>
-        <frtu.libs.version>1.1.5</frtu.libs.version>
+        <frtu.libs.version>1.2.0</frtu.libs.version>
         <frtu.logger.version>1.1.4</frtu.logger.version>
         <!--===========================-->
         <javax.persistence-api.version>2.2</javax.persistence-api.version>
