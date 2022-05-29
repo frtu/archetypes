@@ -88,10 +88,6 @@ subprojects {
         testImplementation(kotlin("test"))
 
         // Platform - BOMs
-        implementation(platform(Libs.bom_jackson))
-//        implementation(platform(Libs.bom_kotlin_base))
-        implementation(platform(Libs.bom_kotlin_libs))
-        implementation(platform(Libs.bom_logger))
         implementation(platform(kotlin("bom")))
         implementation(kotlin("stdlib-jdk8"))
         implementation(kotlin("reflect"))
@@ -100,6 +96,10 @@ subprojects {
     the<DependencyManagementExtension>().apply {
         imports {
             mavenBom(org.springframework.boot.gradle.plugin.SpringBootPlugin.BOM_COORDINATES)
+            mavenBom(Libs.bom_jackson)
+//            mavenBom(Libs.bom_kotlin_base)
+            mavenBom(Libs.bom_kotlin_libs)
+            mavenBom(Libs.bom_logger)
         }
     }
 }
