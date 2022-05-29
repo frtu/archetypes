@@ -1,0 +1,38 @@
+// https://developers.google.com/protocol-buffers/docs/javatutorial
+
+// From https://github.com/protocolbuffers/protobuf/blob/v3.11.2/examples/addressbook.proto
+syntax = "proto3";
+option java_multiple_files = true;
+
+package ${groupId};
+option java_package = "${groupId}";
+
+// [START metadata_flag]
+import "metadata/sec.proto";
+import "metadata/sla.proto";
+// [START metadata_flag]
+
+// [START java_declaration and messages]
+import "google/protobuf/timestamp.proto";
+
+option java_outer_classname = "${DatamodelClassName}Protos";
+
+message ${DatamodelClassName} {
+  option (metadata.sla.data_sla) = RELIABLE;
+
+  int32 id = 1;    // ID from which this data can be uniquely identified.
+  string name = 2; // Name of this data.
+//  string value = 3 [(metadata.sec.secured_field) = true]; // A certain value this data contains.
+}
+message ${DatamodelClassName}Event {
+  string id = 1; // ID from which this data can be uniquely identified.
+  google.protobuf.Timestamp event_time = 2; // epoch time when the event occurred. See https://databricks.com/blog/2017/05/08/event-time-aggregation-watermarking-apache-sparks-structured-streaming.html
+  ${DatamodelClassName} data = 3;
+}
+message ${DatamodelClassName}HistoryItem {
+  string id = 1; // ID from which this data can be uniquely identified.
+  google.protobuf.Timestamp creation_time = 2; // epoch time when the event occurred. See https://databricks.com/blog/2017/05/08/event-time-aggregation-watermarking-apache-sparks-structured-streaming.html
+  google.protobuf.Timestamp update_time = 3; // epoch time when the event occurred. See https://databricks.com/blog/2017/05/08/event-time-aggregation-watermarking-apache-sparks-structured-streaming.html
+  ${DatamodelClassName} data = 4;
+}
+// [END java_declaration and messages]

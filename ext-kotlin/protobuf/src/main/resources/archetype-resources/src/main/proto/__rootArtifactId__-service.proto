@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+
+package ${groupId};
+option java_package = "${groupId}";
+option java_outer_classname = "${DatamodelClassName}Proto";
+
+import "metadata/sec.proto";
+import "metadata/sla.proto";
+import "data/model.proto";
+
+// Singular query
+message ById {
+  string id = 1;
+}
+message Id {
+  string id = 1;
+}
+
+// Singular query
+message By {
+  string name = 1;
+}
+
+service ${DatamodelClassName}Service {
+  rpc QueryOne (ById) returns (${DatamodelClassName}HistoryItem);
+  rpc QueryMany (By) returns (stream ${DatamodelClassName}HistoryItem);
+
+  rpc Insert (stream ${DatamodelClassName}HistoryItem) returns (stream Id);
+}
