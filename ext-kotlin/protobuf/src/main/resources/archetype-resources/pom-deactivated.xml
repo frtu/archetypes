@@ -36,11 +36,11 @@
         (they should always be synced, but double checking is better than being stuck on an error):
         https://search.maven.org/search?q=a:protoc-gen-grpc-kotlin
         https://search.maven.org/search?q=a:grpc-kotlin-stub -->
-        <grpc.kotlin.version>1.2.0</grpc.kotlin.version> <!-- 2021-10-15 -->
+        <grpc.kotlin.version>1.3.0</grpc.kotlin.version> <!-- 2022-05-28 -->
         <!-- The version is the latest found here: https://search.maven.org/artifact/io.grpc/grpc-protobuf -->
-        <java.grpc.version>1.39.0</java.grpc.version> <!-- 2021-06-30 -->
+        <java.grpc.version>1.46.0</java.grpc.version> <!-- 2022-04-26 -->
         <!-- the version is the latest found here: https://search.maven.org/search?q=a:protobuf-kotlin -->
-        <protobuf.version>3.18.2</protobuf.version> <!-- 2022-01-06 -->
+        <protobuf.version>3.21.1</protobuf.version> <!-- 2022-05-28 -->
         <protoc.version>${protobuf.version}</protoc.version>
     </properties>
 
@@ -210,13 +210,10 @@
         <dependencies>
             <dependency>
                 <groupId>com.google.protobuf</groupId>
-                <artifactId>protobuf-java</artifactId>
+                <artifactId>protobuf-bom</artifactId>
                 <version>${protobuf.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.google.protobuf</groupId>
-                <artifactId>protobuf-java-util</artifactId>
-                <version>${protobuf.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
             </dependency>
             <dependency>
                 <groupId>com.google.protobuf</groupId>
