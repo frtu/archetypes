@@ -17,12 +17,16 @@ object Versions {
     const val plugin_protobuf = "0.8.18"
     const val plugin_grpc_kotlin = "0.1.5"
 
-    const val protobuf = "3.18.1" // 2021-10-06
-    const val grpc = "1.39.0" // 2021-06-30
-    const val grpc_kotlin = "1.2.0" // 2021-10-15
+    const val protobuf = "3.21.1" // 2022-05-28
+    const val grpc = "1.46.0" // 2022-04-26
+    const val grpc_kotlin = "1.3.0" // 2022-05-28
+    const val grpc_spring_boot_starter = "2.13.1.RELEASE"
 }
 
 object Libs {
+    //---------- Protobuf -----------
+    const val lib_serdes_protobuf = "com.github.frtu.libs:lib-serdes-protobuf:${Versions.frtu_libs}"
+
     //---------- Commons -----------
     const val jackson_databind = "com.fasterxml.jackson.core:jackson-databind"
     const val jackson_module_kotlin = "com.fasterxml.jackson.module:jackson-module-kotlin"

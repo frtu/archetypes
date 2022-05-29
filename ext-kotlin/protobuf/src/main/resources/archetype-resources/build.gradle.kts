@@ -1,5 +1,6 @@
 // https://github.com/grpc/grpc-kotlin/blob/master/compiler/README.md
 import com.google.protobuf.gradle.*
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
     `java-library`
@@ -13,13 +14,18 @@ apply(plugin = "idea")
 group = "${groupId}"
 
 dependencies {
+    // Protobuf
     implementation("com.google.protobuf:protobuf-java:${Versions.protobuf}")
     implementation("com.google.protobuf:protobuf-java-util:${Versions.protobuf}")
     implementation("com.google.protobuf:protobuf-kotlin:${Versions.protobuf}")
+    implementation(Libs.lib_serdes_protobuf)
+
+    // gRPC
     implementation("io.grpc:grpc-protobuf:${Versions.grpc}")
     implementation("io.grpc:grpc-kotlin-stub:${Versions.grpc_kotlin}")
     implementation("io.grpc:grpc-stub:${Versions.grpc}")
     implementation("io.grpc:grpc-netty:${Versions.grpc}")
+    implementation("net.devh:grpc-server-spring-boot-starter:${Versions.grpc_spring_boot_starter}")
 
     // Serialization
     implementation(Libs.jackson_databind)
@@ -84,6 +90,18 @@ protobuf {
     }
 }
 
+java {
+    sourceCompatibility = JavaVersion.toVersion(Versions.java)
+    targetCompatibility = JavaVersion.toVersion(Versions.java)
+    withSourcesJar()
+}
+tasks.withType<KotlinCompile>().configureEach {
+    kotlinOptions {
+        jvmTarget = Versions.java
+        languageVersion = Versions.language
+        freeCompilerArgs = listOf("-Xjsr305=strict", "-Xopt-in=kotlin.RequiresOptIn")
+    }
+}
 repositories {
     mavenLocal()
     mavenCentral()
