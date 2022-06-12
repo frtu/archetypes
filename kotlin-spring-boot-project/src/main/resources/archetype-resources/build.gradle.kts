@@ -101,6 +101,10 @@ dependencies {
     testImplementation(Libs.lib_utils)
     testImplementation(Libs.spring_core)
 
+    // Platform test
+    testImplementation("org.springframework.boot:spring-boot-starter-test")
+    testImplementation("io.projectreactor:reactor-test")
+
     // Test
     testImplementation(Libs.junit)
     testImplementation(Libs.mock)

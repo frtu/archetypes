@@ -51,6 +51,7 @@ dependencies {
     // Platform - Coroutine
     implementation(Libs.coroutines_reactor)
 
+    // Platform test
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("org.springframework.integration:spring-integration-test")
     testImplementation("org.springframework.cloud:spring-cloud-stream-test-support")
