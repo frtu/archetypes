@@ -24,6 +24,7 @@ object Libs {
     //---------- COMMONS -----------
     const val jackson_databind = "com.fasterxml.jackson.core:jackson-databind"
     const val jackson_module_kotlin = "com.fasterxml.jackson.module:jackson-module-kotlin"
+    const val jackson_datatype_jsr310 = "com.fasterxml.jackson.datatype:jackson-datatype-jsr310"
     const val jackson_yaml = "com.fasterxml.jackson.dataformat:jackson-dataformat-yaml"
     const val lib_utils = "com.github.frtu.libs:lib-utils"
     const val spring_core = "org.springframework:spring-core"

@@ -80,9 +80,19 @@ dependencies {
 //    runtimeOnly("org.springframework.boot:spring-boot-starter-jdbc")
 //    runtimeOnly("org.flywaydb:flyway-core")
 
+    implementation("org.springframework.boot:spring-boot-autoconfigure")
+    implementation("org.springframework.boot:spring-boot-starter-aop")
+    annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")
+
+    // DevTools and Monitoring
+    implementation("org.springframework.boot:spring-boot-devtools")
+    implementation("org.springframework.boot:spring-boot-starter-actuator")
+    runtimeOnly("io.micrometer:micrometer-registry-prometheus")
+
     // Serialization
     implementation(Libs.jackson_databind)
     implementation(Libs.jackson_module_kotlin)
+    implementation(Libs.jackson_datatype_jsr310)
 
     // Platform - Coroutine
     implementation(Libs.coroutines_reactor)

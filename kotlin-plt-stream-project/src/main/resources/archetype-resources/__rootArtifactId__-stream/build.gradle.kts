@@ -38,7 +38,6 @@ dependencies {
 //    runtimeOnly("org.springframework.boot:spring-boot-starter-jdbc")
 //    runtimeOnly("org.flywaydb:flyway-core")
 
-    implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
     implementation("org.springframework.boot:spring-boot-autoconfigure")
     implementation("org.springframework.boot:spring-boot-starter-aop")
     annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")

@@ -70,6 +70,7 @@ subprojects {
         // Serialization
         implementation(Libs.jackson_databind)
         implementation(Libs.jackson_module_kotlin)
+        implementation(Libs.jackson_datatype_jsr310)
 
         // Platform - Coroutine
         implementation(Libs.coroutines_reactor)
