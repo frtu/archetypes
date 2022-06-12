@@ -11,7 +11,7 @@ object Versions {
     const val spring_cloud = "${spring-cloud-version}"
     const val springdoc = "1.5.4"
     const val frtu_base = "${base-pom-version}"
-    const val frtu_libs = "1.2.0"
+    const val frtu_libs = "1.2.1"
     const val frtu_logs = "1.1.4"
 
     const val plugin_jacoco = "0.8.8" // 2022-04-05
@@ -19,7 +19,7 @@ object Versions {
 }
 
 object Libs {
-    //---------- Commons -----------
+    //---------- COMMONS -----------
     const val jackson_databind = "com.fasterxml.jackson.core:jackson-databind"
     const val jackson_module_kotlin = "com.fasterxml.jackson.module:jackson-module-kotlin"
     const val jackson_yaml = "com.fasterxml.jackson.dataformat:jackson-dataformat-yaml"
