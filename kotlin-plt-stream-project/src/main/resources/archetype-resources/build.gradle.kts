@@ -1,7 +1,6 @@
 import org.gradle.api.tasks.diagnostics.internal.dependencies.AsciiDependencyReportRenderer
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 import io.spring.gradle.dependencymanagement.dsl.DependencyManagementExtension
-import org.springframework.boot.gradle.plugin.SpringBootPlugin
 
 plugins {
     kotlin("jvm")
@@ -75,6 +74,14 @@ subprojects {
         // Platform - Coroutine
         implementation(Libs.coroutines_reactor)
 
+        // Platform - Observability
+        implementation(Libs.opentelemetry_sdk)
+        implementation(Libs.opentelemetry_trace_propagators)
+        implementation(Libs.opentelemetry_semconv)
+        implementation(Libs.opentelemetry_shim)
+        implementation(Libs.opentelemetry_exporter)
+        implementation(Libs.trace_impl)
+
         // Platform - Log
         implementation(Libs.logger_core)
         implementation(Libs.log_impl)
@@ -100,6 +107,7 @@ subprojects {
 //            mavenBom(Libs.bom_kotlin_base)
             mavenBom(Libs.bom_kotlin_libs)
             mavenBom(Libs.bom_logger)
+            mavenBom(Libs.bom_opentelemetry)
         }
     }
 }
