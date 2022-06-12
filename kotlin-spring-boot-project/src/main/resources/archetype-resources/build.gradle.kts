@@ -6,8 +6,8 @@ plugins {
     java
     application
     kotlin("jvm")
-    kotlin("plugin.spring") version "${kotlin-version}" apply false
-    id("org.springframework.boot") version "${spring-boot-version}" apply false
+    kotlin("plugin.spring") version Versions.kotlin apply false
+    id("org.springframework.boot") version Versions.spring_boot
     jacoco
     pmd
     id("com.github.sherter.google-java-format") version Versions.plugin_google_format
