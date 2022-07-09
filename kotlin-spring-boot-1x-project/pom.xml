@@ -59,6 +59,14 @@
                                     <token>%PROJECT_VERSION%</token>
                                     <value>${project.version}</value>
                                 </replacement>
+                                <replacement>
+                                    <token>%FRTU_LIBS_VERSION%</token>
+                                    <value>${frtu.libs.version}</value>
+                                </replacement>
+                                <replacement>
+                                    <token>%FRTU_LOGGER_VERSION%</token>
+                                    <value>${frtu.logger.version}</value>
+                                </replacement>
                             </replacements>
                         </configuration>
                     </execution>
@@ -99,6 +107,14 @@
                                 <replacement>
                                     <token>%PROJECT_VERSION%</token>
                                     <value>${project.version}</value>
+                                </replacement>
+                                <replacement>
+                                    <token>%FRTU_LIBS_VERSION%</token>
+                                    <value>${frtu.libs.version}</value>
+                                </replacement>
+                                <replacement>
+                                    <token>%FRTU_LOGGER_VERSION%</token>
+                                    <value>${frtu.logger.version}</value>
                                 </replacement>
                             </replacements>
                         </configuration>

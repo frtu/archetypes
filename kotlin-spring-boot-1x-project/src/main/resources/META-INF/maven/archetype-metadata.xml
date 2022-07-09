@@ -9,6 +9,12 @@
         <requiredProperty key="base-pom-version">
             <defaultValue>%PROJECT_VERSION%</defaultValue>
         </requiredProperty>
+        <requiredProperty key="frtu-libs-version">
+            <defaultValue>%FRTU_LIBS_VERSION%</defaultValue>
+        </requiredProperty>
+        <requiredProperty key="frtu-logger-version">
+            <defaultValue>%FRTU_LOGGER_VERSION%</defaultValue>
+        </requiredProperty>
         <requiredProperty key="kotlin-version">
             <defaultValue>%KOTLIN_VERSION%</defaultValue>
         </requiredProperty>

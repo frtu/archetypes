@@ -12,6 +12,11 @@
 
     <name>Base project archetype</name>
     <description>Base project archetype</description>
+
+    <properties>
+        <java.version>11</java.version>
+    </properties>
+
     <build>
         <plugins>
             <plugin>
@@ -30,8 +35,20 @@
                             <file>${project.build.outputDirectory}/META-INF/maven/archetype-metadata.xml</file>
                             <replacements>
                                 <replacement>
+                                    <token>%JAVA_VERSION%</token>
+                                    <value>${java.version}</value>
+                                </replacement>
+                                <replacement>
                                     <token>%PROJECT_VERSION%</token>
                                     <value>${project.version}</value>
+                                </replacement>
+                                <replacement>
+                                    <token>%FRTU_LIBS_VERSION%</token>
+                                    <value>${frtu.libs.version}</value>
+                                </replacement>
+                                <replacement>
+                                    <token>%FRTU_LOGGER_VERSION%</token>
+                                    <value>${frtu.logger.version}</value>
                                 </replacement>
                             </replacements>
                         </configuration>
@@ -47,8 +64,20 @@
                             <file>${project.build.outputDirectory}/archetype-resources/pom.xml</file>
                             <replacements>
                                 <replacement>
+                                    <token>%JAVA_VERSION%</token>
+                                    <value>${java.version}</value>
+                                </replacement>
+                                <replacement>
                                     <token>%PROJECT_GROUP_ID%</token>
                                     <value>${project.groupId}</value>
+                                </replacement>
+                                <replacement>
+                                    <token>%FRTU_LIBS_VERSION%</token>
+                                    <value>${frtu.libs.version}</value>
+                                </replacement>
+                                <replacement>
+                                    <token>%FRTU_LOGGER_VERSION%</token>
+                                    <value>${frtu.logger.version}</value>
                                 </replacement>
                                 <replacement>
                                     <token>%PROJECT_ARTIFACT_ID%</token>
