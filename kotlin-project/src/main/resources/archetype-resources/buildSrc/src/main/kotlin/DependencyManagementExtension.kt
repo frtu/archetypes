@@ -9,8 +9,8 @@ object Versions {
     const val jackson = "2.13.2.1" // 2022-03-30
     const val springframework = "5.3.5"
     const val frtu_base = "${base-pom-version}"
-    const val frtu_libs = "1.2.1"
-    const val frtu_logs = "1.1.4"
+    const val frtu_libs = "${frtu-libs-version}"
+    const val frtu_logs = "${frtu-logger-version}"
 
     const val plugin_jacoco = "0.8.8" // 2022-04-05
     const val plugin_google_format = "0.9" // 2020-06-09

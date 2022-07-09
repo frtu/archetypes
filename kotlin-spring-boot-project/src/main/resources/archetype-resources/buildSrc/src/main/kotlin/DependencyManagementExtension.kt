@@ -10,8 +10,8 @@ object Versions {
     const val spring_boot = "${spring-boot-version}"
     const val springdoc = "1.5.4"
     const val frtu_base = "${base-pom-version}"
-    const val frtu_libs = "1.2.1"
-    const val frtu_logs = "1.1.4"
+    const val frtu_libs = "${frtu-libs-version}"
+    const val frtu_logs = "${frtu-logger-version}"
 
     const val opentelemetry = "1.13.0" // 2022-04-09
     const val jaeger = "1.8.0"
