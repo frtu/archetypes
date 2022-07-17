@@ -71,14 +71,14 @@ dependencies {
 //    implementation("org.springdoc:springdoc-openapi-ui:${Versions.springdoc}")
 
     // Storage
-//    implementation("org.springframework.boot:spring-boot-starter-data-jpa")
-//    implementation("io.r2dbc:r2dbc-h2")
-//    runtimeOnly("com.h2database:h2")
+    implementation("org.springframework.boot:spring-boot-starter-data-r2dbc")
+    implementation("io.r2dbc:r2dbc-h2")
+    runtimeOnly("com.h2database:h2")
 //    implementation("io.r2dbc:r2dbc-postgresql")
 //    runtimeOnly("org.postgresql:postgresql")
 
-//    runtimeOnly("org.springframework.boot:spring-boot-starter-jdbc")
-//    runtimeOnly("org.flywaydb:flyway-core")
+    runtimeOnly("org.springframework.boot:spring-boot-starter-jdbc")
+    runtimeOnly("org.flywaydb:flyway-core")
 
     implementation("org.springframework.boot:spring-boot-autoconfigure")
     implementation("org.springframework.boot:spring-boot-starter-aop")
@@ -129,12 +129,13 @@ dependencies {
 
 the<DependencyManagementExtension>().apply {
     imports {
-        mavenBom(org.springframework.boot.gradle.plugin.SpringBootPlugin.BOM_COORDINATES)
-        mavenBom(Libs.bom_jackson)
 //        mavenBom(Libs.bom_kotlin_base)
         mavenBom(Libs.bom_kotlin_libs)
         mavenBom(Libs.bom_logger)
         mavenBom(Libs.bom_opentelemetry)
+        mavenBom(Libs.bom_jackson)
+        mavenBom(Libs.bom_r2dbc)
+        mavenBom(org.springframework.boot.gradle.plugin.SpringBootPlugin.BOM_COORDINATES)
     }
 }
 

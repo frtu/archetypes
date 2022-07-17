@@ -4,35 +4,47 @@ import com.github.frtu.logs.core.RpcLogger
 import com.github.frtu.logs.core.RpcLogger.requestBody
 import com.github.frtu.logs.core.RpcLogger.responseBody
 import com.github.frtu.logs.core.RpcLogger.uri
-import kotlinx.coroutines.reactive.asFlow
+import com.github.frtu.logs.core.StructuredLogger.message
+import com.github.frtu.sample.complex.persistence.basic.EmailEntity
+import com.github.frtu.sample.complex.persistence.basic.IEmailRepository
 import java.net.URI
-import java.util.UUID
 import org.slf4j.LoggerFactory
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
-import org.springframework.web.reactive.function.server.*
-import reactor.core.publisher.Flux
+import org.springframework.web.reactive.function.server.RouterFunction
+import org.springframework.web.reactive.function.server.awaitBody
+import org.springframework.web.reactive.function.server.bodyAndAwait
+import org.springframework.web.reactive.function.server.bodyValueAndAwait
+import org.springframework.web.reactive.function.server.buildAndAwait
+import org.springframework.web.reactive.function.server.coRouter
+import org.springframework.web.reactive.function.server.json
 
 @Configuration
-class RouterConfig {
+class RouterConfig(
+    private val repository: IEmailRepository,
+) {
     internal val logger = LoggerFactory.getLogger(this::class.java)
     internal val rpcLogger = RpcLogger.create(logger)
 
     @Bean
     fun route(): RouterFunction<*> = coRouter {
-        val uriPath = "/v1/resources"
-        GET("$uriPath/{id}") { serverRequest ->
+        val uriPath = "/v1/emails"
+        GET(uriPath) {
+            rpcLogger.info(uri(uriPath), message("find all"))
+            ok().json().bodyAndAwait(repository.findAll())
+        }
+        GET("/v1/emails/{id}") { serverRequest ->
             val id = serverRequest.pathVariable("id")
-            println(id)
-            ServerResponse.ok()
-                .bodyAndAwait(Flux.just("ok").asFlow())
+            val entity = repository.findById(id.toLong())
+            when {
+                entity != null -> ok().json().bodyValueAndAwait(entity)
+                else -> notFound().buildAndAwait()
+            }
         }
         POST(uriPath) { serverRequest ->
-            val body = serverRequest.awaitBody<String>()
-            rpcLogger.info(uri(uriPath), requestBody(body))
-            // Create and get ID
-            val createdId = UUID.randomUUID()
-            rpcLogger.info(uri(uriPath), responseBody(createdId))
+            val emailEntity = serverRequest.awaitBody<EmailEntity>()
+            val createdId = repository.save(emailEntity)
+            rpcLogger.info(uri(uriPath), requestBody(emailEntity), responseBody(createdId))
             created(URI.create("$uriPath/$createdId")).buildAndAwait()
         }
     }

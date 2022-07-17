@@ -34,6 +34,7 @@ object Libs {
     const val coroutines_core = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.kotlinx}"
     const val coroutines_reactive = "org.jetbrains.kotlinx:kotlinx-coroutines-reactive:${Versions.kotlinx}"
     const val coroutines_reactor = "org.jetbrains.kotlinx:kotlinx-coroutines-reactor:${Versions.kotlinx}"
+    const val coroutines_reactor_extensions = "io.projectreactor.kotlin:reactor-kotlin-extensions"
 
     //---------- OBSERVABILITY -----------
     const val opentelemetry_sdk = "io.opentelemetry:opentelemetry-sdk"
@@ -51,8 +52,10 @@ object Libs {
 
     //---------- LIBS BOM -----------
     const val bom_jackson = "com.fasterxml.jackson:jackson-bom:${Versions.jackson}"
+    const val bom_r2dbc = "io.r2dbc:r2dbc-bom:${Versions.r2dbc}"
     const val bom_kotlin_base = "com.github.frtu.archetype:kotlin-base-pom:${Versions.frtu_base}"
     const val bom_kotlin_libs = "com.github.frtu.libs:lib-kotlin-bom:${Versions.frtu_libs}"
+
     const val bom_logger = "com.github.frtu.logs:logger-bom:${Versions.frtu_logs}"
     const val bom_opentelemetry = "io.opentelemetry:opentelemetry-bom:${Versions.opentelemetry}"
 
