@@ -97,6 +97,12 @@ dependencies {
     // Platform - Coroutine
     implementation(Libs.coroutines_reactor)
 
+    // Spring dev and monitoring
+    implementation("org.springframework.boot:spring-boot-devtools")
+    implementation("org.springframework.boot:spring-boot-starter-actuator")
+    implementation("io.micrometer:micrometer-core")
+    implementation("io.micrometer:micrometer-registry-prometheus")
+
     // Platform - Observability
     implementation(Libs.opentelemetry_sdk)
     implementation(Libs.opentelemetry_trace_propagators)
@@ -110,6 +116,18 @@ dependencies {
     implementation(Libs.log_impl)
     testImplementation(Libs.lib_utils)
     testImplementation(Libs.spring_core)
+
+    // Platform - Monitoring
+    implementation("io.opentelemetry:opentelemetry-sdk")
+    implementation("io.opentelemetry:opentelemetry-exporter-jaeger")
+    implementation("io.opentelemetry:opentelemetry-extension-trace-propagators")
+    implementation("io.opentelemetry:opentelemetry-opentracing-shim")
+    implementation("io.opentelemetry:opentelemetry-semconv")
+
+    implementation("org.springframework.cloud:spring-cloud-sleuth-otel-autoconfigure")
+    implementation("org.springframework.cloud:spring-cloud-starter-sleuth") {
+        exclude("org.springframework.cloud", "spring-cloud-sleuth-brave")
+    }
 
     // Platform test
     testImplementation("org.springframework.boot:spring-boot-starter-test")
@@ -129,13 +147,33 @@ dependencies {
 
 the<DependencyManagementExtension>().apply {
     imports {
+        mavenBom(Libs.bom_spring_cloud_sleuth)
+        mavenBom(Libs.bom_spring_cloud_sleuth_otel)
+        mavenBom(Libs.bom_opentelemetry)
+        mavenBom(Libs.bom_opentelemetry_alpha)
+        mavenBom(Libs.bom_logger)
 //        mavenBom(Libs.bom_kotlin_base)
         mavenBom(Libs.bom_kotlin_libs)
-        mavenBom(Libs.bom_logger)
-        mavenBom(Libs.bom_opentelemetry)
         mavenBom(Libs.bom_jackson)
         mavenBom(Libs.bom_r2dbc)
         mavenBom(org.springframework.boot.gradle.plugin.SpringBootPlugin.BOM_COORDINATES)
+    }
+}
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+    maven("https://repo.spring.io/milestone")
+}
+configurations.all {
+    exclude(group = "junit", module = "junit")
+    exclude(group = "org.junit.vintage", module = "junit-vintage-engine")
+    exclude(group = "io.projectreactor.netty", module = "reactor-netty-http-brave")
+
+    resolutionStrategy.eachDependency {
+        if (requested.group == "org.jetbrains.kotlin") {
+            useVersion(Versions.kotlin)
+        }
     }
 }
 

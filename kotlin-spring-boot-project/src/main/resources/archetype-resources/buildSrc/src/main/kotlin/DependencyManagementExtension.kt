@@ -14,8 +14,10 @@ object Versions {
     const val frtu_libs = "${frtu-libs-version}"
     const val frtu_logs = "${frtu-logger-version}"
 
-    const val opentelemetry = "1.13.0" // 2022-04-09
+    const val opentelemetry = "1.16.0" // 2022-07-13
     const val jaeger = "1.8.0"
+    const val spring_cloud_sleuth = "3.1.3"
+    const val spring_cloud_sleuth_otel = "1.1.0-M6"
 
     const val plugin_jacoco = "0.8.8" // 2022-04-05
     const val plugin_google_format = "0.9" // 2020-06-09
@@ -58,6 +60,9 @@ object Libs {
 
     const val bom_logger = "com.github.frtu.logs:logger-bom:${Versions.frtu_logs}"
     const val bom_opentelemetry = "io.opentelemetry:opentelemetry-bom:${Versions.opentelemetry}"
+    const val bom_opentelemetry_alpha = "io.opentelemetry:opentelemetry-bom-alpha:${Versions.opentelemetry}-alpha"
+    const val bom_spring_cloud_sleuth = "org.springframework.cloud:spring-cloud-sleuth-dependencies:${Versions.spring_cloud_sleuth}"
+    const val bom_spring_cloud_sleuth_otel = "org.springframework.cloud:spring-cloud-sleuth-otel-dependencies:${Versions.spring_cloud_sleuth_otel}"
 
     //---------- TESTS -----------
     const val junit = "org.junit.jupiter:junit-jupiter"
