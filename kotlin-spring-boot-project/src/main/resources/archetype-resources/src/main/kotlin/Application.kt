@@ -1,8 +1,8 @@
 package ${groupId}
 
-import com.github.frtu.sample.complex.persistence.basic.EmailEntity
-import com.github.frtu.sample.complex.persistence.basic.IEmailRepository
-import com.github.frtu.sample.complex.persistence.basic.STATUS
+import ${groupId}.persistence.basic.EmailEntity
+import ${groupId}.persistence.basic.IEmailRepository
+import ${groupId}.persistence.basic.STATUS
 import io.r2dbc.spi.ConnectionFactory
 import kotlinx.coroutines.flow.toList
 import kotlinx.coroutines.runBlocking
@@ -39,6 +39,15 @@ class Application {
 //            logger.debug(emailEntity.toString())
         }
     }
+
+    @Bean
+    fun databaseInitializer(connectionFactory: ConnectionFactory): ConnectionFactoryInitializer =
+        ConnectionFactoryInitializer().apply {
+            setConnectionFactory(connectionFactory)
+            setDatabasePopulator(CompositeDatabasePopulator().apply {
+                addPopulators(ResourceDatabasePopulator(ClassPathResource("db/migration/V0_1_0__h2-table-email.sql")))
+            })
+        }
 
     internal val logger = LoggerFactory.getLogger(this::class.java)
 }

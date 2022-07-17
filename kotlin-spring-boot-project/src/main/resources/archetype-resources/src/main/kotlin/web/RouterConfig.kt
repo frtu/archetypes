@@ -5,8 +5,8 @@ import com.github.frtu.logs.core.RpcLogger.requestBody
 import com.github.frtu.logs.core.RpcLogger.responseBody
 import com.github.frtu.logs.core.RpcLogger.uri
 import com.github.frtu.logs.core.StructuredLogger.message
-import com.github.frtu.sample.complex.persistence.basic.EmailEntity
-import com.github.frtu.sample.complex.persistence.basic.IEmailRepository
+import ${groupId}.persistence.basic.EmailEntity
+import ${groupId}.persistence.basic.IEmailRepository
 import java.net.URI
 import org.slf4j.LoggerFactory
 import org.springframework.context.annotation.Bean
