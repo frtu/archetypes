@@ -76,6 +76,7 @@
                         <include>**/*.yml</include>
                         <include>**/*.yaml</include>
                         <include>**/*.properties</include>
+                        <include>**/*.sql</include>
                     </includes>
                 </fileSet>
                 <fileSet filtered="true" encoding="UTF-8">
@@ -99,6 +100,7 @@
                         <include>**/*.yml</include>
                         <include>**/*.yaml</include>
                         <include>**/*.properties</include>
+                        <include>**/*.sql</include>
                     </includes>
                 </fileSet>
             </fileSets>
@@ -123,12 +125,13 @@
                 <fileSet filtered="true" encoding="UTF-8">
                     <directory>src/main/resources</directory>
                     <includes>
+                        <include>**/*.txt</include>
+                        <include>**/*.json</include>
                         <include>**/*.xml</include>
                         <include>**/*.yml</include>
                         <include>**/*.yaml</include>
                         <include>**/*.properties</include>
-                        <include>**/*.json</include>
-                        <include>**/*.txt</include>
+                        <include>**/*.sql</include>
                     </includes>
                 </fileSet>
                 <fileSet filtered="true" packaged="true" encoding="UTF-8">
@@ -140,12 +143,13 @@
                 <fileSet filtered="true" encoding="UTF-8">
                     <directory>src/test/resources</directory>
                     <includes>
+                        <include>**/*.txt</include>
+                        <include>**/*.json</include>
                         <include>**/*.xml</include>
                         <include>**/*.yml</include>
                         <include>**/*.yaml</include>
                         <include>**/*.properties</include>
-                        <include>**/*.json</include>
-                        <include>**/*.txt</include>
+                        <include>**/*.sql</include>
                     </includes>
                 </fileSet>
             </fileSets>
