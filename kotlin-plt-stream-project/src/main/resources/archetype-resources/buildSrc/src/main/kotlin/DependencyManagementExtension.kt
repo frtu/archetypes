@@ -9,7 +9,7 @@ object Versions {
     const val jackson = "2.13.2.1" // 2022-03-30
     const val spring_boot = "${spring-boot-version}"
     const val spring_cloud = "${spring-cloud-version}"
-    const val springdoc = "1.5.4"
+    const val springdoc = "1.6.9" // 2022-05-27
     const val frtu_base = "${base-pom-version}"
     const val frtu_libs = "${frtu-libs-version}"
     const val frtu_logs = "${frtu-logger-version}"

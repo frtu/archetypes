@@ -20,9 +20,9 @@
         <kotlinx.version>1.5.2</kotlinx.version> <!-- 2021-09-01 -->
         <kotlin.test.version>3.4.2</kotlin.test.version> <!-- 2019-09-21 -->
         <!-- CHECK https://search.maven.org/artifact/org.springframework.boot/spring-boot-dependencies -->
-        <spring-boot.version>2.7.0</spring-boot.version> <!-- 2022-05-19 -->
+        <spring-boot.version>2.7.1</spring-boot.version> <!-- 2022-06-23 -->
         <!-- CHECK https://search.maven.org/artifact/org.springframework.cloud/spring-cloud-dependencies-->
-        <spring-cloud.version>2021.0.2</spring-cloud.version> <!-- 2022-04-28 -->
+        <spring-cloud.version>2021.0.3</spring-cloud.version> <!-- 2022-05-27 -->
     </properties>
 
     <build>

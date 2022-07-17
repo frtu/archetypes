@@ -22,7 +22,7 @@
         <spring-boot.version>${spring-boot-version}</spring-boot.version>
         <jackson.version>2.12.2</jackson.version> <!-- 2021-03-04 -->
         <!-- https://search.maven.org/artifact/org.springdoc/springdoc-openapi-ui/1.5.4/jar -->
-        <springdoc.version>1.5.4</springdoc.version>
+        <springdoc.version>1.6.9</springdoc.version> <!-- 2022-05-27 -->
         <!--===========================-->
         <frtu.base-pom.version>${base-pom-version}</frtu.base-pom.version>
         <frtu.libs.version>${frtu-libs-version}</frtu.libs.version>

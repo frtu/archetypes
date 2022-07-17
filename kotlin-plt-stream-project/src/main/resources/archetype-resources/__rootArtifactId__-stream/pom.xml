@@ -24,11 +24,11 @@
         <spring-boot.version>${spring-boot-version}</spring-boot.version>
         <spring-cloud.version>${spring-cloud-version}</spring-cloud.version>
         <!-- https://search.maven.org/artifact/org.springdoc/springdoc-openapi-ui/1.5.4/jar -->
-        <springdoc.version>1.5.4</springdoc.version>
+        <springdoc.version>1.6.9</springdoc.version> <!-- 2022-05-27 -->
         <!--<frtu.tools.version>1.0.2</frtu.tools.version>-->
         <!--===========================-->
         <javax.persistence-api.version>2.2</javax.persistence-api.version>
-        <r2dbc.version>Arabba-SR9</r2dbc.version>
+        <r2dbc.version>Borca-SR1</r2dbc.version> <!-- 2022-03-17 -->
         <testcontainers.version>1.15.3</testcontainers.version> <!-- 2021-04-15 -->
         <!--===========================-->
         <!-- https://kotlinlang.org/docs/reference/using-maven.html -->

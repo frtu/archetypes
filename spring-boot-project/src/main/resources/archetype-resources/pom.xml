@@ -19,7 +19,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <!--===========================-->
         <java.version>${java-version}</java.version>
-        <springdoc.version>1.5.4</springdoc.version>
+        <springdoc.version>1.6.9</springdoc.version> <!-- 2022-05-27 -->
         <!-- UNCOMMENT TO SWITCH TO springfox -->
         <!-- <springfox.version>3.0.0</springfox.version> -->
 

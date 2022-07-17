@@ -16,8 +16,7 @@
     <properties>
         <java.version>11</java.version>
         <!-- CHECK https://search.maven.org/artifact/org.springframework.boot/spring-boot-dependencies -->
-        <spring-boot.version>2.6.6</spring-boot.version> <!-- 2022-03-31 -->
-        <!--        <spring-boot.version>2.4.2</spring-boot.version> &lt;!&ndash; 2021-01-15 &ndash;&gt;-->
+        <spring-boot.version>2.7.1</spring-boot.version> <!-- 2022-06-23 -->
     </properties>
 
     <build>

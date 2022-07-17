@@ -20,12 +20,17 @@
         <java.version>${java-version}</java.version>
         <!--===========================-->
         <spring-boot.version>${spring-boot-version}</spring-boot.version>
+        <!-- <spring-framework.version>x.y.z</spring-framework.version>-->
         <!-- https://search.maven.org/artifact/org.springdoc/springdoc-openapi-ui/1.5.4/jar -->
-        <springdoc.version>1.5.4</springdoc.version>
+        <springdoc.version>1.6.9</springdoc.version> <!-- 2022-05-27 -->
         <!--<frtu.tools.version>1.0.2</frtu.tools.version>-->
         <!--===========================-->
+        <frtu.base-pom.version>${base-pom-version}</frtu.base-pom.version>
+        <frtu.libs.version>${frtu-libs-version}</frtu.libs.version>
+        <frtu.logger.version>${frtu-logger-version}</frtu.logger.version>
+        <!--===========================-->
         <javax.persistence-api.version>2.2</javax.persistence-api.version>
-        <r2dbc.version>Arabba-SR9</r2dbc.version>
+        <r2dbc.version>Borca-SR1</r2dbc.version> <!-- 2022-03-17 -->
         <!--===========================-->
         <!-- https://kotlinlang.org/docs/reference/using-maven.html -->
         <kotlin.version>${kotlin-version}</kotlin.version>
@@ -183,12 +188,10 @@
         <dependency>
             <groupId>org.jetbrains.kotlin</groupId>
             <artifactId>kotlin-stdlib-jdk8</artifactId>
-            <version>${kotlin.version}</version>
         </dependency>
         <dependency>
             <groupId>org.jetbrains.kotlin</groupId>
             <artifactId>kotlin-reflect</artifactId>
-            <version>${kotlin.version}</version>
         </dependency>
         <dependency>
             <groupId>com.fasterxml.jackson.module</groupId>
@@ -269,10 +272,12 @@
         <dependency>
             <groupId>com.github.frtu.logs</groupId>
             <artifactId>logger-core</artifactId>
+            <version>${frtu.logger.version}</version>
         </dependency>
         <dependency>
             <groupId>com.github.frtu.libs</groupId>
             <artifactId>lib-utils</artifactId>
+            <version>${frtu.libs.version}</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
@@ -635,19 +640,19 @@
 
     <dependencyManagement>
         <dependencies>
+            <!-- https://kotlinlang.org/docs/reference/using-maven.html -->
+            <dependency>
+                <groupId>org.jetbrains.kotlin</groupId>
+                <artifactId>kotlin-bom</artifactId>
+                <version>${kotlin.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
             <!-- https://kotlinlang.org/docs/tutorials/coroutines/async-programming.html -->
             <dependency>
                 <groupId>org.jetbrains.kotlinx</groupId>
                 <artifactId>kotlinx-coroutines-bom</artifactId>
                 <version>${kotlinx.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-            <!-- Internal domain dependencies -->
-            <dependency>
-                <groupId>com.github.frtu.archetype</groupId>
-                <artifactId>kotlin-extended-pom</artifactId>
-                <version>${base-pom-version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -659,22 +664,30 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
-            <!-- https://kotlinlang.org/docs/reference/using-maven.html -->
+            <!-- Spring Boot and Platform -->
+            <!--<dependency>-->
+            <!--    <groupId>org.springframework</groupId>-->
+            <!--    <artifactId>spring-framework-bom</artifactId>-->
+            <!--    <version>${spring-framework.version}</version>-->
+            <!--    <type>pom</type>-->
+            <!--    <scope>import</scope>-->
+            <!--</dependency>-->
+            <!-- Internal domain dependencies -->
             <dependency>
-                <groupId>org.jetbrains.kotlin</groupId>
-                <artifactId>kotlin-bom</artifactId>
-                <version>${kotlin.version}</version>
+                <groupId>com.github.frtu.archetype</groupId>
+                <artifactId>kotlin-base-pom</artifactId>
+                <version>${base-pom-version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
             <!--ONLY NEEDED IF YOU WANT TO OVERRIDE SPRING DEPENDENCIES MGMT.-->
-            <!--<dependency>-->
-            <!--    <groupId>io.r2dbc</groupId>-->
-            <!--    <artifactId>r2dbc-bom</artifactId>-->
-            <!--    <version>${r2dbc.version}</version>-->
-            <!--    <type>pom</type>-->
-            <!--    <scope>import</scope>-->
-            <!--</dependency>-->
+            <dependency>
+                <groupId>io.r2dbc</groupId>
+                <artifactId>r2dbc-bom</artifactId>
+                <version>${r2dbc.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
 
             <!--<dependency>-->
             <!--<groupId>com.github.frtu.logs</groupId>-->
