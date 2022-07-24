@@ -18,10 +18,34 @@
 
     <properties>
         <java.version>${java-version}</java.version>
+        <!--===========================-->
+        <opentelemetry.version>1.16.0</opentelemetry.version> <!-- 2022-07-13 -->
     </properties>
 
     <dependencyManagement>
         <dependencies>
+            <!-- OpenTelemetry -->
+            <dependency>
+                <groupId>io.opentelemetry</groupId>
+                <artifactId>opentelemetry-bom</artifactId>
+                <version>${opentelemetry.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>io.opentelemetry</groupId>
+                <artifactId>opentelemetry-bom-alpha</artifactId>
+                <version>${opentelemetry.version}-alpha</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>io.opentelemetry.instrumentation</groupId>
+                <artifactId>opentelemetry-instrumentation-bom-alpha</artifactId>
+                <version>${opentelemetry.version}-alpha</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
             <!-- Internal domain dependencies -->
             <!--===============================================================================-->
             <!-- UNCOMMMENT TO FREE PARENT - ATTENTION pluginManagement is not managed anymore -->

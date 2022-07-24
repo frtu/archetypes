@@ -103,6 +103,11 @@ dependencies {
     implementation("io.micrometer:micrometer-core")
     implementation("io.micrometer:micrometer-registry-prometheus")
 
+    implementation("org.springframework.cloud:spring-cloud-sleuth-otel-autoconfigure")
+    implementation("org.springframework.cloud:spring-cloud-starter-sleuth") {
+        exclude("org.springframework.cloud", "spring-cloud-sleuth-brave")
+    }
+
     // Platform - Observability
     implementation(Libs.opentelemetry_sdk)
     implementation(Libs.opentelemetry_trace_propagators)
@@ -116,18 +121,6 @@ dependencies {
     implementation(Libs.log_impl)
     testImplementation(Libs.lib_utils)
     testImplementation(Libs.spring_core)
-
-    // Platform - Monitoring
-    implementation("io.opentelemetry:opentelemetry-sdk")
-    implementation("io.opentelemetry:opentelemetry-exporter-jaeger")
-    implementation("io.opentelemetry:opentelemetry-extension-trace-propagators")
-    implementation("io.opentelemetry:opentelemetry-opentracing-shim")
-    implementation("io.opentelemetry:opentelemetry-semconv")
-
-    implementation("org.springframework.cloud:spring-cloud-sleuth-otel-autoconfigure")
-    implementation("org.springframework.cloud:spring-cloud-starter-sleuth") {
-        exclude("org.springframework.cloud", "spring-cloud-sleuth-brave")
-    }
 
     // Platform test
     testImplementation("org.springframework.boot:spring-boot-starter-test")
@@ -151,6 +144,7 @@ the<DependencyManagementExtension>().apply {
         mavenBom(Libs.bom_spring_cloud_sleuth_otel)
         mavenBom(Libs.bom_opentelemetry)
         mavenBom(Libs.bom_opentelemetry_alpha)
+        mavenBom(Libs.bom_opentelemetry_instrumentation_alpha)
         mavenBom(Libs.bom_logger)
 //        mavenBom(Libs.bom_kotlin_base)
         mavenBom(Libs.bom_kotlin_libs)

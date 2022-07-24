@@ -109,6 +109,8 @@ subprojects {
             mavenBom(Libs.bom_kotlin_libs)
             mavenBom(Libs.bom_logger)
             mavenBom(Libs.bom_opentelemetry)
+            mavenBom(Libs.bom_opentelemetry_alpha)
+            mavenBom(Libs.bom_opentelemetry_instrumentation_alpha)
         }
     }
 }

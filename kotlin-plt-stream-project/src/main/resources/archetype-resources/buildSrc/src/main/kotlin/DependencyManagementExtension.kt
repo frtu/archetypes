@@ -14,7 +14,7 @@ object Versions {
     const val frtu_libs = "${frtu-libs-version}"
     const val frtu_logs = "${frtu-logger-version}"
 
-    const val opentelemetry = "1.13.0" // 2022-04-09
+    const val opentelemetry = "1.16.0" // 2022-07-13
     const val jaeger = "1.8.0"
 
     const val plugin_jacoco = "0.8.8" // 2022-04-05
@@ -37,9 +37,10 @@ object Libs {
 
     //---------- OBSERVABILITY -----------
     const val opentelemetry_sdk = "io.opentelemetry:opentelemetry-sdk"
+    const val opentelemetry_annotations = "io.opentelemetry:opentelemetry-extension-annotations"
     const val opentelemetry_trace_propagators = "io.opentelemetry:opentelemetry-extension-trace-propagators"
-    const val opentelemetry_semconv = "io.opentelemetry:opentelemetry-semconv:${Versions.opentelemetry}-alpha"
-    const val opentelemetry_shim = "io.opentelemetry:opentelemetry-opentracing-shim:${Versions.opentelemetry}-alpha"
+    const val opentelemetry_semconv = "io.opentelemetry:opentelemetry-semconv"
+    const val opentelemetry_shim = "io.opentelemetry:opentelemetry-opentracing-shim"
 
     const val opentelemetry_exporter = "io.opentelemetry:opentelemetry-exporter-jaeger"
     const val trace_impl = "io.jaegertracing:jaeger-client:${Versions.jaeger}"
@@ -53,8 +54,11 @@ object Libs {
     const val bom_jackson = "com.fasterxml.jackson:jackson-bom:${Versions.jackson}"
     const val bom_kotlin_base = "com.github.frtu.archetype:kotlin-base-pom:${Versions.frtu_base}"
     const val bom_kotlin_libs = "com.github.frtu.libs:lib-kotlin-bom:${Versions.frtu_libs}"
+
     const val bom_logger = "com.github.frtu.logs:logger-bom:${Versions.frtu_logs}"
     const val bom_opentelemetry = "io.opentelemetry:opentelemetry-bom:${Versions.opentelemetry}"
+    const val bom_opentelemetry_alpha = "io.opentelemetry:opentelemetry-bom-alpha:${Versions.opentelemetry}-alpha"
+    const val bom_opentelemetry_instrumentation_alpha = "io.opentelemetry.instrumentation:opentelemetry-instrumentation-bom-alpha:${Versions.opentelemetry}-alpha"
 
     //---------- TESTS -----------
     const val junit = "org.junit.jupiter:junit-jupiter"
