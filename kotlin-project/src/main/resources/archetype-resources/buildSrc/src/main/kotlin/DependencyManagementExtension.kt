@@ -12,6 +12,9 @@ object Versions {
     const val frtu_libs = "${frtu-libs-version}"
     const val frtu_logs = "${frtu-logger-version}"
 
+    const val awaitility = "4.2.0" // 2022-03-04
+    const val kotest = "5.4.2" // 2022-08-10
+
     const val plugin_jacoco = "0.8.8" // 2022-04-05
     const val plugin_google_format = "0.9" // 2020-06-09
 }
@@ -41,7 +44,15 @@ object Libs {
     const val bom_logger = "com.github.frtu.logs:logger-bom:${Versions.frtu_logs}"
 
     //---------- TESTS -----------
+    const val bom_kotest = "io.kotest:kotest-bom:${Versions.kotest}"
+
+    const val kotest = "io.kotest:kotest-assertions-core"
+    const val kotest_json = "io.kotest:kotest-assertions-json"
+    const val kotest_property = "io.kotest:kotest-property"
+
     const val junit = "org.junit.jupiter:junit-jupiter"
+    const val awaitility = "org.awaitility:awaitility-kotlin:${Versions.awaitility}"
+
     // Mock lib mockk or mockito
     const val mock = "io.mockk:mockk"
     const val assertions = "org.assertj:assertj-core"

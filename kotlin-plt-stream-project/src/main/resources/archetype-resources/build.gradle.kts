@@ -91,11 +91,16 @@ subprojects {
 
         // Test
         testImplementation(Libs.junit)
+        testImplementation(Libs.kotest)
+        testImplementation(Libs.kotest_json)
+        testImplementation(Libs.kotest_property)
+        testImplementation(Libs.awaitility)
         testImplementation(Libs.mock)
         testImplementation(Libs.assertions)
         testImplementation(kotlin("test"))
 
         // Platform - BOMs
+        implementation(platform(Libs.bom_kotest))
         implementation(platform(kotlin("bom")))
         implementation(kotlin("stdlib-jdk8"))
         implementation(kotlin("reflect"))

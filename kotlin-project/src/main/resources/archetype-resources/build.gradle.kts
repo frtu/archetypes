@@ -79,6 +79,10 @@ dependencies {
 
     // Test
     testImplementation(Libs.junit)
+    testImplementation(Libs.kotest)
+    testImplementation(Libs.kotest_json)
+    testImplementation(Libs.kotest_property)
+    testImplementation(Libs.awaitility)
     testImplementation(Libs.mock)
     testImplementation(Libs.assertions)
     testImplementation(kotlin("test"))
@@ -87,6 +91,7 @@ dependencies {
     implementation(platform(Libs.bom_jackson))
 //    implementation(platform(Libs.bom_kotlin_base))
     implementation(platform(Libs.bom_kotlin_libs))
+    implementation(platform(Libs.bom_kotest))
     implementation(platform(Libs.bom_logger))
     implementation(platform(kotlin("bom")))
     implementation(kotlin("stdlib-jdk8"))
