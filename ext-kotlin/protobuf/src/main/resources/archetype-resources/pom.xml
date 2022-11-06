@@ -40,7 +40,7 @@
         <!-- The version is the latest found here: https://search.maven.org/artifact/io.grpc/grpc-protobuf -->
         <java.grpc.version>1.46.0</java.grpc.version> <!-- 2022-04-26 -->
         <!-- the version is the latest found here: https://search.maven.org/search?q=a:protobuf-kotlin -->
-        <protobuf.version>3.21.1</protobuf.version> <!-- 2022-05-28 -->
+        <protobuf.version>3.21.7</protobuf.version> <!-- 2022-05-28 -->
         <protoc.version>${protobuf.version}</protoc.version>
     </properties>
 
