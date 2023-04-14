@@ -20,7 +20,8 @@
         <kotlinx.version>1.5.2</kotlinx.version> <!-- 2021-09-01 -->
         <kotlin.test.version>3.4.2</kotlin.test.version> <!-- 2019-09-21 -->
         <!-- CHECK https://search.maven.org/artifact/org.springframework.boot/spring-boot-dependencies -->
-        <spring-boot.version>2.7.1</spring-boot.version> <!-- 2022-06-23 -->
+        <spring-boot.version>2.7.10</spring-boot.version> <!-- 03/23/2023 -->
+        <spring-dept-mgmt.version>1.0.15.RELEASE</spring-dept-mgmt.version> <!-- 03/23/2023 -->
     </properties>
 
     <build>
@@ -59,6 +60,10 @@
                                 <replacement>
                                     <token>%SPRINGBOOT_VERSION%</token>
                                     <value>${spring-boot.version}</value>
+                                </replacement>
+                                <replacement>
+                                    <token>%SPRING_DEPT_MGMT_VERSION%</token>
+                                    <value>${spring-dept-mgmt.version}</value>
                                 </replacement>
                                 <replacement>
                                     <token>%PROJECT_VERSION%</token>
@@ -104,6 +109,10 @@
                                 <replacement>
                                     <token>%SPRINGBOOT_VERSION%</token>
                                     <value>${spring-boot.version}</value>
+                                </replacement>
+                                <replacement>
+                                    <token>%SPRING_DEPT_MGMT_VERSION%</token>
+                                    <value>${spring-dept-mgmt.version}</value>
                                 </replacement>
                                 <replacement>
                                     <token>%PROJECT_GROUP_ID%</token>

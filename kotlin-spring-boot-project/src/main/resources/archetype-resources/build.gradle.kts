@@ -1,74 +1,95 @@
 import org.gradle.api.tasks.diagnostics.internal.dependencies.AsciiDependencyReportRenderer
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
-import io.spring.gradle.dependencymanagement.dsl.DependencyManagementExtension
+
+object Versions {
+    const val FRTU_LIBS = "${frtu-libs-version}"
+    const val FRTU_LOGS = "${frtu-logger-version}"
+
+    const val JACKSON_VERSION = "2.13.4"
+
+    const val SPRING_BOOT_STARTER = "${spring-boot-version}"
+    const val SPRING_DOC = "1.6.9" // 2022-05-27
+    const val R2DBC = "Arabba-SR13"  // 2022-03-18
+
+    val JVM_TARGET = JavaVersion.VERSION_11.toString()
+
+    // Allow to enable >1.4 syntax
+    const val LANGUAGE_VERSION = "1.5"
+    const val KOTLIN = "${kotlin-version}"
+    const val KOTLINX = "${kotlinx-version}"
+    const val JUNIT = "5.8.2"
+    const val LOG4J = "2.19.0" // 2022-09-14
+    const val OPENTELEMETRY = "1.23.1" // 2023-02-16
+    const val MOCKK = "1.12.7"
+    const val KOTEST = "5.4.2" // 2022-08-10
+    const val AWAITILITY = "4.2.0" // 2022-03-04
+    const val TESTCONTAINERS = "1.16.0"
+
+    const val PLUGIN_JACOCO = "0.8.8" // 2022-04-05
+}
 
 plugins {
-    java
+    val kotlin = "${kotlin-version}"
+    val springBoot = "${spring-boot-version}"
+    val springDeptMgmt = "${spring-dept-mgmt-version}"
+    val ktlint = "11.0.0"
+
+    // Core
     application
-    kotlin("jvm")
-    kotlin("plugin.spring") version Versions.kotlin apply false
-    id("org.springframework.boot") version Versions.spring_boot
+    kotlin("jvm") version kotlin
+    // Spring
+    kotlin("plugin.spring") version kotlin
+    id("org.springframework.boot") version springBoot
+    id("io.spring.dependency-management") version springDeptMgmt
+    // SDLC
+    id("org.jlleitschuh.gradle.ktlint") version ktlint
     jacoco
     pmd
-    id("com.github.sherter.google-java-format") version Versions.plugin_google_format
+    idea
 }
 
 group = "${groupId}"
 
-apply(plugin = "java")
-apply(plugin = "jacoco")
-apply(plugin = "com.github.sherter.google-java-format")
-apply(plugin = "project-report")
-apply(plugin = "io.spring.dependency-management")
-
-task("allDependencies", DependencyReportTask::class) {
-    evaluationDependsOnChildren()
-    this.setRenderer(AsciiDependencyReportRenderer())
-}
-tasks.withType<KotlinCompile>().configureEach {
-    kotlinOptions {
-        jvmTarget = Versions.java
-        languageVersion = Versions.language
-        freeCompilerArgs = listOf("-Xjsr305=strict")
-    }
-}
-java {
-    sourceCompatibility = JavaVersion.toVersion(Versions.java)
-    targetCompatibility = JavaVersion.toVersion(Versions.java)
-    withSourcesJar()
+apply {
+    plugin("io.spring.dependency-management")
+    plugin("org.jlleitschuh.gradle.ktlint")
+    plugin("project-report")
+    plugin("jacoco")
+    plugin("idea")
 }
 
-jacoco {
-    toolVersion = Versions.plugin_jacoco
-}
-tasks {
-    test {
-        useJUnitPlatform()
-    }
-    jacocoTestCoverageVerification {
-        violationRules {
-            // Configure the ratio based on your standard
-            rule { limit { minimum = BigDecimal.valueOf(0.0) } }
+configure<io.spring.gradle.dependencymanagement.dsl.DependencyManagementExtension> {
+    dependencies {
+        with(Versions) {
+            dependency("org.springdoc:springdoc-openapi-webflux-ui:$SPRING_DOC")
+
+            // Common platform
+            dependency("io.mockk:mockk:$MOCKK")
+            dependency("org.awaitility:awaitility-kotlin:$AWAITILITY")
+
+            imports {
+                mavenBom("com.github.frtu.libs:lib-kotlin-bom:$FRTU_LIBS")
+                mavenBom("com.github.frtu.logs:logger-bom:$FRTU_LOGS")
+
+                mavenBom("io.r2dbc:r2dbc-bom:$R2DBC")
+
+                mavenBom("com.fasterxml.jackson:jackson-bom:$JACKSON_VERSION")
+                mavenBom("org.apache.logging.log4j:log4j-bom:$LOG4J")
+                mavenBom("org.jetbrains.kotlin:kotlin-bom:$KOTLIN")
+                mavenBom("org.jetbrains.kotlinx:kotlinx-coroutines-bom:$KOTLINX")
+                mavenBom("io.opentelemetry:opentelemetry-bom:$OPENTELEMETRY")
+                mavenBom("io.opentelemetry:opentelemetry-bom-alpha:$OPENTELEMETRY-alpha")
+                mavenBom("io.kotest:kotest-bom:$KOTEST")
+                mavenBom("org.testcontainers:testcontainers-bom:$TESTCONTAINERS")
+            }
         }
     }
-    check {
-        dependsOn(jacocoTestCoverageVerification)
-    }
-}
-
-repositories {
-    mavenLocal()
-    mavenCentral()
 }
 
 dependencies {
     // Spring Reactive
     implementation("org.springframework.boot:spring-boot-starter-webflux")
-    implementation("org.springdoc:springdoc-openapi-webflux-ui:${Versions.springdoc}")
-
-    // Spring Boot
-//    implementation("org.springframework.boot:spring-boot-starter-web")
-//    implementation("org.springdoc:springdoc-openapi-ui:${Versions.springdoc}")
+    implementation("org.springdoc:springdoc-openapi-webflux-ui")
 
     // Storage
     implementation("org.springframework.boot:spring-boot-starter-data-r2dbc")
@@ -90,12 +111,15 @@ dependencies {
     runtimeOnly("io.micrometer:micrometer-registry-prometheus")
 
     // Serialization
-    implementation(Libs.jackson_databind)
-    implementation(Libs.jackson_module_kotlin)
-    implementation(Libs.jackson_datatype_jsr310)
+    implementation("com.fasterxml.jackson.core:jackson-databind")
+    implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
+    implementation("com.fasterxml.jackson.datatype:jackson-datatype-jsr310")
 
     // Platform - Coroutine
-    implementation(Libs.coroutines_reactor)
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactive")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactor")
+    implementation("io.projectreactor.kotlin:reactor-kotlin-extensions")
 
     // Spring dev and monitoring
     implementation("org.springframework.boot:spring-boot-devtools")
@@ -103,59 +127,110 @@ dependencies {
     implementation("io.micrometer:micrometer-core")
     implementation("io.micrometer:micrometer-registry-prometheus")
 
-    implementation("org.springframework.cloud:spring-cloud-sleuth-otel-autoconfigure")
-    implementation("org.springframework.cloud:spring-cloud-starter-sleuth") {
-        exclude("org.springframework.cloud", "spring-cloud-sleuth-brave")
-    }
-
     // Platform - Observability
-    implementation(Libs.opentelemetry_sdk)
-    implementation(Libs.opentelemetry_trace_propagators)
-    implementation(Libs.opentelemetry_semconv)
-    implementation(Libs.opentelemetry_shim)
-    implementation(Libs.opentelemetry_exporter)
-    implementation(Libs.trace_impl)
+    implementation("io.opentelemetry:opentelemetry-sdk")
+    implementation("io.opentelemetry:opentelemetry-extension-annotations")
+    implementation("io.opentelemetry:opentelemetry-extension-trace-propagators")
+    implementation("io.opentelemetry:opentelemetry-semconv")
 
     // Platform - Log
-    implementation(Libs.logger_core)
-    implementation(Libs.log_impl)
-    testImplementation(Libs.lib_utils)
-    testImplementation(Libs.spring_core)
+    implementation("com.github.frtu.logs:logger-core")
+    implementation("ch.qos.logback:logback-classic")
 
     // Platform test
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("io.projectreactor:reactor-test")
 
     // Test
-    testImplementation(Libs.junit)
-    testImplementation(Libs.kotest)
-    testImplementation(Libs.kotest_json)
-    testImplementation(Libs.kotest_property)
-    testImplementation(Libs.awaitility)
-    testImplementation(Libs.mock)
-    testImplementation(Libs.assertions)
-    testImplementation(kotlin("test"))
+    testImplementation("org.junit.jupiter:junit-jupiter")
+    testImplementation("io.kotest:kotest-runner-junit5")
+    testImplementation("io.kotest:kotest-assertions-core")
+    testImplementation("io.kotest:kotest-assertions-json")
+    testImplementation("io.kotest:kotest-property")
+    testImplementation("org.awaitility:awaitility-kotlin")
+    testImplementation("io.mockk:mockk")
+    testImplementation("com.github.frtu.libs:lib-utils")
 
     // Platform - BOMs
-    implementation(platform(Libs.bom_kotest))
     implementation(platform(kotlin("bom")))
     implementation(kotlin("stdlib-jdk8"))
     implementation(kotlin("reflect"))
+
+    if (JavaVersion.current().isJava9Compatible) {
+        // Workaround for @javax.annotation.Generated
+        // see: https://github.com/grpc/grpc-java/issues/3633
+        implementation("javax.annotation:javax.annotation-api:1.3.2")
+    }
 }
 
-the<DependencyManagementExtension>().apply {
-    imports {
-        mavenBom(Libs.bom_spring_cloud_sleuth)
-        mavenBom(Libs.bom_spring_cloud_sleuth_otel)
-        mavenBom(Libs.bom_opentelemetry)
-        mavenBom(Libs.bom_opentelemetry_alpha)
-        mavenBom(Libs.bom_opentelemetry_instrumentation_alpha)
-        mavenBom(Libs.bom_logger)
-//        mavenBom(Libs.bom_kotlin_base)
-        mavenBom(Libs.bom_kotlin_libs)
-        mavenBom(Libs.bom_jackson)
-        mavenBom(Libs.bom_r2dbc)
-        mavenBom(org.springframework.boot.gradle.plugin.SpringBootPlugin.BOM_COORDINATES)
+configurations.all {
+    exclude(group = "log4j", module = "log4j")
+    exclude(group = "junit", module = "junit")
+    exclude(group = "org.junit.vintage", module = "junit-vintage-engine")
+    exclude(group = "io.projectreactor.netty", module = "reactor-netty-http-brave")
+    exclude(group = "org.jetbrains.kotlin", module = "kotlin-coroutines-experimental-compat")
+
+    with(Versions) {
+        resolutionStrategy.eachDependency {
+            if (requested.group == "org.jetbrains.kotlin") {
+                useVersion(KOTLIN)
+            }
+            if (requested.group == "org.junit") {
+                useVersion(JUNIT)
+            }
+            if (requested.group == "org.springframework.boot") {
+                useVersion(SPRING_BOOT_STARTER)
+            }
+        }
+    }
+}
+
+task("allDependencies", DependencyReportTask::class) {
+    evaluationDependsOnChildren()
+    this.setRenderer(AsciiDependencyReportRenderer())
+}
+tasks.withType<KotlinCompile>().configureEach {
+    kotlinOptions {
+        jvmTarget = Versions.JVM_TARGET
+        languageVersion = Versions.LANGUAGE_VERSION
+        freeCompilerArgs = listOf("-Xjsr305=strict")
+    }
+}
+java {
+    sourceCompatibility = JavaVersion.toVersion(Versions.JVM_TARGET)
+    targetCompatibility = JavaVersion.toVersion(Versions.JVM_TARGET)
+    withSourcesJar()
+}
+
+jacoco {
+    toolVersion = Versions.PLUGIN_JACOCO
+}
+tasks {
+    test {
+        useJUnitPlatform()
+    }
+    jacocoTestReport {
+        reports {
+            xml.required.set(true)
+            html.required.set(true)
+            csv.required.set(false)
+        }
+        dependsOn(test)
+    }
+    jacocoTestCoverageVerification {
+        violationRules {
+            // Configure the ratio based on your standard
+            rule { limit { minimum = BigDecimal.valueOf(0.0) } }
+        }
+    }
+    check {
+        dependsOn(jacocoTestCoverageVerification)
+    }
+    idea {
+        module {
+            isDownloadJavadoc = true
+            isDownloadSources = true
+        }
     }
 }
 
@@ -163,17 +238,6 @@ repositories {
     mavenLocal()
     mavenCentral()
     maven("https://repo.spring.io/milestone")
-}
-configurations.all {
-    exclude(group = "junit", module = "junit")
-    exclude(group = "org.junit.vintage", module = "junit-vintage-engine")
-    exclude(group = "io.projectreactor.netty", module = "reactor-netty-http-brave")
-
-    resolutionStrategy.eachDependency {
-        if (requested.group == "org.jetbrains.kotlin") {
-            useVersion(Versions.kotlin)
-        }
-    }
 }
 
 application {
