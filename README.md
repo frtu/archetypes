@@ -133,3 +133,23 @@ for async.
 * Expand on [data governance](https://github.com/frtu/governance-toolbox) & processing with Avro and Spark
 
 ~ Have fun !
+
+
+## Release notes
+
+### 1.2.6 - Current version
+
+* Simplify gradle
+* Remove AspectJ
+* Bump spring.boot -> 2.7.10 <!-- 03/23/2023 -->
+
+### 1.2.5
+
+* Bump frtu.libs -> 1.2.5 <!-- 2023-01-24 -->
+* Bump frtu.logger -> 1.1.5
+* Bump spring.boot -> 2.7.1 <!-- 2022-06-23 -->
+* Bump spring-cloud -> 2021.0.3 <!-- 2022-05-27 -->
+* Bump protobuf.version ->3.21.7
+* Bump graphql-java.version -> 17.4
+* Adding telemetry 1.16.0
+* Adding kotest & awaitility
