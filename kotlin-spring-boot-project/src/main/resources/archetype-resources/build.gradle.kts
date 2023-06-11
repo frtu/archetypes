@@ -9,7 +9,7 @@ object Versions {
 
     const val SPRING_BOOT_STARTER = "${spring-boot-version}"
     const val SPRING_DOC = "1.6.9" // 2022-05-27
-    const val R2DBC = "Arabba-SR13"  // 2022-03-18
+    const val R2DBC = "Arabba-SR13" // 2022-03-18
 
     val JVM_TARGET = JavaVersion.VERSION_11.toString()
 
