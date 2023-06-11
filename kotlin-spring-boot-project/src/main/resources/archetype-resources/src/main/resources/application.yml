@@ -56,7 +56,7 @@ management:
           - info
           - health
           - metrics
-          - prometheus
+#          - prometheus
   endpoint:
     metrics.enabled: true
     health.show-details: ALWAYS
