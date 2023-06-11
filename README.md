@@ -137,9 +137,14 @@ for async.
 
 ## Release notes
 
-### 1.2.6 - Current version
+### 1.3.1 - Current version
 
-* Simplify gradle
+* 
+
+### 1.3.0
+
+* Bump to kotlin 1.7.x
+* Simplify gradle dependencies
 * Remove AspectJ
 * Bump spring.boot -> 2.7.10 <!-- 03/23/2023 -->
 
