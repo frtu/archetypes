@@ -17,7 +17,7 @@
         <!--=========================== -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <java.version>1.8</java.version>
+        <java.version>11</java.version>
         <!--=========================== -->
         <junit-jupiter.version>5.7.1</junit-jupiter.version> <!-- 2021-02-05 -->
         <!-- https://search.maven.org/artifact/org.assertj/assertj-core -->
@@ -28,8 +28,8 @@
         <testcontainers.version>1.15.3</testcontainers.version> <!-- 2021-04-15 -->
         <!--=========================== -->
         <!-- https://kotlinlang.org/docs/reference/using-maven.html -->
-        <kotlin.version>1.5.32</kotlin.version> <!-- 2021-11-29 -->
-        <kotlinx.version>1.5.2</kotlinx.version> <!-- 2021-09-01 -->
+        <kotlin.version>1.7.22</kotlin.version> <!-- 2021-11-29 -->
+        <kotlinx.version>1.7.2</kotlinx.version> <!-- 2021-09-01 -->
         <kotlin.test.version>3.4.2</kotlin.test.version> <!-- 2019-09-21 -->
         <jackson.version>2.13.2.1</jackson.version> <!-- 2022-03-30 -->
         <!--=========================== -->

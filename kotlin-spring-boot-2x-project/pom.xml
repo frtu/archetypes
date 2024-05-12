@@ -7,18 +7,21 @@
         <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <artifactId>kotlin-project-archetype</artifactId>
+    <artifactId>kotlin-spring-boot-2x-project-archetype</artifactId>
     <packaging>jar</packaging>
 
-    <name>Kotlin Base project archetype</name>
-    <description>Kotlin Base project archetype</description>
+    <name>kotlin-spring-boot 2x project archetype</name>
+    <description>kotlin-spring-boot 2x project archetype</description>
 
     <properties>
         <java.version>11</java.version>
         <!-- CHECK https://search.maven.org/artifact/org.jetbrains.kotlin/kotlin-bom -->
         <kotlin.version>1.7.21</kotlin.version> <!-- 2021-11-29 -->
-        <kotlinx.version>1.7.2</kotlinx.version> <!-- 2021-09-01 -->
+        <kotlinx.version>1.7.2</kotlinx.version>
         <kotlin.test.version>3.4.2</kotlin.test.version> <!-- 2019-09-21 -->
+        <!-- CHECK https://search.maven.org/artifact/org.springframework.boot/spring-boot-dependencies -->
+        <spring-boot.version>2.7.1</spring-boot.version> <!-- 2022-06-23 -->
+        <spring-dept-mgmt.version>1.0.15.RELEASE</spring-dept-mgmt.version> <!-- 03/23/2023 -->
     </properties>
 
     <dependencies>
@@ -34,7 +37,6 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
-
 
     <build>
         <plugins>
@@ -58,10 +60,6 @@
                                     <value>${java.version}</value>
                                 </replacement>
                                 <replacement>
-                                    <token>%PROJECT_VERSION%</token>
-                                    <value>${project.version}</value>
-                                </replacement>
-                                <replacement>
                                     <token>%KOTLIN_VERSION%</token>
                                     <value>${kotlin.version}</value>
                                 </replacement>
@@ -72,6 +70,18 @@
                                 <replacement>
                                     <token>%KOTLIN_TEST_VERSION%</token>
                                     <value>${kotlin.test.version}</value>
+                                </replacement>
+                                <replacement>
+                                    <token>%SPRINGBOOT_VERSION%</token>
+                                    <value>${spring-boot.version}</value>
+                                </replacement>
+                                <replacement>
+                                    <token>%SPRING_DEPT_MGMT_VERSION%</token>
+                                    <value>${spring-dept-mgmt.version}</value>
+                                </replacement>
+                                <replacement>
+                                    <token>%PROJECT_VERSION%</token>
+                                    <value>${project.version}</value>
                                 </replacement>
                                 <replacement>
                                     <token>%FRTU_LIBS_VERSION%</token>
@@ -109,6 +119,14 @@
                                 <replacement>
                                     <token>%KOTLIN_TEST_VERSION%</token>
                                     <value>${kotlin.test.version}</value>
+                                </replacement>
+                                <replacement>
+                                    <token>%SPRINGBOOT_VERSION%</token>
+                                    <value>${spring-boot.version}</value>
+                                </replacement>
+                                <replacement>
+                                    <token>%SPRING_DEPT_MGMT_VERSION%</token>
+                                    <value>${spring-dept-mgmt.version}</value>
                                 </replacement>
                                 <replacement>
                                     <token>%PROJECT_GROUP_ID%</token>
