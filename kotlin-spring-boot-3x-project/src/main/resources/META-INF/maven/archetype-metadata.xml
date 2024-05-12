@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--https://maven.apache.org/archetype/archetype-models/archetype-descriptor/archetype-descriptor.html-->
+<archetype-descriptor
+        name="kotlin-spring-boot-project"
+        xsi:schemaLocation="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.0.0 http://maven.apache.org/xsd/archetype-descriptor-1.0.0.xsd"
+        xmlns="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.0.0"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <requiredProperties>
+        <requiredProperty key="base-pom-version">
+            <defaultValue>%PROJECT_VERSION%</defaultValue>
+        </requiredProperty>
+        <requiredProperty key="frtu-libs-version">
+            <defaultValue>%FRTU_LIBS_VERSION%</defaultValue>
+        </requiredProperty>
+        <requiredProperty key="frtu-logger-version">
+            <defaultValue>%FRTU_LOGGER_VERSION%</defaultValue>
+        </requiredProperty>
+        <requiredProperty key="java-version">
+            <defaultValue>%JAVA_VERSION%</defaultValue>
+        </requiredProperty>
+        <requiredProperty key="kotlin-version">
+            <defaultValue>%KOTLIN_VERSION%</defaultValue>
+        </requiredProperty>
+        <requiredProperty key="kotlinx-version">
+            <defaultValue>%KOTLINX_VERSION%</defaultValue>
+        </requiredProperty>
+        <requiredProperty key="kotlin-test-version">
+            <defaultValue>%KOTLIN_TEST_VERSION%</defaultValue>
+        </requiredProperty>
+        <requiredProperty key="spring-boot-version">
+            <defaultValue>%SPRINGBOOT_VERSION%</defaultValue>
+        </requiredProperty>
+        <requiredProperty key="spring-dept-mgmt-version">
+            <defaultValue>%SPRING_DEPT_MGMT_VERSION%</defaultValue>
+        </requiredProperty>
+    </requiredProperties>
+    <fileSets>
+        <fileSet filtered="true" encoding="UTF-8">
+            <directory></directory>
+            <includes>
+                <include>README.md</include>
+                <include>.gitignore</include>
+                <include>**/*.bash</include>
+                <include>Dockerfile</include>
+                <include>**/*.kts</include>
+                <include>buildSrc/**/*.kt</include>
+                <include>gradle.properties</include>
+            </includes>
+        </fileSet>
+        <fileSet filtered="true" packaged="true" encoding="UTF-8">
+            <directory>src/main/kotlin</directory>
+            <includes>
+                <include>**/*.kt</include>
+            </includes>
+        </fileSet>
+        <fileSet filtered="true" encoding="UTF-8">
+            <directory>src/main/resources</directory>
+            <includes>
+                <include>**/*.txt</include>
+                <include>**/*.json</include>
+                <include>**/*.xml</include>
+                <include>**/*.yml</include>
+                <include>**/*.yaml</include>
+                <include>**/*.properties</include>
+                <include>**/*.sql</include>
+            </includes>
+        </fileSet>
+        <fileSet filtered="true" packaged="true" encoding="UTF-8">
+            <directory>src/test/kotlin</directory>
+            <includes>
+                <include>**/*.kt</include>
+            </includes>
+        </fileSet>
+        <fileSet filtered="true" encoding="UTF-8">
+            <directory>src/test/resources</directory>
+            <includes>
+                <include>**/*.txt</include>
+                <include>**/*.json</include>
+                <include>**/*.xml</include>
+                <include>**/*.yml</include>
+                <include>**/*.yaml</include>
+                <include>**/*.properties</include>
+                <include>**/*.sql</include>
+            </includes>
+        </fileSet>
+        <!--<fileSet filtered="true" encoding="UTF-8">-->
+        <!--<directory>src/main/webapp</directory>-->
+        <!--<includes>-->
+        <!--<include>**/*.xml</include>-->
+        <!--<include>**/*.jsp</include>-->
+        <!--</includes>-->
+        <!--</fileSet>-->
+    </fileSets>
+</archetype-descriptor>
