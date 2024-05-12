@@ -12,7 +12,7 @@
 
     <name>kotlin-spring-boot 3.x project archetype</name>
     <description>kotlin-spring-boot 3.x project archetype</description>
-
+  
     <properties>
         <java.version>11</java.version>
         <!-- CHECK https://search.maven.org/artifact/org.jetbrains.kotlin/kotlin-bom -->
