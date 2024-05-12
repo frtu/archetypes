@@ -7,11 +7,11 @@
         <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <artifactId>kotlin-spring-boot-project-archetype</artifactId>
+    <artifactId>kotlin-spring-boot-3x-project-archetype</artifactId>
     <packaging>jar</packaging>
 
-    <name>kotlin-spring-boot project archetype</name>
-    <description>kotlin-spring-boot project archetype</description>
+    <name>kotlin-spring-boot 3.x project archetype</name>
+    <description>kotlin-spring-boot 3.x project archetype</description>
 
     <properties>
         <java.version>11</java.version>
