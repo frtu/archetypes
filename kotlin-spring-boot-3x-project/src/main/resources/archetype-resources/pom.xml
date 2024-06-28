@@ -222,18 +222,6 @@
         <!--===========================-->
         <!--Test -->
         <!--===========================-->
-        <dependency>
-            <groupId>io.kotlintest</groupId>
-            <artifactId>kotlintest-runner-junit5</artifactId>
-            <version>${kotlin.test.version}</version>
-            <scope>test</scope>
-            <exclusions>
-                <exclusion>
-                    <artifactId>classgraph</artifactId>
-                    <groupId>io.github.classgraph</groupId>
-                </exclusion>
-            </exclusions>
-        </dependency>
         <!-- https://mockk.io/ -->
         <dependency>
             <groupId>io.mockk</groupId>
@@ -290,6 +278,16 @@
             <groupId>com.github.frtu.libs</groupId>
             <artifactId>lib-utils</artifactId>
             <version>${frtu.libs.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.kotest</groupId>
+            <artifactId>kotest-runner-junit5</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.kotest</groupId>
+            <artifactId>kotest-property</artifactId>
             <scope>test</scope>
         </dependency>
     </dependencies>
@@ -492,6 +490,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
+                    <mainClass>${groupId}.ApplicationKt</mainClass>
                     <excludes>
                         <exclude>
                             <groupId>org.projectlombok</groupId>
@@ -687,6 +686,13 @@
                 <groupId>org.jetbrains.kotlinx</groupId>
                 <artifactId>kotlinx-coroutines-bom</artifactId>
                 <version>${kotlinx.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>io.kotest</groupId>
+                <artifactId>kotest-bom</artifactId>
+                <version>${kotlin.test.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
