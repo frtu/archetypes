@@ -123,9 +123,10 @@
             <!-- https://kotest.io/docs/quickstart -->
             <dependency>
                 <groupId>io.kotest</groupId>
-                <artifactId>kotest-runner-junit5-jvm</artifactId>
+                <artifactId>kotest-bom</artifactId>
                 <version>${kotlin.test.version}</version>
-                <scope>test</scope>
+                <type>pom</type>
+                <scope>import</scope>
             </dependency>
             <!-- https://mockk.io/ -->
             <dependency>
