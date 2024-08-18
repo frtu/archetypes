@@ -137,9 +137,13 @@ for async.
 
 ## Release notes
 
-### 1.3.1 - Current version
+### 2.0.0 - Current version
 
-* 
+* Bump to jdk 17
+* Bump to `kotlin` 1.9.x & `coroutine` 1.8.x
+* Adding `kotlin-spring-boot-3x` 
+* Bump `slf4j` => 2.0.x
+* Bump graphql-java.version & graphql-maven-plugin -> 22.2 & 2.7
 
 ### 1.3.0
 
