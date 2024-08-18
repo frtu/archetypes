@@ -7,6 +7,11 @@ Project description
 
 ${HASH}${HASH} API
 
+Browse service sample API at
+
+* GET or POST : [http://localhost:8080/v1/emails](http://localhost:8080/v1/emails)
+* GET by ID : [http://localhost:8080/v1/emails/{id}](http://localhost:8080/v1/emails)
+
 ${HASH}${HASH}${HASH} Sync with WebMVC
 
 * Access Swagger API at [http://localhost:8080/swagger-ui/index.html](http://localhost:8080/swagger-ui/index.html)
