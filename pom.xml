@@ -89,6 +89,26 @@
                     <addDefaultExcludes>false</addDefaultExcludes>
                 </configuration>
             </plugin>
+            <!-- Generate Javadocs -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>3.8.0</version>
+                <configuration>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+                </configuration>
+                <!--===========================-->
+                <!-- UNCOMMMENT TO GENERATE-->
+                <!--===========================-->
+                <!--<executions>-->
+                <!--    <execution>-->
+                <!--        <id>attach-javadocs</id>-->
+                <!--        <goals>-->
+                <!--            <goal>jar</goal>-->
+                <!--        </goals>-->
+                <!--    </execution>-->
+                <!--</executions>-->
+            </plugin>
             <!-- RELEASE -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
