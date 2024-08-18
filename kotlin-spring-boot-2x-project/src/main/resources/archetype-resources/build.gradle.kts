@@ -26,7 +26,7 @@ object Versions {
     const val AWAITILITY = "4.2.0" // 2022-03-04
     const val TESTCONTAINERS = "1.16.0"
 
-    const val PLUGIN_JACOCO = "0.8.8" // 2022-04-05
+    const val PLUGIN_JACOCO = "0.8.12" // 2024-04-01
 }
 
 plugins {

@@ -15,7 +15,7 @@ object Versions {
     const val awaitility = "4.2.0" // 2022-03-04
     const val kotest = "5.4.2" // 2022-08-10
 
-    const val plugin_jacoco = "0.8.8" // 2022-04-05
+    const val plugin_jacoco = "0.8.12" // 2024-04-01
     const val plugin_google_format = "0.9" // 2020-06-09
     const val plugin_protobuf = "0.8.18"
     const val plugin_grpc_kotlin = "0.1.5"

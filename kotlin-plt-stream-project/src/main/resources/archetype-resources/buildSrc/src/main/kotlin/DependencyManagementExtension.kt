@@ -20,7 +20,7 @@ object Versions {
     const val opentelemetry = "1.16.0" // 2022-07-13
     const val jaeger = "1.8.0"
 
-    const val plugin_jacoco = "0.8.8" // 2022-04-05
+    const val plugin_jacoco = "0.8.12" // 2024-04-01
     const val plugin_google_format = "0.9" // 2020-06-09
 }
 
