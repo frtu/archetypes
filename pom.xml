@@ -9,7 +9,7 @@
 
     <groupId>com.github.frtu.archetype</groupId>
     <artifactId>archetype-master-pom</artifactId>
-    <version>2.0.0</version>
+    <version>2.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <name>Archetypes parent pom</name>
@@ -58,7 +58,7 @@
         <connection>scm:git:git@github.com:frtu/archetypes.git</connection>
         <developerConnection>scm:git:git@github.com:frtu/archetypes.git</developerConnection>
         <url>https://github.com/frtu/archetypes/tree/master</url>
-        <tag>v2.0.0</tag>
+        <tag>v1.1.1</tag>
     </scm>
 
     <distributionManagement>
