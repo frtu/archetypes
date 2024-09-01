@@ -695,6 +695,24 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+            <!--===========================-->
+            <!--Test -->
+            <!--===========================-->
+            <dependency>
+                <groupId>org.junit</groupId>
+                <artifactId>junit-bom</artifactId>
+                <version>${junit-jupiter.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <!-- https://kotest.io/docs/quickstart -->
+            <dependency>
+                <groupId>io.kotest</groupId>
+                <artifactId>kotest-bom</artifactId>
+                <version>${kotlin.test.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
             <!-- Spring Boot and Platform -->
             <dependency>
                 <groupId>org.springframework.boot</groupId>

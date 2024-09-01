@@ -17,7 +17,7 @@
         <!--===========================-->
         <!--https://kotlinlang.org/docs/reference/using-maven.html-->
         <kotlin.version>${kotlin-version}</kotlin.version>
-        <kotlinx.coroutines.version>${kotlinx-version}</kotlinx.coroutines.version>
+        <kotlinx.version>${kotlinx-version}</kotlinx.version>
         <kotlin.test.version>${kotlin-test-version}</kotlin.test.version>
         <!--CHECK FOR COMPILER PROPS : https://kotlinlang.org/docs/reference/using-maven.html#attributes-common-for-jvm-and-js-->
         <kotlin.compiler.incremental>true</kotlin.compiler.incremental>
@@ -258,7 +258,26 @@
             <dependency>
                 <groupId>org.jetbrains.kotlinx</groupId>
                 <artifactId>kotlinx-coroutines-bom</artifactId>
-                <version>${kotlinx.coroutines.version}</version>
+                <version>${kotlinx.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <!--===========================-->
+            <!--Test -->
+            <!--===========================-->
+            <dependency>
+                <groupId>org.junit</groupId>
+                <artifactId>junit-bom</artifactId>
+                <version>${junit-jupiter.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <!-- https://kotest.io/docs/quickstart -->
+            <dependency>
+                <groupId>io.kotest</groupId>
+                <artifactId>kotest-bom</artifactId>
+                <version>${kotlin.test.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>

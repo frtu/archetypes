@@ -683,6 +683,17 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+            <!--===========================-->
+            <!--Test -->
+            <!--===========================-->
+            <dependency>
+                <groupId>org.junit</groupId>
+                <artifactId>junit-bom</artifactId>
+                <version>${junit-jupiter.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <!-- https://kotest.io/docs/quickstart -->
             <dependency>
                 <groupId>io.kotest</groupId>
                 <artifactId>kotest-bom</artifactId>
