@@ -141,19 +141,6 @@
                 <version>${springmockk.version}</version>
                 <scope>test</scope>
             </dependency>
-            <!-- https://assertj.github.io/doc/ -->
-            <dependency>
-                <groupId>org.assertj</groupId>
-                <artifactId>assertj-bom</artifactId>
-                <version>${assertj.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-            <dependency>
-                <groupId>org.assertj</groupId>
-                <artifactId>assertj-core</artifactId>
-                <scope>test</scope>
-            </dependency>
             <!-- https://github.com/awaitility/awaitility/wiki/Usage -->
             <dependency>
                 <groupId>org.awaitility</groupId>

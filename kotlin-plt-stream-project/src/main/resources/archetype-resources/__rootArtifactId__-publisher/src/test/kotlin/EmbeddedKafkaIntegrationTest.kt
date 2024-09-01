@@ -2,7 +2,6 @@ package ${groupId}
 
 import ${groupId}.consumer.ConsumerSource
 import ${groupId}.producer.ProducerSink
-import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.autoconfigure.SpringBootApplication

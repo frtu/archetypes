@@ -137,7 +137,9 @@ for async.
 
 ## Release notes
 
-### 2.0.0 - Current version
+### 2.0.1 - Current version
+
+### 2.0.0
 
 * Bump to jdk 17
 * Bump to `kotlin` 1.9.x & `coroutine` 1.8.x
