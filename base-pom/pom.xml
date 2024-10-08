@@ -36,7 +36,7 @@
         <commons-compress.version>1.26.0</commons-compress.version>
         <!--=========================== -->
         <jackson.version>2.13.2.1</jackson.version> <!-- 2022-03-30 -->
-        <avro.version>1.11.3</avro.version>
+        <avro.version>1.11.4</avro.version>
         <!--https://github.com/ronmamo/reflections : >0.9.12 migrate to jdk8-->
         <reflections.version>0.9.12</reflections.version>
     </properties>
